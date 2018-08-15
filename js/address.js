@@ -1,5 +1,5 @@
 var sd_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");;
-//var sd_protocol = (("https:" == document.location.protocol) ? " https://test." : " http://test.");;
+//var sd_protocol = (("https:" == document.location.protocol) ? "https://uat." : "http://uat.");;
 /*----接口地址----------------*/
 var api_sudaizhijia_host = sd_protocol + "api.sudaizhijia.com";
 var mapi_sudaizhijia_host = sd_protocol + "mapi.sudaizhijia.com";
@@ -174,7 +174,9 @@ $.each($("a[name='navtab']"), function () {
 });
 var hintCover = false;
 $.extend({
+    //弹窗
     popupCover: function (opts) {
+        $(".hintCover").remove();
         var defaults = {
             content: '',
             showTime: 2000,
@@ -189,29 +191,25 @@ $.extend({
             "left": 0,
             "width": 100 + "%",
             "height": 100 + "%",
-            "background": "rgba(0,0,0,.2)",
-            "z-index": "99999",
-            "text-align": "center"
+            "z-index": "9999",
+            "text-align": "center",
+            "display": "none"
         });
         $('.hintPopup').css({
             "margin-top": "4rem",
             "max-width": "5rem",
             "display": "inline-block",
             "text-align": "left",
-            "background": "white url('../img/sudaige.png') no-repeat .15rem center",
+            "background": "#000 url('../img/sudaige.png') no-repeat .2rem center",
             "background-size": ".6rem .6rem",
-            "opacity": .9,
-            "color": '#747474',
+            "opacity": .7,
+            "color": 'white',
             "font-size": .3 + "rem",
-            "border-radius": .15 + "rem",
-            "padding": ".25rem",
-            "padding-left": ".85rem"
+            "border-radius": .18 + "rem",
+            "padding": ".2rem",
+            "padding-left": ".95rem"
         });
-
-        $(".hintCover").css({
-            "display": "block"
-        }).fadeIn(500).delay(option.showTime).fadeOut(500, option.callback);
-
+        $(".hintCover").fadeIn(500).delay(option.showTime).fadeOut(500, option.callback);
         setTimeout(function () {
             $(".hintCover").remove()
         }, option.showTime + 1000);

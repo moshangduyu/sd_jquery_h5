@@ -30,9 +30,10 @@ var cookie = {
                 path: '/'
             });
         };
-        return $.cookie('sd_plat_fr') || '';
+        return $.cookie('sd_plat_fr') || 'mweb';
     }
 };
+cookie.getPlatFrom();
 /*----设置AJAX的全局默认选项----*/
 //utf-8转utf-16
 function utf16to8(str) {
@@ -83,18 +84,26 @@ $.ajaxSetup({
     },
     error: function (jqXHR, textStatus, errorMsg) {
         if (jqXHR.status == 401) {
-            localStorage.clear();
-            window.location.href = "/html/login.html";
+            $.popupCover({
+                content: '登录信息失效，请重新登录',
+                callback: function () {
+                    localStorage.clear();
+                    window.location.href = "/html/login.html";
+                }
+            })
+
         }
     }
 });
 var address = {
     FAVOURITE_NEWSCOLLECTION: api_sudaizhijia_host + '/v1/favourite/newscollection', //活动咨询-关注
     FAVOURITE_COLLECTION: api_sudaizhijia_host + '/v1/favourite/collection', //产品详情-关注
-    COMMENT_USEFUL: api_sudaizhijia_host + '/v1/comment/useful', //产品详情&更多评论-有用
-    CLUB_BIND: api_sudaizhijia_host + '/v1/club/bind', //论坛
+    COMMENT_USEFUL: api_sudaizhijia_host + '/v1/comment/useful', //产品详情&更多评论-楼主有用
+    COMMENT_USEFUL_REPLY: api_sudaizhijia_host + '/v1/reply/useful', //更多评论-回复有用
+    CLUB_BIND: api_sudaizhijia_host + '/v2/club/bind', //社区
+    SHOP: api_sudaizhijia_host + '/v1/credit/shop', //
     WECHAT_SHARE: api_sudaizhijia_host + '/v1/wechat', //微信分享
-    GEETES_CAPTCHA: api_sudaizhijia_host + '/v1/geetes/captcha', //极验一次验证
+    GEETES_CAPTCHA: api_sudaizhijia_host + '/v1/geetes/captcha' //极验一次验证
 };
 
 var service = {
@@ -122,20 +131,6 @@ var service = {
             }
         });
     },
-    //极验一次验证
-    geetesCaptcha: function (data, success) {
-        $.ajax({
-            url: address.GEETES_CAPTCHA,
-            type: 'GET',
-            dataType: 'json',
-            data: data,
-            beforeSend: function () {},
-            success: function (json) {
-                success(json);
-            }
-        });
-    },
-
     //微信分享
     wechatShare: function (data, success) {
         $.ajax({
@@ -183,8 +178,7 @@ var service = {
             }
         });
     },
-
-    //产品详情&更多评论-有用
+    //产品详情&更多评论-楼主有用
     commentUseful: function (type, data, success, error) {
         $.ajax({
             url: address.COMMENT_USEFUL,
@@ -200,7 +194,23 @@ var service = {
             }
         });
     },
-    //论坛
+    //产品详情&更多评论-回复有用
+    commentUsefulReply: function (type, data, success, error) {
+        $.ajax({
+            url: address.COMMENT_USEFUL_REPLY,
+            type: type,
+            dataType: 'json',
+            data: data,
+            success: function (json) {
+                if (json.code == 200 && json.error_code == 0) {
+                    success(json);
+                } else {
+                    error(json);
+                }
+            }
+        });
+    },
+    //社区
     getClub: function (data, success, error) {
         $.ajax({
             url: address.CLUB_BIND,
@@ -214,7 +224,26 @@ var service = {
                 if (json.code == 200 && json.error_code == 0) {
                     success(json);
                 } else {
-                    error();
+                    error(json);
+                }
+            }
+        });
+    },
+    //社区
+    getShop: function (data, success, error) {
+        $.ajax({
+            url: address.SHOP,
+            type: 'GET',
+            dataType: "json",
+            data: data,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-Token", localStorage.token || '');
+            },
+            success: function (json) {
+                if (json.code == 200 && json.error_code == 0) {
+                    success(json.data);
+                } else {
+                    error(json);
                 }
             }
         });

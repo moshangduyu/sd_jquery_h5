@@ -15,7 +15,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
   z-index: 1000;
   font-size: 0;
   overflow: hidden;
@@ -170,7 +170,7 @@
 .sortBrn {
   cursor: pointer;
   position: fixed;
-  bottom: 1.5rem;
+  bottom: 2.5rem;
   right: .3rem;
   width: 1.2rem;
   height: 1.2rem;
@@ -189,7 +189,7 @@
   height: .9rem;
   text-align: center;
   color: white;
-  font-size: .3rem;
+  font-size: .34rem;
   position: relative;
 }
 .product_head .product_head_top a {
@@ -227,7 +227,8 @@
   border-bottom: 1px solid #efefef;
 }
 .product_head .product_head_btm span {
-  display: inline-block;
+  display: block;
+  float: left;
   font-size: .28rem;
   height: 100%;
   width: 50%;
@@ -274,53 +275,32 @@
 .product_main {
   -webkit-box-flex: 1;
 }
-/*底部*/
-.product_foot {
+.product_main .productsTopIcon {
+  display: none;
   width: 100%;
-  height: .95rem;
-  border-top: 1px solid #EBEBEB;
-  display: -webkit-box;
-  background: white;
-}
-.product_foot dl {
-  -webkit-box-flex: 1;
+  padding-top: .1rem;
   text-align: center;
+  color: #f4a600;
+  font-size: 0;
+}
+.product_main .productsTopIcon img {
+  display: inline-block;
+  width: .28rem;
+  height: .3rem;
   position: relative;
+  top: .05rem;
 }
-.product_foot dl dt {
-  width: .42rem;
-  height: .42rem;
-  position: absolute;
-  top: .13rem;
-  left: 50%;
-  margin-left: -0.21rem;
+.product_main .productsTopIcon b {
+  padding-left: .16rem;
+  font-size: .26rem;
 }
-.product_foot dl dd {
-  width: 100%;
-  height: .30rem;
-  font-size: .2rem;
-  color: #808080;
-  position: absolute;
-  top: .6rem;
-}
-.product_foot dl:nth-of-type(1) dt {
-  background: url("../img/home@3x.png") no-repeat;
-  background-size: 100%;
-}
+/*底部*/
 .product_foot dl:nth-of-type(2) dt {
-  background: url("../img/commodity@3x.png") no-repeat;
+  background: url("../img/nav2.1.png") no-repeat;
   background-size: 100%;
 }
 .product_foot dl:nth-of-type(2) dd {
   color: #44b7f7;
-}
-.product_foot dl:nth-of-type(3) dt {
-  background: url("../img/forum.png") no-repeat;
-  background-size: 100%;
-}
-.product_foot dl:nth-of-type(4) dt {
-  background: url("../img/my1@3x.png") no-repeat;
-  background-size: 100%;
 }
 /*ajax*/
 .end {
@@ -361,4 +341,26 @@
   line-height: .35rem;
   text-align: center;
   padding-top: 4.2rem;
+}
+#PullUp.noMore {
+  position: relative;
+  margin: .1rem auto;
+}
+#PullUp.noMore:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 2.3rem;
+  height: 1px;
+  background: #ccc;
+}
+#PullUp.noMore:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20px;
+  width: 2.3rem;
+  height: 1px;
+  background: #ccc;
 }

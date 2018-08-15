@@ -39,48 +39,8 @@
     }
 }
 
-.mine_main_btm_list {
-    width: 100%;
-    height: .9rem;
-    color: #4d4d4d;
-    font-size: .3rem;
-    padding-left: 1rem;
-    position: relative;
-    line-height: .9rem;
-    border-bottom: 1px solid #f0f0f0;
-    background: white;
-    span {
-        width: .4rem;
-        height: .4rem;
-        position: absolute;
-        top: .25rem;
-        left: .35rem;
-    }
-    .jiantou {
-        top: .35rem;
-    }
-}
-
-.jiantou {
-    width: .14rem;
-    height: .2rem;
-    background: url("../img/xiangyou@3x.png") no-repeat;
-    background-sizE: 100% 100%;
-    position: absolute;
-    right: .3rem;
-}
-
 
 /*头部*/
-
-header {
-    width: 100%;
-    text-align: center;
-    font-size: .3rem;
-    line-height: .9rem;
-    color: white;
-    position: relative;
-}
 
 .mine_main_top {
     width: 100%;
@@ -96,16 +56,6 @@ header {
     /* default */
     background: linear-gradient(to right, #02ecfd, #44b7f7);
     background-color: #44b7f7;
-    &:after {
-        content: 'xxcsds';
-        width: 100%;
-        height: .45rem;
-        background: url("../img/beijing@3x.png") no-repeat;
-        background-size: 100% 100%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
     .message {
         position: absolute;
         top: .2rem;
@@ -117,20 +67,51 @@ header {
     }
     &>dl {
         width: 100%;
-        text-align: center;
-        margin-top: .25rem;
+        height: 2rem;
+        margin-top: .5rem;
         dt {
-            width: 1.4rem;
-            height: 1.4rem;
-            background: url("../img/sudaidai.png") no-repeat;
-            background-size: 100% 100%;
-            margin: 0 auto;
+            width: 1.7rem;
+            height: 2rem;
+            float: left;
+            position: relative;
+            &>div {
+                width: 1.34rem;
+                height: 1.34rem;
+                margin: .3rem 0 0 .35rem;
+                background: #02ecfd;
+                opacity: .9;
+                border-radius: 50%;
+                overflow: hidden;
+                &>div {
+                    width: 1.22rem;
+                    height: 1.22rem;
+                    margin: .06rem auto;
+                    background: white;
+                    opacity: .7;
+                    border-radius: 50%;
+                }
+            }
+            img {
+                display: none;
+            }
+            #show_img {
+                position: absolute;
+                right: .13rem;
+                top: .42rem;
+                width: 1.1rem;
+                height: 1.1rem;
+                //                background: url(../img/sudaidai.png) no-repeat;
+                //                background-size: 100% 100%;
+                border-radius: 50%;
+            }
         }
         dd {
+            float: left;
+            margin-left: .3rem;
             p {
                 color: #F5F5F5;
-                height: .8rem;
-                line-height: .8rem;
+                height: 2rem;
+                line-height: 2rem;
                 font-size: .32rem;
                 span {
                     min-width: .75rem;
@@ -139,7 +120,6 @@ header {
                     margin: 0 auto;
                     position: relative;
                     .mine_username>a {
-                        text-decoration: underline;
                         color: white;
                         font-size: .32rem;
                     }
@@ -147,55 +127,57 @@ header {
             }
         }
     }
-    &>div {
-        width: 100%;
-        margin-top: .1rem;
-        height: 1.7rem;
-        overflow: hidden;
-        dl {
-            width: 2.5rem;
-            text-align: center;
-            dt {
-                color: #fff;
-                font-size: .24rem;
-                height: .4rem;
-                line-height: .4rem;
+}
+
+.nav {
+    height: 1.4rem;
+    background: white;
+    font-size: .26rem;
+    margin-bottom: .2rem;
+    li {
+        height: 100%;
+        text-align: center;
+        padding-top: .24rem;
+        width: 33.33%;
+        float: left;
+        line-height: .46rem;
+        position: relative;
+        color: #00B4FF;
+        cursor: pointer;
+        b {
+            font-size: .38rem;
+            font-weight: 400;
+        }
+        &:after {
+            content: '';
+            width: 1px;
+            height: .8rem;
+            background: #50B2F9;
+            position: absolute;
+            top: .3rem;
+            right: 0;
+        }
+        &:nth-of-type(3) {
+            span {
+                width: 100%;
+                height: .5rem;
+                display: block;
+                background: url(../img/sign.png) no-repeat center center;
+                background-size: .4rem .4rem;
             }
-            dd {
-                color: #FFDDA1;
-                font-size: .4rem;
-                height: .7rem;
-                line-height: .7rem;
-                overflow: hidden;
+            &:after {
+                content: '';
+                width: 0;
+                height: 0;
             }
-            &:nth-of-type(1) {
-                float: left;
-                margin-left: 1.05rem;
-            }
-            &:nth-of-type(2) {
-                float: right;
-                margin-right: 1.05rem;
+            &.signed {
+                span {
+                    background: url(../img/signed.png) no-repeat center center;
+                    background-size: .4rem .4rem;
+                }
             }
         }
     }
-}
-
-.mine_help_head {
-    height: .85rem;
-    line-height: .85rem;
-    span {
-        width: .16rem;
-        height: .29rem;
-        background: url("../img/%E7%AE%AD%E5%A4%B4.png") no-repeat;
-        background-size: 100% 100%;
-        position: absolute;
-        left: .3rem;
-        top: .28rem;
-    }
-}
-
-.jifen {
-    color: #FFEA94;
 }
 
 
@@ -204,107 +186,20 @@ header {
 .mine_main {
     -webkit-box-flex: 1;
     overflow-y: scroll;
-    .mmbl_invite {
-        span {
-            background: url("../img/hongbao@3x.png") no-repeat;
-            background-size: 100% 100%;
-        }
-        em {
-            float: right;
-            color: #CC504A;
-            font-size: .3rem;
-            margin-right: 1.4rem;
-            position: relative;
-            img {
-                position: absolute;
-                top: .31rem;
-                right: -.7rem;
-                width: .6rem;
-                height: .26rem;
-            }
-        }
-    }
-    .mmbl_xinxi {
-        span {
-            background: url("../img/gerenxinxi@3x.png") no-repeat;
-            background-size: 100% 100%;
-        }
-    }
-    .mmbl_shenfen {
-        span {
-            background: url("../img/xiugaishenfen@3x.png") no-repeat;
-            background-size: 100% 100%;
-        }
-    }
-    .mmbl_shoucang {
-        span {
-            background: url("../img/wodeshoucang@3x.png") no-repeat;
-            background-size: 100% 100%;
-        }
-    }
-    .mmbl_weixin {
-        span {
-            background: url("../img/guanzhu@3x.png") no-repeat;
-            background-size: 100% 100%;
-        }
-    }
-    .mmbl_bangzhu {
-        span {
-            background: url("../img/bangzhuzhongxin@3x.png") no-repeat;
-            background-size: 100% 100%;
-        }
-    }
-    .mmbl_shezhi {
-        border: none;
-        span {
-            background: url("../img/shezhi@3x.png") no-repeat;
-            background-size: 100% 100%;
-        }
-    }
-}
-
-.mine_help_main {
-    -webkit-box-flex: 1;
-    font-size: .3rem;
-    color: #4d4d4d;
-    h3 {
-        width: 100%;
-        height: .75rem;
-        line-height: .75rem;
-        padding-left: .3rem;
-        font-size: .26rem;
-    }
-    ul {
-        width: 100%;
-        li {
-            width: 100%;
-            height: .9rem;
-            line-height: .9rem;
-            padding-left: .3rem;
-            border-bottom: 1px solid #e6e6e6;
-            position: relative;
-            background: white;
-            &:last-child {
-                border: none;
-            }
-            span {
-                width: .2rem;
-                height: .14rem;
-                position: absolute;
-                top: .38rem;
-                right: .3rem;
-                background: url("../img/xia@3x.png") no-repeat;
-                background-size: 100% 100%;
-                &.onshang {
-                    background: url('../img/shang@3x.png') no-repeat;
-                    background-size: 100% 100%;
-                }
-            }
-        }
-        p {
-            padding: .15rem .3rem;
-            line-height: .5rem;
-            display: none;
+    background: white;
+    color: #404040;
+    text-align: center;
+    font-size: .26rem;
+    &>div {
+        width: 33.33%;
+        height: 2rem;
+        float: left;
+        cursor: pointer;
+        img {
+            display: block;
+            width: .8rem;
+            height: .8rem;
+            margin: .5rem auto .2rem;
         }
     }
 }
@@ -318,52 +213,10 @@ header {
 /*底部*/
 
 .mine_foot {
-    width: 100%;
-    height: .94rem;
-    border-top: 1px solid #EBEBEB;
-    display: -webkit-box;
-    background: white;
     dl {
-        -webkit-box-flex: 1;
-        text-align: center;
-        position: relative;
-        dt {
-            width: .42rem;
-            height: .42rem;
-            position: absolute;
-            top: .13rem;
-            left: 50%;
-            margin-left: -.21rem;
-        }
-        dd {
-            width: 100%;
-            height: .30rem;
-            font-size: .2rem;
-            color: #808080;
-            position: absolute;
-            top: .6rem;
-        }
-        &:nth-of-type(1) {
-            dt {
-                background: url("../img/home@3x.png") no-repeat;
-                background-size: 100%;
-            }
-        }
-        &:nth-of-type(2) {
-            dt {
-                background: url("../img/forum.png") no-repeat;
-                background-size: 100%;
-            }
-        }
-        &:nth-of-type(3) {
-            dt {
-                background: url("../img/forum.png") no-repeat;
-                background-size: 100%;
-            }
-        }
         &:nth-of-type(4) {
             dt {
-                background: url("../img/my@3x.png") no-repeat;
+                background: url("../img/nav4.1.png") no-repeat;
                 background-size: 100%;
             }
             dd {

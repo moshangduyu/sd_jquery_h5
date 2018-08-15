@@ -30,15 +30,7 @@ img {
     border: none;
 }
 
-input[type="radio"],
-input[type="text"],
-input[type="checkbox"],
-input[type="button"],
-input[type="password"],
-input[type="reset"],
-input[type="submit"],
-input[type="number"],
-input[type="tel"],
+input,
 select,
 textarea,
 button,
@@ -130,6 +122,30 @@ i {
     font-style: normal;
 }
 
+@media screen and (min-width:640px) {
+    html {
+        font-size: 64px;
+    }
+}
+
+@media screen and (min-width:414px) and (max-width:639px) {
+    html {
+        font-size: 55.2px;
+    }
+}
+
+@media screen and (min-width:375px) and (max-width:413px) {
+    html {
+        font-size: 50px;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:374px) {
+    html {
+        font-size: 42.67px;
+    }
+}
+
 html,
 body {
     width: 100%;
@@ -138,7 +154,6 @@ body {
     /*取消移动端点击瞬间背景*/
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: #4d4d4d;
-    font-size: 47px;
 }
 
 .container {
@@ -188,14 +203,101 @@ header {
     background-color: #44b7f7;
 }
 
+#header {
+    width: 100%;
+    text-align: center;
+    font-size: .34rem;
+    color: white;
+    position: relative;
+    height: .9rem;
+    line-height: .9rem;
+}
+
 .backBtn {
     width: .9rem;
     height: .9rem;
-    background: url("../img/%E7%AE%AD%E5%A4%B4.png") no-repeat center center;
+    background: url("../img/headBack.png") no-repeat center center;
     background-size: .16rem .29rem;
     position: absolute;
     left: 0;
     top: 0;
+}
+
+
+/*悬浮导航*/
+
+.fixed_nav {
+    position: fixed;
+    bottom: 1.3rem;
+    right: -6rem;
+    width: 6rem;
+    height: 1.2rem;
+    display: -webkit-box;
+    background: white;
+    border-top-left-radius: .08rem;
+    border-bottom-left-radius: .08rem;
+    z-index: 99999;
+}
+
+.fixed_nav:before {
+    content: '';
+    width: 1rem;
+    height: .9rem;
+    background: url('../img/navLeft.png') no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    left: -1rem;
+    top: .15rem;
+}
+
+.fixed_nav.fixed_show:before {
+    background: url('../img/navRight.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.fixed_nav dl {
+    -webkit-box-flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.fixed_nav dl:nth-of-type(1) dt {
+    background: url("../img/nav1.2.png") no-repeat;
+    background-size: 100%;
+}
+
+.fixed_nav dl:nth-of-type(2) dt {
+    background: url("../img/nav2.2.png") no-repeat;
+    background-size: 100%;
+}
+
+.fixed_nav dl:nth-of-type(3) dt {
+    background: url("../img/nav3.2.jpg") no-repeat;
+    background-size: 100%;
+}
+
+.fixed_nav dl:nth-of-type(4) dt {
+    background: url("../img/nav4.2.png") no-repeat;
+    background-size: 100%;
+}
+
+.fixed_nav dt {
+    width: .5rem;
+    height: .5rem;
+    position: absolute;
+    top: .2rem;
+    left: 50%;
+    margin-left: -.25rem;
+}
+
+.fixed_nav dd {
+    width: 100%;
+    height: .4rem;
+    line-height: .4rem;
+    font-size: .2rem;
+    color: #808080;
+    position: absolute;
+    top: .75rem;
 }
 
 
@@ -230,7 +332,7 @@ header {
     display: none;
 }
 
-.landingCover>div {
+.landingCover > div {
     width: 1.6rem;
     height: 1.6rem;
     position: absolute;
@@ -247,4 +349,50 @@ header {
     height: 1rem;
     display: block;
     margin: .3rem auto;
+}
+
+
+/*上啦加载&下拉刷新*/
+
+.scroller-pullDown,
+.scroller-pullUp {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    line-height: 40px;
+    height: 40px;
+    color: #888;
+}
+
+.scroller-pullDown img,
+.scroller-pullUp img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 3px;
+    margin-right: 7px;
+}
+
+.scroller-pullDown {
+    position: absolute;
+    top: -40px;
+    left: 0;
+}
+
+@keyframes popupCover {
+    from {
+        -webkit-transform: scale(0, 0);
+    }
+    to {
+        -webkit-transform: scale(1, 1);
+    }
+}
+
+@-webkit-keyframes popupCover {
+    from {
+        -webkit-transform: scale(0, 0);
+    }
+    to {
+        -webkit-transform: scale(1, 1);
+    }
 }

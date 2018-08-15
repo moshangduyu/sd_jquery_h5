@@ -1,0 +1,300 @@
+ .main {
+     margin-top: .9rem;
+     .title_h3 {
+         width: 7rem;
+         margin: 0 auto;
+         height: .74rem;
+         line-height: .74rem;
+         padding-left: .2rem;
+         color: #404040;
+         font-size: .3rem;
+         position: relative; //         font-weight: bold;
+         border-bottom: 1px solid #f0f0f0;
+     }
+     /*下方头像导航*/
+     .btnImg {
+         width: 100%;
+         height: 2.1rem;
+         overflow: hidden;
+         & > div {
+             background: white;
+             width: 100%;
+             height: 1.75rem;
+             margin: .17rem auto;
+             & > a {
+                 display: block;
+                 width: 50%;
+                 height: 100%;
+                 float: left;
+                 img {
+                     display: block;
+                     width: .9rem;
+                     height: .9rem;
+                     margin: .2rem auto .13rem;
+                 }
+                 p {
+                     text-align: center;
+                     font-size: .26rem;
+                     color: #303030;
+                 }
+             }
+         }
+     } //     .btnImg {
+     //         width: 100%;
+     //         overflow: hidden;
+     //         & > div {
+     //             width: 100%;
+     //             height: 1.5rem;
+     //             margin: 0 auto .15rem;
+     //             & > a {
+     //                 display: inline-block;
+     //                 margin: 0 .4rem 0 .92rem;
+     //                 img {
+     //                     display: block;
+     //                     width: .7rem;
+     //                     height: .7rem;
+     //                     margin: .15rem auto .15rem;
+     //                 }
+     //                 p {
+     //                     text-align: center;
+     //                     font-size: .26rem;
+     //                     color: white;
+     //                 } //                     &:nth-of-type(1) {
+     //                 //                     margin-left: .92rem;
+     //                 //                     margin-top: 1rem;
+     //                 //                 }
+     //             }
+     //         }
+     //     }
+     /*热门银行*/
+     .hot_credit {
+         background: white;
+         .hot_credit_list {
+             width: 7.4rem;
+             min-height: .9rem;
+             margin: 0 auto;
+             overflow: hidden;
+             a {
+                 display: block;
+             }
+             dl {
+                 float: left;
+                 width: 1.85rem;
+                 height: 1.8rem;
+                 text-align: center;
+                 dt {
+                     width: 100%;
+                     height: 1.4rem;
+                     overflow: hidden;
+                     img {
+                         display: block;
+                         width: 1rem;
+                         height: 1rem;
+                         margin: .25rem auto .15rem;
+                     }
+                 }
+                 dd {
+                     font-size: .22rem;
+                     color: #404040;
+                 }
+             }
+         }
+         .hot_credit_carousel {
+             width: 7rem;
+             height: 1.2rem;
+             margin: 0 auto;
+             background: url('../img/credit_carousel.png') no-repeat;
+             background-size: 100% 100%;
+             position: relative;
+             & > img {
+                 width: 1.3rem;
+                 height: .43rem;
+                 display: block;
+                 float: left;
+                 margin: .35rem 0 0 .4rem;
+             }
+             .hot_credit_carousel_box {
+                 position: absolute;
+                 top: .1rem;
+                 left: 2.1rem;
+                 width: 5.5rem;
+                 height: .9rem;
+                 overflow: hidden;
+                 .carousel_ul {
+                     position: absolute;
+                     top: 0;
+                     left: 0;
+                     width: 100%;
+                     height: 100%;
+                     li {
+                         width: 100%;
+                         height: 100%;
+                         line-height: .94rem;
+                         font-size: .26rem;
+                         color: #404040;
+                         span {
+                             color: #fd7135;
+                         }
+                     }
+                 }
+             }
+         }
+     } //特色精选
+     .Selected_credit {
+         margin-top: .2rem;
+         background: white;
+         .Selected_credit_list {
+             width: 7rem;
+             margin: 0 auto;
+             overflow: hidden;
+             & > a {
+                 display: block;
+                 float: left;
+                 width: 50%;
+                 height: 2.24rem;
+                 &:nth-of-type(1),
+                 &:nth-of-type(3) {
+                     div {
+                         border-right: 1px solid #f0f0f0;
+                     }
+                 }
+                 &:nth-of-type(1),
+                 &:nth-of-type(2) {
+                     div {
+                         border-bottom: 1px solid #f0f0f0;
+                     }
+                 }
+                 div {
+                     width: 100%;
+                     height: 100%;
+                     img {
+                         width: 100%;
+                         height: 100%;
+                         display: block;
+                     }
+                 }
+             }
+         }
+     } //用途卡片
+     .Service_card {
+         margin-top: .2rem;
+         background: white;
+         & > div {
+             width: 100%;
+             padding-bottom: .2rem;
+             .Service_card_list {
+                 width: 7.2rem;
+                 margin: 0 auto;
+                 overflow: hidden;
+                 div {
+                     float: left;
+                     margin: .1rem 0;
+                     background: url(../img/credit_service_card.png) no-repeat;
+                     background-size: 100% 100%;
+                     width: 1.8rem;
+                     height: 1.25rem;
+                     &:nth-of-type(1),
+                     &:nth-of-type(2),
+                     &:nth-of-type(3) {
+                         width: 2.4rem;
+                         height: 2.41rem;
+                     }
+                     a {
+                         display: block;
+                         margin: 1% auto 0;
+                         width: 95%;
+                         height: 95%;
+                         img {
+                             display: block;
+                             width: 100%;
+                             height: 100%;
+                         }
+                     }
+                 }
+             }
+         }
+     } //热门推荐
+     .more_hot_card {
+         width: 100%;
+         background: white;
+         margin-top: .2rem;
+         & > h3 {
+             a {
+                 color: #606060;
+                 float: right;
+                 font-size: .28rem;
+             }
+         }
+         .more_hot_card_list {
+             li {
+                 border-bottom: 1px solid #f0f0f0;
+                 position: relative;
+                 overflow: hidden;
+                 dl {
+                     height: 1.3rem;
+                     margin: .3rem 0;
+                     dt {
+                         width: 2.5rem;
+                         height: 100%;
+                         float: left;
+                         img {
+                             display: block;
+                             width: 1.72rem;
+                             height: 1.1rem;
+                             margin: .1rem auto;
+                         }
+                     }
+                     dd {
+                         width: 4.5rem;
+                         float: left;
+                         h3 {
+                             color: #404040;
+                             font-size: .26rem;
+                             line-height: .42rem;
+                             padding-top: .05rem;
+                         }
+                         p {
+                             color: #606060;
+                             font-size: .24rem;
+                             line-height: .38rem;
+                             width: 100%;
+                             overflow: hidden;
+                             display: -webkit-box;
+                             -webkit-box-orient: vertical;
+                             -webkit-line-clamp: 1;
+                             overflow: hidden;
+                             b {
+                                 color: #Fd7135;
+                             }
+                         }
+                     }
+                 }
+                 & > span {
+                     position: absolute;
+                     width: .83rem;
+                     height: .7rem;
+                     top: 0;
+                     right: .12rem;
+                 }
+                 &:nth-of-type(1) {
+                     & > span {
+                         background: url(../img/product_top1.png) no-repeat;
+                         background-size: 100% 100%;
+                     }
+                 }
+                 &:nth-of-type(2) {
+                     & > span {
+                         background: url(../img/product_top2.png) no-repeat;
+                         background-size: 100% 100%;
+                     }
+                 }
+                 &:nth-of-type(3) {
+                     & > span {
+                         background: url(../img/product_top3.png) no-repeat;
+                         background-size: 100% 100%;
+                     }
+                 }
+             }
+         }
+     }
+ }

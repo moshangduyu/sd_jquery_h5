@@ -16,24 +16,24 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta name="keywords" content="速贷之家,极速借款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <title>速贷之家-修改密码</title>
-    <script src="../js/htmlrem.js"></script>
+    <script src="../js/htmlrem.min.js"></script>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/login.css"> </head>
 <style>
     input::-webkit-input-placeholder {
         color: #999;
     }
-    
+
     #back {
         width: .2rem;
         height: .32rem;
-        background: url("../img/%E7%AE%AD%E5%A4%B4.png") no-repeat;
+        background: url("../img/headBack.png") no-repeat;
         background-size: 100% 100%
     }
-    
+
     .login_zhang_p2 {
         width: 100%;
         height: .9rem;
@@ -41,7 +41,7 @@
         position: relative;
         margin-top: .45rem;
     }
-    
+
     label {
         color: #4D4D4D;
         padding-left: .3rem;
@@ -49,16 +49,16 @@
         float: left;
         line-height: .9rem;
     }
-    
+
     input {
         position: absolute;
         left: 1.9rem;
-        top: .25rem;
+        top: .24rem;
         line-height: .44rem;
         color: #4d4d4d;
         font-size: .3rem;
     }
-    
+
     img {
         width: .4rem;
         height: .4rem;
@@ -66,7 +66,7 @@
         top: .25rem;
         right: 1rem;
     }
-    
+
     .pwd_yan {
         position: absolute;
         right: .32rem;
@@ -77,18 +77,19 @@
         background-size: .36rem;
         cursor: pointer;
     }
-    
+
     .pwd_yan.kan {
         background: url("../img/kejian@3x.png") no-repeat center .25rem;
         background-size: .36rem;
     }
-    
+
     .sm {
         padding-left: .3rem;
         color: #999;
         font-size: .24rem;
         line-height: .7rem;
     }
+
 </style>
 
 <body>
@@ -102,76 +103,15 @@
                 <input type="password" id="password" placeholder="密码"><span class="pwd_yan"></span></p>
             <p class="sm">密码支持6-20位字符，建议数字、字母、符号组合</p> <span class="btn" style="margin:0 auto">确定</span> </section>
         <!--底部-->
-        <footer> 极速借款，上速贷之家 </footer>
-        <!--收藏遮罩层-->
-        <div class="cover">
-            <div class="popup"></div>
-        </div>
+        <footer> 极速贷款，上速贷之家 </footer>
     </div>
     <script src="../js/jquery.min.js"></script>
-    <script src="../js/address.js"></script>
     <script src="../js/jquery.md5.js"></script>
-    <script src="../js/loginpublic.js"></script>
+    <script src="../js/controler/global.js"></script>
+    <script src="../js/controler/mine_changemima3.js"></script>
     <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script src="../js/wx_sdk.js"></script>
     <script src="../js/statistics.js"></script>
-    <script>
-        var passwordZ = /^[-_a-zA-Z0-9]{6,20}$/;
-        /*眼睛*/
-        $(".pwd_yan").click(function () {
-            if ($(this).hasClass("kan")) {
-                $(this).removeClass("kan");
-                $(this).parent("p").find("input")[0].type = 'password';
-            }
-            else {
-                $(this).addClass("kan");
-                $(this).parent("p").find("input")[0].type = 'text';
-            }
-        });
-        /*按钮颜色*/
-        $("input").bind("input propertychange", function () {
-            if (passwordZ.test($("#password").val())) {
-                $(".btn").addClass("next_click")
-            }
-            else {
-                $(".btn").removeClass("next_click")
-            }
-        });
-        /*btn点击*/
-        $(".btn").click(function () {
-            var pas = $.md5($("#password").val());
-            if ($(".btn").hasClass("next_click")) {
-                $.ajax({
-                    url: api_sudaizhijia_host + "/v1/users/password"
-                    , type: "post"
-                    , dataType: "json"
-                    , data: {
-                        "password": pas
-                        , "reset_token": true
-                    }
-                    , success: function (json) {
-                        if (json.code == 200 && json.error_code == 0) {
-                            $(".popup").text("修改成功！");
-                            var Function = function () {
-                                localStorage.clear();
-                                local.login_reffer = "mine_personal_setup.html";
-                                window.location.href = "login.html";
-                            }
-                            coverShow(Function);
-                        }
-                        else {
-                            $(".popup").text(json.error_message);
-                            coverShow();
-                        }
-                    }
-                })
-            }
-            else {
-                $(".popup").html("请设置正确密码")
-                coverShow()
-            }
-        })
-    </script>
 </body>
 
 </html>

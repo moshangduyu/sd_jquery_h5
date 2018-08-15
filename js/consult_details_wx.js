@@ -26,7 +26,7 @@ function weixin(json) {
         //分享给好友
         wx.onMenuShareAppMessage({
             title: $("h3").text(), // 分享标题
-            desc: '简单高效,想借就借。极速借款,上速贷之家!', // 分享描述
+            desc: '简单高效,想借就借。极速贷款,上速贷之家!', // 分享描述
             link: window.location.href, // 分享链接
             imgUrl: $("#fx_img").data("img"), // 分享图标
             type: 'link', // 分享类型,music、video或link，不填默认为link
@@ -39,7 +39,7 @@ function weixin(json) {
         //分享到朋友圈
         wx.onMenuShareTimeline({
             title: $("h3").text(), // 分享标题
-            desc: '简单高效,想借就借。极速借款,上速贷之家!', // 分享描述
+            desc: '简单高效,想借就借。极速贷款,上速贷之家!', // 分享描述
             link: window.location.href, // 分享链接
             imgUrl: $("#fx_img").data("img"), // 分享图标
             success: function () {

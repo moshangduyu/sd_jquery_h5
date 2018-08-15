@@ -1,0 +1,510 @@
+@color: #4c86f5;
+.fontStyle(@S: .26rem, @C: @color) {
+    font-size: @S;
+    color: @C;
+}
+
+.title {
+    .fontStyle(.3rem, #404040);
+    padding: .15rem .1rem 0;
+    line-height: .6rem;
+    position: relative;
+    width: 6.9rem;
+    margin: 0 auto;
+    padding-left: .3rem;
+    &:after {
+        content: '';
+        width: .04rem;
+        height: .22rem;
+        background: #404040;
+        position: absolute;
+        left: .15rem;
+        top: .35rem;
+    }
+}
+
+.container {
+    padding-bottom: 2.6rem;
+}
+
+
+/*头部*/
+
+#header {
+    color: #202020;
+    background: white;
+    .product_result_sign {
+        position: absolute;
+        width: 1rem;
+        height: 100%;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        background: url(../img/product_result_fixes_sign1.png) no-repeat center;
+        background-size: .33rem .3rem;
+        &.onSign {
+            background: url(../img/product_result_fixes_sign2.png) no-repeat center;
+            background-size: .33rem .3rem;
+        }
+    }
+}
+
+
+/*主体*/
+
+.content {
+    margin-top: .9rem;
+    & > section {
+        background: white;
+    } //计算器
+    .calculator {
+        padding: 0 .1rem;
+        background: @color url('../img/calculator_bg.png') no-repeat;
+        background-size: 100%;
+        .calculator_top {
+            overflow: hidden;
+            padding-top: .1rem;
+            & > div {
+                float: left;
+                width: 50%;
+                height: 100%;
+                line-height: 1.2rem;
+                overflow: hidden;
+                label {
+                    .fontStyle(.34rem,
+                    #fafafa);
+                    float: left;
+                    margin-left: .2rem;
+                }
+                div {
+                    float: left;
+                    width: 2.4rem;
+                    height: .7rem;
+                    margin: .25rem 0 0 .15rem;
+                    background: white;
+                    border-radius: 2rem;
+                    overflow: hidden;
+                    position: relative;
+                    input {
+                        float: left;
+                        width: 1.5rem;
+                        height: .4rem;
+                        line-height: .4rem;
+                        margin-top: .15rem;
+                        padding-left: .25rem;
+                        .fontStyle(.34rem);
+                    }
+                    span {
+                        float: left;
+                        height: .7rem;
+                        line-height: .7rem;
+                        .fontStyle(.34rem,
+                        #303030);
+                    }
+                    select {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        width: .6rem;
+                        height: .7rem;
+                        font-size: 0;
+                        background: url('../img/calculator_selectBtn.png') no-repeat center center;
+                        background-size: .3rem .3rem;
+                        display: none;
+                        &.show {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        .calculator_center {
+            .fontStyle(.26rem,
+            #d1e1ff);
+            overflow: hidden;
+            div {
+                float: left;
+                width: 50%;
+                padding-left: .2rem;
+            }
+        }
+        .calculator_bottom {
+            margin-top: .3rem;
+            .calculator_bottom_content {
+                display: none;
+                p {
+                    width: 6.9rem;
+                    margin: 0 auto;
+                    padding-left: .15rem;
+                    line-height: .5rem;
+                    span {
+                        padding-left: .5rem;
+                    }
+                }
+                .cost_box {
+                    .fontStyle( .26rem,
+                    #aed0ff);
+                    p:last-child {
+                        padding-bottom: .1rem;
+                        border-bottom: 1px solid #66a4ff;
+                    }
+                }
+                .total_box {
+                    padding-top: .1rem;
+                    .fontStyle( .28rem,
+                    #ffffff);
+                    p:last-child {
+                        .fontStyle( .26rem,
+                        #aed0ff);
+                        border-bottom: 1px solid #66a4ff;
+                    }
+                }
+            }
+            .detail_btn {
+                text-align: center;
+                .fontStyle( .26rem,
+                #fafafa);
+                line-height: .7rem;
+                i {
+                    display: inline-block;
+                    margin: 0 .12rem;
+                    width: .22rem;
+                    height: .12rem;
+                    position: relative;
+                    top: -.035rem;
+                    background: url('../img/calculator_down.png') no-repeat;
+                    background-size: 100%;
+                }
+                &.up i {
+                    background: url('../img/calculator_up.png') no-repeat;
+                    background-size: 100%;
+                    top: -.02rem;
+                }
+            }
+        }
+    } //进度条
+    .indicatorContainerWrap {
+        overflow: hidden;
+        h3 {
+            text-align: center;
+            line-height: 1rem;
+            .fontStyle(.3rem,
+            #303030);
+        }
+        & > div {
+            float: left;
+            width: 25%;
+            text-align: center;
+            position: relative;
+            .circle {
+                height: 1.2rem;
+            }
+            .circles-text {
+                .fontStyle( .26rem,
+                #404040);
+            }
+            p {
+                .fontStyle( .26rem,
+                #909090);
+                line-height: .7rem;
+                padding-bottom: .05rem;
+            }
+        }
+    } //信息板块
+    .information_plate {
+        margin-top: .2rem;
+        & > div {
+            position: relative;
+            h3 {
+                .title;
+            }
+            div {
+                width: 7rem;
+                margin: 0 auto;
+                span {
+                    display: inline-block;
+                    padding: .05rem .1rem;
+                    background-color: #f5fbff;
+                    margin: .1rem 0 .2rem .3rem;
+                    border-radius: .1rem;
+                    border: solid 1px #4288ee;
+                    .fontStyle();
+                }
+            }
+            ul {
+                padding-bottom: .2rem;
+                li {
+                    .fontStyle(.3rem,
+                    #606060);
+                    line-height: .5rem;
+                    padding-left: .56rem;
+                }
+            } //下款秘籍
+            .cheats {
+                display: none;
+                position: absolute;
+                top: .8rem;
+                right: .5rem;
+                width: 1.18rem;
+                height: 1.18rem;
+                background: url('../img/cheats_icon.png') no-repeat;
+                background-size: 100%;
+            }
+        }
+    } //评论
+    .comment_box {
+        padding-bottom: .1rem;
+        h3 {
+            border-bottom: 1px solid #e9e9e9;
+            position: relative;
+            .title;
+            .product_xing {
+                position: absolute;
+                right: .15rem;
+                top: .28rem;
+                line-height: .3rem;
+                i {
+                    width: .3rem;
+                    height: .3rem;
+                }
+                strong {
+                    .fontStyle(.3rem,
+                    #f5bd25);
+                    position: relative;
+                    top: -.02rem;
+                    padding-left: .1rem;
+                }
+            }
+        }
+        .comment-list {
+            width: 6.9rem;
+            margin: 0 auto;
+            overflow: hidden;
+            border-bottom: 1px solid #e9e9e9;
+            &:nth-of-type(2) {
+                border: none;
+            }
+            .left {
+                float: left;
+                width: .8rem;
+                height: 100%;
+                img {
+                    display: block;
+                    width: .8rem;
+                    height: .8rem;
+                    border-radius: 50%;
+                    margin: .2rem auto;
+                }
+            }
+            .right {
+                width: 5.8rem;
+                margin-left: .2rem;
+                float: left;
+                .list-content-top {
+                    padding-top: .25rem;
+                    font-size: .22rem;
+                    overflow: hidden;
+                    span:nth-of-type(1) {
+                        .fontStyle(.28rem,
+                        #303030);
+                        max-width: 1.96rem;
+                        height: .4rem;
+                        line-height: .4rem;
+                        float: left;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                    }
+                    span:nth-of-type(2) {
+                        float: right;
+                        padding-right: .1rem;
+                        .fontStyle(.24rem,
+                        #808080)
+                    }
+                }
+                & > h6 {
+                    height: .6rem;
+                    line-height: .6rem;
+                    .fontStyle(.26rem,
+                    #f5bd25);
+                    span {
+                        padding-right: .08rem;
+                    }
+                    span:nth-of-type(2) {
+                        display: inline-block;
+                        padding-left: .3rem;
+                    }
+                }
+                .landlord_content {
+                    width: 5.7rem;
+                    line-height: .4rem;
+                    .fontStyle(.28rem,
+                    #505050);
+                    margin-bottom: .2rem;
+                    &.hide {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                    }
+                }
+                & > h5 {
+                    width: 100%;
+                    height: 1px;
+                    margin: .3rem 0 .2rem 0;
+                    background: #E9E9E9;
+                }
+            }
+        }
+        & > h5 {
+            text-align: center;
+            height: .9rem;
+            line-height: .9rem;
+            a {
+                .fontStyle(.26rem,
+                #4c86f5);
+                padding: .1rem .2rem;
+                border-radius: .4rem;
+                border: 1px solid #4c86f5;
+            }
+        }
+    } //产品推荐
+    .product_recommendation {
+        margin-top: .2rem;
+        & > h3 {
+            .title;
+        }
+        .product_list {
+            border-bottom: 1px solid #e9e9e9;
+            &:nth-of-type(2) {
+                margin-top: .2rem;
+                border: 0;
+            }
+            & > dl {
+                overflow: hidden;
+                width: 7.3rem;
+                margin: 0 auto;
+                position: relative;
+                dt {
+                    float: left;
+                    width: 1.2rem;
+                    img {
+                        width: .72rem;
+                        height: .72rem;
+                        margin: .2rem auto;
+                        display: block;
+                        border-radius: 50%;
+                        background: red;
+                    }
+                }
+                dd {
+                    float: left;
+                    h3 {
+                        .fontStyle(.34rem,
+                        #404040);
+                        padding-top: .1rem;
+                        line-height: .56rem;
+                        .bubble {
+                            height: .32rem;
+                            padding: 0 .15rem;
+                            line-height: .32rem; //                                                        border-top-right-radius: .15rem;
+                            //                                                        border-bottom-right-radius: .15rem;
+                            .fontStyle(.22rem,
+                            white);
+                            background: url('../img/calculator_bubble.png') no-repeat;
+                            background-size: 100% 100%;
+                            position: relative;
+                            top: -.05rem;
+                            left: .15rem; //                                                        background: #fe5c0d;
+                            //                                                        z-index: 1000;
+                            //                                                        &:after {
+                            //                                                            content: '';
+                            //                                                            width: .2rem;
+                            //                                                            height: .33rem;
+                            //                                                            background: url('../img/calculator_bubble.png') no-repeat;
+                            //                                                            background-size: auto 100%;
+                            //                                                            position: absolute;
+                            //                                                            left: -.2rem;
+                            //                                                            top: 0;
+                            //                                                            z-index: 100;
+                            //                                                        }
+                        }
+                    }
+                    p {
+                        .fontStyle(.24rem,
+                        #919191)
+                    }
+                }
+                & > span {
+                    .fontStyle(.22rem,
+                    #404040);
+                    position: absolute;
+                    right: .3rem;
+                    top: .1rem;
+                }
+            }
+            .product_list_btm {
+                overflow: hidden;
+                width: 7.2rem;
+                height: 1.2rem;
+                margin: .1rem auto;
+                & > div {
+                    text-align: center;
+                    float: left;
+                    p {
+                        &:nth-of-type(1) {
+                            .fontStyle(.38rem,
+                            #fe5c0d);
+                            line-height: .6rem;
+                        }
+                        &:nth-of-type(2) {
+                            .fontStyle(.24rem,
+                            #919191);
+                        }
+                    }
+                }
+                .product_list_btm_left {
+                    width: 42%;
+                }
+                .product_list_btm_center {
+                    width: 30%;
+                }
+                .product_list_btm_right {
+                    span {
+                        .fontStyle(.28rem,
+                        #ffffff);
+                        margin: .2rem 0 0 .2rem;
+                        display: block;
+                        width: 1.46rem;
+                        height: .5rem;
+                        line-height: .5rem;
+                        background-color: #4c86f5;
+                        border-radius: .25rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*底部悬浮按钮*/
+
+footer {
+    position: fixed;
+    bottom: .8rem;
+    left: 50%;
+    margin-left: -3.25rem;
+    width: 6.56rem;
+    height: .98rem;
+    background-color: #fe5c0d;
+    border-radius: .1rem;
+    text-align: center;
+    line-height: .98rem;
+    .fontStyle(.34rem,
+    white);
+    z-index: 9999;
+}

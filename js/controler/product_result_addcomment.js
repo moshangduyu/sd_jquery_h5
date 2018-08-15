@@ -33,7 +33,7 @@ var addCommentController = {
             $('.addcomment_time_box>span').removeClass('addTimeStatus');
             $('.starNum').text('');
             $('.product_xing>i').css({
-                'background': 'url("/img/%E6%98%9F-%E5%A4%A72.png")',
+                'background': 'url("/img/starBig1.png")',
                 "background-size": "100% 100%"
             });
             $('.addcom_taxtarea').val(addCommentController.placeholder).css({
@@ -95,23 +95,23 @@ var addCommentController = {
                     idx = $this.find(".starNum").text();
                 if (idx == 0) {
                     $i.css({
-                        "background": "url('../img/%E6%98%9F-%E5%A4%A72.png')",
+                        "background": "url('../img/starBig1.png')",
                         "background-size": "100% 100%"
                     })
                 } else {
                     $i.eq(idx - 1).css({
-                        "background": "url('../img/%E6%98%9F-%E5%A4%A71.png')",
+                        "background": "url('../img/starBig3.png')",
                         "background-size": "100% 100%"
                     });
                     $i.eq(idx - 1).prevAll().css({
-                        "background": "url('../img/%E6%98%9F-%E5%A4%A71.png')",
+                        "background": "url('../img/starBig3.png')",
                         "background-size": "100% 100%"
                     })
                 }
                 //显示反馈
                 $this.find("textarea").val(obj.content);
                 $this.siblings('.state_box').find('textarea').val(addCommentController.placeholder);
-                var leng = $(".addcom_taxtarea").val().length;
+                var leng = $this.find(".addcom_taxtarea").val().length;
                 $this.find(".textNum").text(leng);
             }
         };
@@ -124,15 +124,15 @@ var addCommentController = {
         $xingI.click(function () {
             var num = $(this).index() + 1;
             $(this).css({
-                "background": "url('../img/%E6%98%9F-%E5%A4%A71.png')",
+                "background": "url('../img/starBig3.png')",
                 "background-size": "100% 100%"
             });
             $(this).prevAll().css({
-                "background": "url('../img/%E6%98%9F-%E5%A4%A71.png')",
+                "background": "url('../img/starBig3.png')",
                 "background-size": "100% 100%"
             });
             $(this).nextAll().css({
-                "background": "url('../img/%E6%98%9F-%E5%A4%A72.png')",
+                "background": "url('../img/starBig1.png')",
                 "background-size": "100% 100%"
             });
             $(this).parent().next("b").text(num);
@@ -167,7 +167,7 @@ var addCommentController = {
             var platformId = $(".top_dl").data("id"),
                 $parent = $(this).parents('.state_box'),
                 result = Number($(".addZhuangtai").attr("id")),
-                loanMoney = Number($parent.find(".money").val()),
+                loanMoney = Number($(".money").val()),
                 loanMin = Number($(".money").attr('loan_min')),
                 loanMax = Number($(".money").attr('loan_max')),
                 timeIdx = $parent.find(".addTimeStatus").data('id'),
@@ -221,7 +221,7 @@ var addCommentController = {
                         }
                     };
                     service.doAjaxRequest({
-                        url: '/v3/comment',
+                        url: '/v4/comment',
                         type: 'POST',
                         data: {
                             "platformId": platformId,

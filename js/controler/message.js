@@ -1,11 +1,6 @@
 var messageController = {
     initView: function () {
-        var myscroll = new iScroll("wrapper", {
-            vScrollbar: false
-        });
-        window.onload = function () {
-            myscroll.refresh();
-        };
+        
         this.initCookieView();
     },
     initCookieView: function () {
@@ -16,6 +11,7 @@ var messageController = {
         });
     },
     doRequestView: function (json) {
+        var that = this;
         var html = "";
         $.each(json, function (i, b) {
             html += "<div class='today' data-id=" + b.id + ">" + "<h4>" + b.title + "</h4>";
@@ -24,7 +20,6 @@ var messageController = {
             }
             html += "<p>" + b.content + "</p>" + "<h3>" + b.create_time + "</h3>" + "</div>"
             $(".scroll").html(html);
-
         })
     }
 };
@@ -39,4 +34,5 @@ $(function () {
     }, function (json) {
         alert(json.error_message)
     });
+    
 });

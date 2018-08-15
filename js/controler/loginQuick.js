@@ -10,7 +10,11 @@ var loginQuickController = {
     },
     initShowView: function () {
         var that = this;
-        $(".yfs b").text(that.localPhone);
+        var localPhone = this.localPhone,
+            startLocalPhone = localPhone.substring(0, 3),
+            endLocalPhone = localPhone.substring(7, 11),
+            localPhone = startLocalPhone + '****' + endLocalPhone;
+        $(".yfs b").text(localPhone);
         if ($("input").val().length == 4) {
             $(".btn").addClass("next_click")
         }
@@ -29,39 +33,44 @@ var loginQuickController = {
         $(".btn").click(function () {
             if ($("input").val().length == 4) {
                 service.doAjaxRequest({
-                    url: '/v1/auth/quicklogin',
+                    url: '/v2/auth/quicklogin',
                     type: 'POST',
                     data: {
                         "mobile": that.localPhone,
                         "code": $("input").val(),
                         "version": "3",
-                        "sign": localStorage.sign,
-                        "channel_fr": "mweb",
-                        "sd_invite_code": ""
+                        "sign": localStorage.codesign,
+                        "channel_fr": cookie.getPlatFrom(),
+                        "sd_invite_code": "",
+                        "uid": ""
                     }
                 }, function (obj) {
-                    local.token = obj.accessToken;
                     local.userId = obj.sd_user_id;
                     local.indent = obj.indent;
-                    local.username = obj.username;
+                    local.username = obj.user_name;
                     local.phone = obj.mobile;
-                    local.sex = obj.sex;
-                    local.name = obj.realname;
+                    local.token = obj.accessToken;
+                    local.user_photo = obj.user_photo;
                     if (obj.activated == 0) {
-                        window.location.href = "/html/loginShen.html";
+                        window.location.href = "/html/loginMi.html";
                     } else {
-                        cnzz_TrackEvent('wap', '用户登录', '手机验证码登录', '');
-                        var reffer = $.cookie('login_reffer');
-                        if ($.cookie('login_reffer')) {
-                            $.cookie('login_reffer', null, {
-                                expires: -1,
-                                path: '/html'
-                            });
-                            window.location.href = reffer;
-                            local.loginurl = window.location.href;
+                        if (obj.is_identity == 0) {
+                            window.location.href = "mine_change_indent.html"
                         } else {
-                            window.location.href = "/index.html"
+                            cnzz_TrackEvent('wap', '用户登录', '手机验证码登录', '');
+                            if (localStorage.login_reffer) {
+                                var reffer = localStorage.login_reffer;
+                                localStorage.removeItem('login_reffer');
+                                if (reffer.indexOf('?') >= 0) {
+                                    window.location.href = reffer + '&fromLogin=1';
+                                } else {
+                                    window.location.href = reffer + '?fromLogin=1';
+                                }
+                            } else {
+                                window.location.href = "/index.html"
+                            }
                         }
+
                     }
                 }, function (json) {
                     $.popupCover({
@@ -76,7 +85,7 @@ var loginQuickController = {
         })
         //重发验证码
         $(".input_ma span").click(function () {
-            if ($(this).html() == "发送验证码") {
+            if ($(this).html() == "重新发送") {
                 service.doAjaxRequest({
                     url: '/v1/sms/register',
                     type: 'POST',
@@ -84,6 +93,7 @@ var loginQuickController = {
                         "mobile": that.localPhone
                     }
                 }, function (json) {
+                    local.codesign = json.sign;
                     $.popupCover({
                         content: '发送短信成功！'
                     });
@@ -107,7 +117,7 @@ var loginQuickController = {
             $(".daojishi").html(time);
             if (time == 0) {
                 clearInterval(t);
-                $(".input_ma span").html("发送验证码").css({
+                $(".input_ma span").html("重新发送").css({
                     color: "#44b7f7"
                 });
             }

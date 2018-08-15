@@ -1,0 +1,122 @@
+h5 {
+    font-size: .26rem;
+    color: #303030;
+    line-height: .6rem;
+    padding: 0 .3rem;
+    span {
+        float: right;
+    }
+}
+
+.content {
+    .bill-list {
+        background: white;
+        border-bottom: 1px solid #d7d7d7;
+        dl {
+            height: 1.2rem;
+            dt {
+                float: left;
+                img {
+                    display: block;
+                    width: .56rem;
+                    height: .56rem;
+                    margin: .2rem .2rem 0 .3rem;
+                }
+            }
+            dd {
+                float: left;
+                width: 6.1rem;
+                h3 {
+                    font-size: .3rem;
+                    color: #303030;
+                    padding-top: .15rem;
+                    span {
+                        font-size: .26rem;
+                        float: right;
+                    }
+                }
+                p {
+                    font-size: .26rem;
+                    color: #999999;
+                    line-height: .5rem;
+                    span {
+                        float: right;
+                        margin-right: .05rem;
+                        width: 1rem;
+                        height: .5rem;
+                        cursor: pointer;
+                        background: url('../../img/xia@3x.png') no-repeat right center;
+                        background-size: .25rem;
+                    }
+                }
+            }
+        }
+        ul {
+            position: relative;
+            display: none;
+            li {
+                font-size: .26rem;
+                padding: 0 .3rem .09rem .7rem;
+                color: #606060;
+                display: block;
+                position: relative;
+                height: auto;
+                &:before {
+                    display: block;
+                    content: "";
+                    position: absolute;
+                    top: .1rem;
+                    left: .34rem;
+                    border: 1px solid #4c86f5;
+                    width: .14rem;
+                    height: .14rem;
+                    border-radius: 100%;
+                    background: #fff;
+                    z-index: 999;
+                }
+                i {
+                    display: block;
+                    position: absolute;
+                    top: .2rem;
+                    left: .4rem;
+                    width: .02rem;
+                    background: #d7d7d7;
+                    z-index: 100;
+                }
+            }
+            li:last-child {
+                padding-bottom: .16rem;
+                i {
+                    display: none;
+                }
+            }
+            .icon-arrow-up {
+                position: absolute;
+                width: 1rem;
+                height: .7rem;
+                bottom: 0;
+                right: 0;
+                background: url('../../img/shang@3x.png') no-repeat center;
+                background-size: .25rem;
+                z-index: 999;
+            }
+        }
+    }
+    h6 {
+        padding: .1rem .3rem;
+        font-size: .28rem;
+        color: #999999;
+        span {
+            color: #fe5c0d;
+        }
+    }
+    .more h3 {
+        color: #909090 !important;
+    }
+    .bottom-prompt {
+        text-align: center;
+        color: #909090;
+        font-size: .3rem;
+        margin-top: .5rem;
+    }
+}

@@ -16,10 +16,10 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta name="keywords" content="速贷之家,极速借款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <title>速贷之家-登录</title>
-    <script src="../js/htmlrem.js"></script>
+    <script src="../js/htmlrem.min.js"></script>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/login.css"> </head>
 <style>
@@ -110,34 +110,27 @@
         <!--主体-->
         <section>
             <!--tab切换-->
-            <div class="top_tab"> <a>快捷登录</a> <a>账号登录</a> </div>
+            <div class="top_tab"> <a class="show">快捷登录</a> <a>账号登录</a> </div>
             <div>
-                <div class="tab_one tabBox">
+                <div class="tab_one tabBox" style="display:block">
                     <input type="number" class="phone" placeholder="输入手机号" onfocus="this.placeholder=''" onblur="if(this.placeholder=='') this.placeholder='请输入手机号' " style="background: white;" oninput="if(value.length>11)value=value.slice(0,11)"> <span class="btn btn_one">获取手机验证码</span> </div>
                 <div class="tab_two tabBox">
                     <p class="login_zhang_p1 login_zhang">
                         <input type="number" id="phone_zhang" class="input" placeholder="输入手机号" onfocus="this.placeholder=''" onblur="if(this.placeholder=='') this.placeholder='请输入手机号' " oninput="if(value.length>11)value=value.slice(0,11)"><span class="phone_x"></span> </p>
                     <p class="login_zhang_p2 login_zhang">
-                        <input type="password" id="password" class="input" placeholder="6-20位密码" onfocus="this.placeholder=''" onblur="if(this.placeholder=='') this.placeholder='6-20位密码' "><span class="phone_x"></span><span class="pwd_yan" style="cursor:pointer;"></span></p> <span class="btn btn_two">登录</span>
-                    <p class="href_p"><a href="login.html">免注册登录</a> &nbsp;|&nbsp; <a class="forget" style="color:#0064ff">忘记密码</a></p>
+                        <input type="password" id="password" class="input" placeholder="6-20位密码" onfocus="this.placeholder=''" onblur="if(this.placeholder=='') this.placeholder='6-20位密码' "><span class="phone_x"></span><span class="pwd_yan" style="cursor:pointer;"></span></p> <span class="btn btn_two" id="btn">登录</span>
+                    <p class="href_p"><a href="login.html">免注册登录</a> &nbsp;|&nbsp; <a href="forgetPhone.html" class="forget" style="color:#0064ff">忘记密码</a></p>
                 </div>
             </div>
         </section>
         <!--底部-->
-        <footer> 极速借款，上速贷之家 </footer>
-        <!--收藏遮罩层-->
-        <div class="cover">
-            <div class="popup"></div>
-        </div>
-        <!--极验弹窗-->
-        <div id="mask"></div>
-        <div id="popup-captcha-mobile"></div>
+        <footer> 极速贷款，上速贷之家 </footer>
     </div>
     <script src="../js/jquery.min.js"></script>
-    <script src="//static.geetest.com/static/tools/gt.js"></script>
+    <script src="../js/geetest.min.js"></script>
     <script src="../js/jquery.md5.js"></script>
     <script src="../js/controler/global.js"></script>
-    <script src="../js/controler/login.js?m=201704192014"></script>
+    <script src="../js/controler/login.js"></script>
     <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script src="../js/wx_sdk.js"></script>
     <script src="../js/statistics.js"></script>

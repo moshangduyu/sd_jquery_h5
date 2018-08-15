@@ -16,31 +16,54 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta name="keywords" content="速贷之家,极速借款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
     <meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=13)" />
     <meta http-equiv="Page-Exit" content="revealTrans(Duration=1.0,Transition=14)" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <script src="../js/htmlrem.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <script src="../js/htmlrem.min.js"></script>
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/pubStyle.css">
-    <link rel="stylesheet" href="../css/more_comments.css">
+    <link rel="stylesheet" href="../css/more_comment.css">
     <title>速贷之家-更多回复</title>
 </head>
 
 <body>
     <div class="container">
-        <header> <span class="backBtn" onclick="javascript:history.go(-1);location.reload()"></span><b>更多回复</b> </header>
+        <header> <span class="backBtn" onclick="iavascript:history.back()"></span><b></b> </header>
         <!--        <header> <span class="backBtn" onclick="window.location.href = document.referrer;"></span><b>更多回复</b> </header>-->
         <div id="wrapper">
             <div class="scroll">
                 <div class="comment-list-content"></div>
-                <div class="list-content-btm"></div>
+                <div class="paixu">
+                    <p class="show_paixu">按时间</p>
+                    <div class="selectBox">
+                        <div class="onSelect">按时间</div>
+                        <div>按热度</div>
+                    </div>
+                </div>
+                <div class="list-content-btm">
+                    <!--
+<div>
+    <dl>
+        <dt><img src="" alt=""></dt>
+        <dd>
+            <h3>速贷之家</h3>
+            <p>12:08</p>
+        </dd>
+        <span class='thumbs'><i class='zanicon'></i><b>123</b></span>
+    </dl>
+    <p class="replyContent" data-name="速贷之家"></p>
+    <p class="replyContent" data-name="速贷之家">回复：<span>小奶油</span></p>
+</div>
+-->
+                </div>
                 <div id="PullUp" class="scroller-pullUp" style="display:none;"><img src="../img/rolling.svg" alt="">努力加载中</div>
             </div>
         </div>
         <footer>
-            <textarea placeholder="回复楼主" id="reply" class="reply"></textarea>
+            <textarea placeholder="" id="reply" class="reply"></textarea>
             <button id="send">发送</button> <span class="numLen"></span> </footer>
+        <div class="COVER_BOX"></div>
     </div>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/iscroll/iscroll-probe.min.js"></script>

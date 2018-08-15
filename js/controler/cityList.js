@@ -15,13 +15,6 @@ var cityListController = {
     initJudgeView: function () {
         var that = this;
         /**
-         *判断是否存在设备id
-         *没有赋值随机生成 initEquipmentView()
-         */
-        if (!localStorage.sd_equipment_id) {
-            localStorage.sd_equipment_id = that.initEquipmentView();
-        }
-        /**
          *判断是否存在地理定位
          *已有，展示在定位结果处
          *没有，调用定位功能 doAddressView()
@@ -36,7 +29,7 @@ var cityListController = {
     doOperationView: function () {
         var that = this;
         //重新定位按钮
-        $('.reposition').click(function () {
+        $('.reposition').on('click', function () {
             $("#address").html('定位中...').removeClass('sureCity');
             that.doAddressView();
         });
@@ -50,7 +43,7 @@ var cityListController = {
                 type: 'POST',
                 async: false,
                 data: {
-                    "deviceId": localStorage.sd_equipment_id,
+                    "deviceId": $.cookie('sd_equipment_id'),
                     "userCity": userCity,
                     "userAddress": '',
                     "lonLat": '',
@@ -59,31 +52,16 @@ var cityListController = {
             }, function () {})
             local.cityLocation = userCity;
             local.cityId = areaId;
-            window.location.href = "/html/product.html";
+            window.location.href = document.referrer;
         });
         //定位城市点击
-        $('#address').click(function () {
+        $('#address').on('click', function () {
             if ($(this).hasClass('sureCity')) {
                 local.cityLocation = $(this).text();
                 local.cityId = localStorage.addressId;
-                window.location.href = "/html/product.html";
+                window.location.href = document.referrer;
             }
         });
-    },
-    //定位统计传参--设备id
-    initEquipmentView: function () {
-        var userAgent = $.trim(navigator.userAgent),
-            reviceNum = userAgent.substr(0, 12);
-        var d = new Date(),
-            timeNum = $.trim(d.getFullYear() + ((d.getMonth() + 1) < 10 ? "0" : "") + (d.getMonth() + 1) + (d.getDate() < 10 ? "0" : "") + d.getDate() + (d.getHours() < 10 ? "0" : "") + d.getHours() + (d.getMinutes() < 10 ? "0" : "") + d.getMinutes());
-
-        function GetRandomNum(Min, Max) {
-            var Range = Max - Min;
-            var Rand = Math.random();
-            return (Min + Math.round(Rand * Range));
-        }
-        var random = GetRandomNum(1000000000, 9999999999);
-        return $.trim(reviceNum) + "-" + timeNum + "-" + random;
     },
     //字母索引
     initSliderView: function () {
@@ -180,7 +158,7 @@ var cityListController = {
                 type: 'POST',
                 async: false,
                 data: {
-                    "deviceId": localStorage.sd_equipment_id,
+                    "deviceId": $.cookie('sd_equipment_id'),
                     "userCity": userCity,
                     "userAddress": that.userAddress,
                     "lonLat": that.lonLat,
@@ -221,7 +199,7 @@ var cityListController = {
         /*字母引导*/
         that.initSliderView();
         //判断显示标题显示
-        if (localStorage.cityId) {
+        if (localStorage.cityId && localStorage.cityLocation) {
             $('.' + localStorage.cityId).addClass('selectStyle');
             $('header>b').text('当前选择-' + localStorage.cityLocation);
 

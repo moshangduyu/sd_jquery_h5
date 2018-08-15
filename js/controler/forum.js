@@ -1,49 +1,46 @@
 var forumController = {
     referer: localStorage.ClubLogin_reffre || '',
-    default_clubUrl: window.location.protocol + "//club.sudaizhijia.com",
+    default_clubUrl: default_clubUrl,
     initView: function () {
-        this.checkLoginView();
+        localFun.doFixedNav(); //悬浮导航栏
+        this.clubBindView();
         this.addEventListenerView();
-    },
-    //判断登录状态
-    checkLoginView: function () {
-        var that = this;
-        if (localStorage.userId) {
-            that.clubBindView();
-        } else {
-            if (localStorage.default_clubUrl) {
-                $('iframe').attr('src', localStorage.default_clubUrl + "?c=list&from=h5");
-            } else {
-                $('iframe').attr('src', that.default_clubUrl + "?c=list&from=h5");
-            }
-            $('iframe').load(function () {
-                window.frames[0].postMessage('message', '*');
-            })
-        }
-    },
-    //
+    }, //
     clubBindView: function () {
         var that = this;
-        service.getClub({
-            "referer": that.referer
-        }, function (json) {
-            var redirect_uri = json.data.redirect_uri;
-            $('iframe').attr('src', redirect_uri);
-            local.default_clubUrl = redirect_uri.substring(0, redirect_uri.indexOf('?'))
-            localStorage.removeItem("ClubLogin_reffre");
-        }, function (json) {
-            $('.no_network_cover').show();
-            $.popupCover({
-                content: json.error_message
-            })
+        $.ajax({
+            type: "POST",
+            url: api_sudaizhijia_host + '/v2/club/bind',
+            data: {
+                "referer": that.referer
+            },
+            timeout: 20000,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-Token", localStorage.token || '');
+            },
+            success: function (json) {
+                if (json.code == 200 && json.error_code == 0) {
+                    var redirect_url = json.data.redirect_url;
+                    $('iframe').attr('src', redirect_url);
+                    localStorage.removeItem("ClubLogin_reffre");
+                } else {
+                    $('.no_network_cover').show();
+                    $.popupCover({
+                        content: json.error_message
+                    })
+                }
+            },
+            error: function (jqXHR, textStatus, errorMsg) {
+                if (jqXHR.status == 401) {
+                    $('iframe').attr('src', that.default_clubUrl + '&_status=logout');
+                }
+            }
         });
-    },
-    //
+    }, //
     sdClubLoginView: function () {
         local.login_reffer = "/html/forum.html";
         window.location.href = "/html/login.html"
-    },
-    //
+    }, //
     addEventListenerView: function () {
         var that = this;
         window.addEventListener('message', function (e) {

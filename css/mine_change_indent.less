@@ -1,0 +1,101 @@
+
+.mine_indent_main {
+    overflow-y: scroll;
+    -webkit-box-flex: 1;
+    &>p {
+        text-align: center;
+        font-size: .36rem;
+        line-height: 1.1rem;
+        color: #00B8FF;
+    }
+    .indentSelect {
+        width: 6.1rem;
+        height: 6rem;
+        border: 1px solid #00B8FF;
+        border-radius: .08rem;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 0;
+        margin-bottom: .15rem;
+        dl {
+            display: inline-block;
+            width: 2.8rem;
+            height: 2.98rem;
+            text-align: center;
+            dt {
+                width: 1.3rem;
+                height: 1.4rem;
+                margin: .5rem auto .1rem;
+                position: relative;
+            }
+            dd {
+                font-size: .28rem;
+                color: #404040;
+            }
+            &.onSelect {
+                dt:after {
+                    content: '已选';
+                    width: .46rem;
+                    height: .24rem;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    background: #FF592C;
+                    border-radius: .06rem;
+                    font-size: .18rem;
+                    color: white;
+                    line-height: .24rem;
+                }
+            }
+            &:nth-of-type(1) {
+                dt {
+                    background: url('../img/indent1.png') no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+            &:nth-of-type(2) {
+                dt {
+                    background: url('../img/indent2.png') no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+            &:nth-of-type(3) {
+                dt {
+                    background: url('../img/indent3.png') no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+            &:nth-of-type(4) {
+                dt {
+                    background: url('../img/indent4.png') no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+        }
+    }
+    &>h6 {
+        padding-left: .65rem;
+        font-size: .22rem;
+        line-height: .38rem;
+        color: #808080;
+        i {
+            color: #FF4A2A;
+        }
+    }
+    &>span {
+        display: block;
+        width: 5.6rem;
+        height: .7rem;
+        margin: .4rem auto;
+        border-radius: .08rem;
+        font-size: .3rem;
+        text-align: center;
+        line-height: .7rem;
+        color: white;
+        background: #00B8FF;
+        opacity: .5;
+        &.onSure {
+            opacity: 1;
+        }
+    }
+}

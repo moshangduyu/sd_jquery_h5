@@ -4,7 +4,7 @@
   width: 100%;
   height: .9rem;
   text-align: center;
-  font-size: .3rem;
+  font-size: .34rem;
   line-height: .9rem;
   color: white;
   position: relative;
@@ -15,7 +15,7 @@
   height: .29rem;
   top: .3rem;
   left: .3rem;
-  background: url("../img/%E7%AE%AD%E5%A4%B4.png") no-repeat;
+  background: url("../img/headBack.png") no-repeat;
   background-size: 100% 100%;
 }
 /*主体*/
@@ -149,7 +149,7 @@
   width: 6.9rem;
   height: 2.76rem;
   margin: .4rem 0 1rem;
-  border: .01rem solid #808080;
+  border: 1px solid #808080;
   border-radius: .1rem;
 }
 .product_result_addcomment_main .state_box .addcomment_btm textarea {

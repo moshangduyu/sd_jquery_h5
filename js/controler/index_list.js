@@ -25,7 +25,7 @@ var specialListView = {
             $.each(b.tag_name, function (x, y) {
                 html += " <span style='color:#" + y.font_color + ";border-color:#" + y.boder_color + ";background:#" + y.bg_color + ";'>" + y.name + "</span>";
             });
-            html += "</p>" + "<em class='rightIcon'>" + "</em>" + "</dd>" + "</dl>" + "<div class='res_btm'>" + "<div>" + b.product_introduct + "</div>" + "<p></p>" + " </div>" + "</div>";
+            html += "</p>" + "<em class='rightIcon'>" + "</em>" + "</dd>" + "</dl>" + "<div class='res_btm'>" + "<div><b>" + b.product_introduct + "</b><span><img src='/img/list_time_icon.png'>" + b.fast_time + "</span></div></div></div>";
         })
         $("#produc_touch_result").html(html);
         specialListView.myscroll.refresh();
