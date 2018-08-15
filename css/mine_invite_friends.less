@@ -4,22 +4,19 @@ header {
     width: 100%;
     background: #C14B45;
     text-align: center;
-    font-size: .34rem;
+    font-size: .3rem;
     color: #FFDDA1;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: .9rem;
-    line-height: .9rem;
-    z-index: 999;
+    position: relative;
+    height: .85rem;
+    line-height: .85rem;
     span {
         width: .16rem;
-        height: .3rem;
+        height: .29rem;
         background: url("../img/jinsefanhui@3x.png") no-repeat;
         background-size: 100% 100%;
         position: absolute;
         left: .3rem;
-        top: .3rem;
+        top: .28rem;
     }
 }
 
@@ -28,9 +25,10 @@ header {
 
 section {
     width: 100%;
+    -webkit-box-flex: 1;
+    overflow-y: scroll;
     background: #C14B45;
     color: #FFDDA1;
-    margin-top: .9rem;
 }
 
 section>div {
@@ -201,7 +199,6 @@ section>div {
         h6 {
             text-align: center;
             line-height: .6rem;
-            font-size: .26rem;
             a {
                 color: #9D6515;
             }
@@ -217,13 +214,12 @@ section>div {
 .follow_cover,
 .phone_cover {
     display: none;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, .2);
-    z-index: 99999;
 }
 
 

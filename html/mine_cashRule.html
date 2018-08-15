@@ -16,10 +16,10 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <meta name="keywords" content="速贷之家,极速借款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <title>速贷之家-现金提现规则</title>
-    <script src="../js/htmlrem.min.js"></script>
+    <script src="../js/htmlrem.js"></script>
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/mine_cashRule.css"> </head>
 
@@ -37,8 +37,7 @@
                     <p>3.一天仅支持提现一次，账户余额满5元即可申请提现。</p>
                     <p>4.申请提现后，提现款项将暂时冻结，直至提现处理完成；</p>
                     <p>5.请用户在申请提现时，务必认真填写自己的姓名、卡号，否则会导致提现不成功。若因填写错误导致提现不能到账，速贷之家将不再承担二次提现义务。</p>
-                    <h5></h5>
-                </div>
+                    <h5></h5> </div>
                 <h4>相关问题</h4>
                 <a href="mine_yijian.html">
                     <p class="mine_main_btm_list"> <span class="tiwen"></span>提问&反馈&联系我们<i class="jiantou"></i> </p>
@@ -47,6 +46,7 @@
         </section>
     </div>
     <script src="../js/jquery.min.js"></script>
+    <script src="../js/address.js"></script>
     <script src="../js/iscroll/iscroll4.js"></script>
     <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script src="../js/wx_sdk.js"></script>
@@ -55,18 +55,17 @@
         function headHide() {
             $("header").hide();
         }
-        $(window).load(function() {
+        window.onload = function () {
             var myscroll = new iScroll("wrapper", {
-                vScrollbar: false,
-                bounce: false
+                vScrollbar: false
+                , bounce: false
             })
             myscroll.refresh();
-            $('.backBtn').click(function() {
+            $('.backBtn').click(function () {
                 javascript: history.back(-1);
                 mback.exit();
             })
-        })
-
+        }
     </script>
 </body>
 

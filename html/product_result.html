@@ -16,10 +16,11 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <meta name="keywords" content="速贷之家,极速借款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <title>速贷之家-产品详情</title>
-    <script src="../js/htmlrem.min.js"></script>
+    <script src="../js/htmlrem.js"></script>
+
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/swiper.min.css">
     <link rel="stylesheet" href="../css/pubStyle.css">
@@ -46,6 +47,7 @@
             color: #44b7f7;
             opacity: .3;
         }
+
     </style>
 </head>
 
@@ -53,7 +55,7 @@
     <div class="container">
         <!--头部-->
         <header class="product_result_head"> <span class="back"></span>
-            <a href="../index.html"> <img src="../img/homeWhite.png" alt=""></a>
+            <a href="../index.html"><img src="../img/homeWhite.png" alt=""></a>
             <p class="head_title"></p> <span class="product_result_shoucang"></span> </header>
         <!--主体-->
         <div id="wrapper">
@@ -82,11 +84,13 @@
                                 </select><b>期限</b><img src="../img/xiasaNJIAO@3x.png" alt=""> </label>
                         </div>
                     </div>
+
                 </div>
                 <ul class="center_nav" id="center_nav">
                     <li class="navOnClick"><span>产品详情</span></li>
-                    <li><span>用户评论 <b class="evaluateNum"></b></span></li>
+                    <li><span>用户评论</span></li>
                 </ul>
+
                 <div>
                     <!--详情-->
                     <div class="details_btm"></div>
@@ -94,6 +98,7 @@
                     <div class="evaluate" style="display:none">
                         <div class="evaluate_three">
                             <div class="evaluate_num">
+                                <div class="evaluate_allNumbox"> <span class="evaluate_allNum">评论 <b></b></span> <span class="pr_comment">发表评论</span></div>
                                 <div class="evaluate_apartNumbox"> </div>
                             </div>
                             <!--最热评论-->
@@ -101,24 +106,7 @@
                                 最热评论
                             </h3>
                             <!--最热评论列表-->
-                            <div class="hot-comment-list">
-                                <!--
-                                <div class='comment-list-content " + b.platform_comment_id + "' data-id=" + b.platform_comment_id + ">
-                                    <div class="left"><img src="../img/sudaidai.png"></div>
-                                    <div class="right">
-                                        <div class='list-content-top'> <span>哦买噶</span> <span class='product_xing star'><b>5</b > <i> </i> <i> </i> <i> </i> <i> </i> <i> </i></span > <i>5</i>星</div> 
-                                         <h6><span>8-6</span><span>22:12</span><span>已批贷</span></h6>
-                                            <p><a href="">就是上谁的那就是觉是的急急急你们样的这这里的文就是上谁的那就是觉是的急急急你们样的这这里的文就是上谁的那就是觉是的急急急你们样的这这里的文就是上谁的那就是觉是的急急急你们样的这这里的文急急急你们样的这这里的的这这里的文</a></p>
-                                            <div class='list-content-center'><label class='ping'></label> <span class='thumbs' data-useful=""><i class='zanicon'></i> <b> 345</b></span></div>
-                                            <div class='list-content-btm'>
-                                                <p><span>德吉的你：</span>你好水啊，好水好谁！</p>
-                                                <p><span>德吉的你</span>回复<span>小奶油：</span>wozhidao我知道！你是最帅的啦 黄赌毒黑哈哈哈哈无或过nindjie今日鹅鹅鹅发热uwi …</p>
-                                                <div class='seeMore' data-id=" + b.platform_comment_id + "> 查看更多> </div>
-                                            </div>
-                                            <h5 class='line'> </h5>
-                                        </div>
-                                    </div>
---></div>
+                            <div class="hot-comment-list"></div>
                             <!--最新评论-->
                             <h3 class="new-comment-title">
                                 最新评论
@@ -129,6 +117,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <!--底部-->
@@ -140,16 +129,17 @@
                 <dd>攻略</dd>
             </dl> <span class="jiekuan gradient">立即申请</span> </div>
         <!--悬浮切换按钮-->
-        <ul class="fixed_tab">
+        <ul class="fixed_nav">
             <li class="navOnClick fixed_li"><span>产品详情</span></li>
-            <li class="fixed_li"><span>用户评论 <b class="evaluateNum"></b></span></li>
+            <li class="fixed_li"><span>用户评论</span></li>
         </ul>
-        <div class="addcommentIcon"></div>
         <!--回复输入区-->
         <div class="replyBox">
-            <textarea placeholder="" id="reply" class="reply"></textarea>
+            <textarea placeholder="回复楼主" id="reply" class="reply"></textarea>
             <!--            <input type="textarea" placeholder="回复楼主" id="reply" class="reply" maxlength="140">-->
-            <button id="send">发送</button> <span class="numLen"></span> </div>
+            <button id="send">发送</button>
+            <span class="numLen"></span>
+        </div>
         <!--回复弹窗-->
         <div class="replyCover">
             <div class="replyPopup"></div>

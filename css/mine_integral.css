@@ -22,7 +22,7 @@ header {
 .head-top span {
     width: .16rem;
     height: .29rem;
-    background: url("../img/headBack.png") no-repeat;
+    background: url("../img/%E7%AE%AD%E5%A4%B4.png") no-repeat;
     background-size: 100% 100%;
     position: absolute;
     left: .3rem;
@@ -294,7 +294,7 @@ header {
     position: absolute;
     top: 0;
     lefT: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .wx_fen span,

@@ -16,52 +16,85 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <meta name="keywords" content="速贷之家,极速借款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <title>速贷之家-帮助中心</title>
-    <script src="../js/htmlrem.min.js"></script>
-    <link rel="stylesheet" href="../css/resets.css" />
-    <link rel="stylesheet" href="../css/mine_help.css"> </head>
+    <script src="../js/htmlrem.js"></script>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/mine.css"> </head>
 
 <body>
     <div class="container">
         <!--头部-->
-        <header id="header">
-            <a href="mine.html" class="backBtn"></a>帮助中心 </header>
+        <header class="mine_help_head"> <span class="back"></span>帮助中心 </header>
         <!--主体-->
-        <div class="mine_help_main">
-            <div class="mine_top">
-                <dl class="call_phone">
-                    <dt></dt>
-                    <dd>
-                        <h3>在线客服</h3>
-                        <p>工作日实时解答相关难题<br>(周一至周五09:30-19:00)</p>
-                    </dd>
-                    <span id="kefu"></span>
-                </dl>
-                <div class="top_nav">
-                    <a href="mine_hot_issues.html">热门问题</a>
-                    <a href="strategy.html">贷款攻略</a>
-                </div>
-            </div>
-            <ul id="center_nav"></ul>
-            <div id="list">
-                <h3 class="showTitle"></h3>
-                <div id="list_btm"></div>
-            </div>
+        <div class="mine_help_main" id="wrapper">
+            <div class="scroll"></div>
         </div>
-        <footer class="gradient">
-            <a class="callBtn">免费热线</a>
-            <a id="qqPage" target="_blank" href="">官方QQ群</a>
-            <a class="mine_main_btm_list">意见反馈</a>
-        </footer>
+        <footer class="mine_main_btm_list" style="border-top:1px solid #e6e6e6"> <span class="tiwen"></span>提问&反馈&联系我们<i class="jiantou"></i> </footer>
     </div>
     <script src="../js/jquery.min.js"></script>
-    <script src="../js/controler/global.js"></script>
-    <script src="/js/controler/mine_help.js"></script>
+    <script src="../js/address.js"></script>
+    <script src="../js/iscroll/iscroll4.js"></script>
     <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
     <script src="../js/wx_sdk.js"></script>
     <script src="../js/statistics.js"></script>
+    <script>
+        window.onload = function () {
+            var myscroll = new iScroll("wrapper", {
+                vScrollbar: false
+            });
+            var fromLogin = GetQueryString("fromLogin");
+            $(".back").click(function () {
+                if (fromLogin == '1') {
+                    window.location = localStorage.backHref
+                }
+                else {
+                    javascript: history.back(-1);
+                }
+                mback.exit();
+                window.webkit.messageHandlers.exit.postMessage();
+            });
+            /*ajax渲染*/
+            $.ajax({
+                url: api_sudaizhijia_host + "/v1/help"
+                , type: "get"
+                , dataType: "json"
+                , success: function (json) {
+                    if (json.code == 200 && json.error_code == 0) {
+                        $('.scroll').append("<h3>" + json.data[0].type_name + "</h3>");
+                        var html = "";
+                        $.each(json.data[0].list, function (i, b) {
+                            html += "<ul class='mhm_ul'>" + " <li>" + b.title + "<span></span></li>" + "<p>" + b.content + "</p>" + "</ul>";
+                        })
+                        $(".scroll").append(html)
+                        myscroll.refresh();
+                        $(".mhm_ul>li").on("click", function () {
+                            $(this).parents(".mhm_ul").siblings('ul').find("span").removeClass("onshang");
+                            $(this).parents(".mhm_ul").siblings('ul').find("p").hide();
+                            $(this).find("span").toggleClass("onshang");
+                            $(this).next("p").toggle();
+                            myscroll.refresh();
+                        })
+                    }
+                    else {
+                        alert(json.error_message)
+                    }
+                }
+            });
+            /*反馈判断*/
+            $(".mine_main_btm_list").click(function () {
+                if (localStorage.userId) {
+                    window.location.href = "mine_yijian.html"
+                }
+                else {
+                    local.login_reffer = window.location.href;
+                    local.backHref = document.referrer;
+                    window.location.href = "login.html"
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

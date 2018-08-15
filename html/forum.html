@@ -16,11 +16,11 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <script src="../js/htmlrem.min.js"></script>
+    <meta name="keywords" content="速贷之家,极速借款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <script src="../js/htmlrem.js"></script>
     <link rel="stylesheet" href="../css/reset.css" />
-    <title>速贷之家-社区</title>
+    <title>速贷之家-论坛</title>
     <style>
         html,
         body {
@@ -28,22 +28,21 @@
             height: 100%;
             overflow: hidden;
         }
-
+        
         .container {
             -webkit-overflow-scrolling: touch;
             overflow: hidden;
             overflow-y: scroll;
         }
-
+        
         iframe {
             display: block;
             -webkit-box-flex: 1;
             overflow-y: scroll;
             position: relative;
         }
-
         /*未加载数据展示*/
-
+        
         .no_network_cover {
             display: inline-block;
             width: 3.5rem;
@@ -52,28 +51,74 @@
             left: 50%;
             margin-left: -1.75rem;
         }
-
+        
         .no_network {
             width: 3.5rem;
             height: 2rem;
         }
-
+        
         .network_reload {
             width: 1.6rem;
             height: .3rem;
             margin: .2rem auto;
             display: block;
         }
-
         /*底部*/
-
-        .forum_foot dl:nth-of-type(3) dt {
-            background: url("../img/nav3.1.jpg") no-repeat;
+        
+        .mine_foot {
+            width: 100%;
+            height: .94rem;
+            border-top: 1px solid #EBEBEB;
+            display: -webkit-box;
+            background: white;
+        }
+        
+        .mine_foot dl {
+            -webkit-box-flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .mine_foot dl dt {
+            width: .42rem;
+            height: .42rem;
+            position: absolute;
+            top: .13rem;
+            left: 50%;
+            margin-left: -0.21rem;
+        }
+        
+        .mine_foot dl dd {
+            width: 100%;
+            height: .30rem;
+            font-size: .2rem;
+            color: #808080;
+            position: absolute;
+            top: .6rem;
+        }
+        
+        .mine_foot dl:nth-of-type(1) dt {
+            background: url("../img/home@3x.png") no-repeat;
             background-size: 100%;
         }
-
-        .forum_foot dl:nth-of-type(3) dd {
+        
+        .mine_foot dl:nth-of-type(2) dt {
+            background: url("../img/supermarket@3x.png") no-repeat;
+            background-size: 100%;
+        }
+        
+        .mine_foot dl:nth-of-type(3) dt {
+            background: url("../img/forum1.png") no-repeat;
+            background-size: 100%;
+        }
+        
+        .mine_foot dl:nth-of-type(3) dd {
             color: #44b7f7;
+        }
+        
+        .mine_foot dl:nth-of-type(4) dt {
+            background: url("../img/my1@3x.png") no-repeat;
+            background-size: 100%;
         }
 
     </style>
@@ -87,7 +132,7 @@
         <div class="no_network_cover" style="display:none"> <img src="../img/no_network@3x.png" alt="" class="no_network"><img src="../img/network_reload@3x.png" alt="" class="network_reload" onclick="window.location.reload()"> </div>
         <!--        </div>-->
         <!--底部-->
-        <footer class="forum_foot fixed_nav">
+        <footer class="mine_foot">
             <dl>
                 <a href="../index.html" name="navtab"> <dt></dt>
                     <dd>首页</dd>
@@ -100,7 +145,7 @@
             </dl>
             <dl>
                 <a href="Javascript:;"> <dt></dt>
-                    <dd>社区</dd>
+                    <dd>论坛</dd>
                 </a>
             </dl>
             <dl> <a href="mine.html" name="navtab"><dt></dt>

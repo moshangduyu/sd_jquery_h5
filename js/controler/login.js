@@ -6,19 +6,11 @@ var loginController = {
         localFun.resizeFooter();
         this.initShowView();
         this.initEventView();
-        this.doLoginJiyanView();
-
-        function GetQueryString(name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-            var r = window.location.search.substr(1).match(reg);
-            if (r != null) return unescape(r[2]);
-            return null;
-        }
-        local.sd_duiba_sign = GetQueryString("sd_duiba_sign") || '';
     },
     initShowView: function () {
         //默认显示
         $(".tab_one").show();
+        $(".top_tab>a").eq(0).addClass("show");
         //快捷登录按钮显示状态
         if (phonez.test($(".phone").val())) {
             $(".btn_one").addClass("next_click");
@@ -28,7 +20,7 @@ var loginController = {
         var that = this;
         //返回按钮
         $('.login_back_btn').click(function () {
-            //判断是否为社区跳转
+            //判断是否为论坛跳转
             if (localStorage.login_reffer == 'forum.html') {
                 window.location.href = "/html/forum.html";
             } //判断是否为修改密码跳转
@@ -95,112 +87,78 @@ var loginController = {
                 $(this).next('span').hide();
             }
         });
+        //btn点击
+        $(".btn_two").on("click", function () {
+            that.telTwo = $("#phone_zhang").val();
+            that.pasTwo = $.md5($("#password").val());
+            if ($(".btn_two").hasClass("next_click")) {
+                if (that.jiyan == "") {
+                    that.doPasswordLoginView();
+                }
+                if (that.jiyan == "true") {
+                    that.doJiyanView(1);
+                }
+            }
+        })
+        /*忘记密码*/
+        $(".forget").click(function () {
+            that.doJiyanView(2);
+        })
     },
-    //登录极验验证
-    doLoginJiyanView: function () {
+    //极验验证
+    doJiyanView: function (state) {
         var that = this;
-        var handler = function (captchaObj) {
+        $("#popup-captcha-mobile").html("");
+        $("#mask, #popup-captcha-mobile").show(function () {
+            $("#mask").click(function () {
+                $("#mask, #popup-captcha-mobile").hide();
+            });
+        });
+        //生成12位随机数
+        var arr = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'l', 'k', 'j', 'h', 'g', 'f', 'd', 's', 'a', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'L', 'K', 'J', 'H', 'G', 'F', 'D', 'S', 'A', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'],
+            len = arr.length,
+            i = 0,
+            string = [];
+        for (; i < 12; i++) {
+            string.push(arr[Math.floor(0 + Math.random() * (len - 0))]);
+        }
+        var unique = string.join('');
+        var handlerPopupMobile = function (captchaObj) {
+            captchaObj.appendTo("#popup-captcha-mobile");
             captchaObj.onSuccess(function () {
                 var validate = captchaObj.getValidate();
-                if (!validate) {
-                    $.popupCover({
-                        content: '请完成验证'
-                    });
-                } else {
-                    //极验二次验证
-                    $.ajax({
-                        url: that.geetestUrl_verification,
-                        type: 'POST',
-                        dataType: 'json',
-                        data: {
-                            client_type: 'h5',
-                            uuid: that.uuid,
-                            geetest_challenge: validate.geetest_challenge,
-                            geetest_validate: validate.geetest_validate,
-                            geetest_seccode: validate.geetest_seccode
-                        },
-                        beforeSend: function () {},
-                        success: function (data) {
-                            setTimeout(function () {
-                                if (data.code == 200 && data.error_code == 0) {
-                                    that.doPasswordLoginView();
-                                } else {
-                                    $.popupCover({
-                                        content: '登录失败，请完成验证',
-                                        callback: function () {
-                                            captchaObj.reset();
-                                        }
-                                    })
-                                }
-                            }, 1500);
-                        }
-                    });
-                }
-            })
-            //btn点击
-            $(".btn_two").click(function () {
-                that.telTwo = $("#phone_zhang").val();
-                that.pasTwo = $.md5($("#password").val());
-                if ($(".btn_two").hasClass("next_click")) {
-                    if (that.jiyan == "") {
+                //极验二次验证
+                service.doAjaxRequest({
+                    url: '/v1/geetes/verification',
+                    type: 'GET',
+                    data: {
+                        type: "mobile",
+                        "unique": unique,
+                        geetest_challenge: validate.geetest_challenge,
+                        geetest_validate: validate.geetest_validate,
+                        geetest_seccode: validate.geetest_seccode
+                    }
+                }, function (obj) {
+                    $("#mask, #popup-captcha-mobile").hide();
+                    if (state == 1) {
                         that.doPasswordLoginView();
+                    } else if (state == 2) {
+                        window.location.href = "/html/forgetPhone.html"
                     }
-                    if (that.jiyan == "true") {
-                        $('.geetest_panel_loading,.geetest_panel_success,.geetest_panel_error').css({
-                            height: '113px'
-                        });
-                        captchaObj.verify();
-                    }
-                }
-            });
-        };
-        service.doAjaxRequest({ //获取uuid
-            url: '/v2/geetest/uuid',
-            type: 'GET',
-            data: {
-                'client_type': 'h5'
-            }
-        }, function (data) {
-            var uuid = that.uuid = data.geetestUuid;
-            var geetestUrl_captcha = data.geetestUrl_captcha;
-            that.geetestUrl_verification = data.geetestUrl_verification;
-            service.doAjaxRequest({ //验证uuid
-                url: '/v2/geetest/uuid/verification',
-                type: 'GET',
-                data: {
-                    'client_type': 'h5',
-                    'uuid': uuid
-                }
-            }, function (data) {
-                if (data.status == true) {
-                    //极验一次验证
-                    $.ajax({
-                        url: geetestUrl_captcha,
-                        type: 'GET',
-                        dataType: 'json',
-                        data: {},
-                        beforeSend: function () {},
-                        success: function (data) {
-                            initGeetest({
-                                gt: data.gt,
-                                challenge: data.challenge,
-                                offline: !data.success,
-                                new_captcha: data.new_captcha,
-                                product: 'bind'
-                            }, handler);
-                        }
-                    });
-                }
-            }, function (data) {
-                $.popupCover({
-                    content: data.error_message
                 })
             })
+        };
+        //极验一次验证
+        service.geetesCaptcha({
+            "type": "mobile",
+            "unique": unique
         }, function (data) {
-            $.popupCover({
-                content: data.error_message
-            })
-        })
+            initGeetest({
+                gt: data.gt,
+                challenge: data.challenge,
+                offline: !data.success
+            }, handlerPopupMobile);
+        });
     },
     //快捷登录脚本
     doSmsLoginView: function () {
@@ -212,7 +170,7 @@ var loginController = {
                 "mobile": $(".phone").val()
             }
         }, function (json) {
-            local.codesign = json.sign;
+            local.sign = json.sign;
             window.location.href = "/html/loginQuick.html";
         }, function (json) {
             $.popupCover({
@@ -235,28 +193,22 @@ var loginController = {
             cnzz_TrackEvent('wap', '用户登录', '账号密码登录', '');
             local.userId = obj.sd_user_id;
             local.indent = obj.indent;
-            local.username = obj.user_name;
+            local.username = obj.username;
             local.phone = obj.mobile;
+            local.sex = obj.sex;
+            local.name = obj.realname;
             local.token = obj.accessToken;
-            local.user_photo = obj.user_photo;
-            if (local.sd_duiba_sign != '') {
-                that.duiba();
-            } else {
-                if (obj.is_identity == 1) {
-                    if (localStorage.login_reffer) {
-                        var reffer = localStorage.login_reffer;
-                        localStorage.removeItem('login_reffer');
-                        if (reffer.indexOf('?') >= 0) {
-                            window.location.href = reffer + '&fromLogin=1';
-                        } else {
-                            window.location.href = reffer + '?fromLogin=1';
-                        }
-                    } else {
-                        window.location.href = "/index.html"
-                    }
+            if (localStorage.login_reffer) {
+                var reffer = localStorage.login_reffer;
+                localStorage.removeItem('login_reffer');
+                if (localStorage.fromLogin) {
+                    localStorage.removeItem('fromLogin');
+                    window.location.href = reffer + '&fromLogin=1';
                 } else {
-                    window.location.href = "mine_change_indent.html"
+                    window.location.href = reffer + '?fromLogin=1';
                 }
+            } else {
+                window.location.href = "/index.html"
             }
         }, function (json) {
             $.popupCover({
@@ -269,20 +221,6 @@ var loginController = {
             that.jiyan = $.cookie('jiyan') || '';
         })
     },
-    //兑吧
-    duiba: function () {
-        var _this = this;
-        service.getShop({
-            "redirect": local.sd_duiba_sign
-        }, function (obj) {
-            localStorage.removeItem('sd_duiba_sign');
-            window.location.href = obj.redirect_url
-        }, function (json) {
-            $.popupCover({
-                content: json.error_message
-            })
-        });
-    }
 };
 $(function () {
     loginController.initView();

@@ -1,16 +1,15 @@
 var url = location.href.split("#")[0];
 $.ajax({
-    type: "post",
-    url: api_sudaizhijia_host + "/v1/wechat",
-    dataType: "json",
-    data: {
+    type: "post"
+    , url: api_sudaizhijia_host + "/v1/wechat"
+    , dataType: "json"
+    , data: {
         url: url
-    },
-    beforeSend: function () {},
-    success: function (json) {
+    }
+    , success: function (json) {
         weixin(json);
-    },
-    error: function () {}
+    }
+    , error: function () {}
 });
 var userId = localStorage.userId;
 var link = window.location.href;
@@ -28,27 +27,27 @@ function weixin(json) {
     wx.ready(function () {
         //分享给好友
         wx.onMenuShareAppMessage({
-            title: '极速贷款，就上速贷之家！', // 分享标题
-            desc: '邀友得现金，积分兑换大玩转，就上速贷之家！', // 分享描述
+            title: '立即注册，与我分享奖励', // 分享标题
+            desc: '得积分兑红包，抽爱疯7！极速借款，上速贷之家！', // 分享描述
             link: link, // 分享链接
             imgUrl: m_sudaizhijia_host + '/img/sudai_logo.png', // 分享图标
             type: 'link', // 分享类型,music、video或link，不填默认为link
             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-            success: function () {},
-            cancel: function () {
+            success: function () {}
+            , cancel: function () {
                 // 用户取消分享后执行的回调函数
             }
         });
         //分享到朋友圈
         wx.onMenuShareTimeline({
-            title: '极速贷款，就上速贷之家！', // 分享标题
-            desc: '邀友得现金，积分兑换大玩转，就上速贷之家！', // 分享描述
+            title: '立即注册，与我分享奖励', // 分享标题
+            desc: '得积分兑红包，抽爱疯7！极速借款，上速贷之家！', // 分享描述
             link: link, // 分享链接
             imgUrl: m_sudaizhijia_host + '/img/sudai_logo.png', // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
-            },
-            cancel: function () {
+            }
+            , cancel: function () {
                 // 用户取消分享后执行的回调函数
             }
         });

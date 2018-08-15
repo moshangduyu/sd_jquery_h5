@@ -2,6 +2,7 @@
 /*头部*/
 header {
   width: 100%;
+  
   text-align: center;
   font-size: .34rem;
   color: white;
@@ -12,7 +13,7 @@ header {
 header span {
   width: .16rem;
   height: .29rem;
-  background: url("../img/headBack.png") no-repeat;
+  background: url("../img/%E7%AE%AD%E5%A4%B4.png") no-repeat;
   background-size: 100% 100%;
   position: absolute;
   left: .3rem;

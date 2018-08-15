@@ -19,7 +19,7 @@ var matchingDataController = {
     },
     //时间显示
     doTimeShowView: function () {
-        $(".nianyue>span").on('click', function () {
+        $(".nianyue>span").click(function () {
             $(this).addClass("on").siblings().removeClass("on");
             if ($(this).hasClass("tian")) {
                 $(".time").attr("placeholder", "7-40天")
@@ -47,7 +47,7 @@ var matchingDataController = {
     },
     //已登录状态点击匹配按钮
     doLoggedInBtnView: function () {
-        $("#begin").on('click', function () {
+        $("#begin").click(function () {
             var moneyVal = Number($(".money").val());
             var timeVal = Number($(".time").val());
             if (moneyVal < 500 || moneyVal > 100000) {
@@ -114,7 +114,7 @@ var matchingDataController = {
     },
     //未登录状态点击匹配按钮
     doNotLoggedInBtnView: function () {
-        $("#begin").on('click', function () {
+        $("#begin").click(function () {
             local.login_reffer = window.location.href;
             window.location.href = "/html/login.html"
         })

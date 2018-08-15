@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>信用资料</title>
+    <script src="../js/htmlrem.js"></script>
+    <link rel="stylesheet" href="../css/model.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/mine_personal.css">
+    <style>
+        .mine_personal_main {
+            font-size: .28rem;
+        }
+        
+        ul {
+            width: 100%;
+        }
+        
+        ul a {
+            color: #4d4d4d;
+        }
+        
+        ul li {
+            width: 100%;
+            height: .9rem;
+            line-height: .9rem;
+            padding-left: .3rem;
+            border-bottom: 1px solid #e6e6e6;
+            position: relative;
+            background: white;
+        }
+        
+        ul a:nth-of-type(2) {
+            display: block;
+            border-bottom: 1px solid #e6e6e6;
+            margin-top: .2rem;
+        }
+        
+        b {
+            font-weight: 400;
+            float: right;
+            padding-right: .7rem;
+        }
+        
+        ul a:last-child {
+            display: block;
+            margin-top: .2rem;
+        }
+        
+        ul li span {
+            width: .3rem;
+            height: .3rem;
+            position: absolute;
+            top: .3rem;
+            right: .3rem;
+            background: url("../img/%E7%AE%AD%E5%A4%B4%E5%8F%B32.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        
+        .picture_span {
+            position: absolute;
+            top: .1rem;
+            width: .7rem;
+            height: .7rem;
+            background: url("../img/%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F.png") no-repeat;
+            background-size: 100% 100%;
+            border-radius: 50%;
+        }
+        
+        ul p {
+            padding: .15rem .3rem;
+            line-height: .5rem;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header><span onclick="javascript:history.back(-1)"></span>信用资料</header>
+        <div class="mine_personal_main">
+            <ul>
+                <li>头像<span class="picture_span"></span></li>
+                <li>用户名<b style="padding-right:.4rem" class="mine_username">马杀鸡</b></li>
+                <a href="mine_personal_phone.html">
+                    <li>手机号<b class="phone">18310496220</b> <span></span></li>
+                </a>
+                <a href="accurate.html">
+                    <li>精确匹配信息<span></span></li>
+                </a>
+                <a href="mine_personal_shenfen.html?indent=521">
+                    <li>身份修改<span></span></li>
+                </a>
+                <a href="mine_personal_renzheng.html">
+                    <li>认证标签<span></span></li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/address.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/wx_sdk.js"></script>
+    <script src="../js/statistics.js"></script>
+    <script>
+        /*获取用户名*/
+        if (localStorage.username != "") {
+            $(".mine_username").text(localStorage.username)
+        }
+        else {
+            $(".mine_username").text("sd_" + localStorage.phone)
+        }
+        $(".phone").text(localStorage.phone)
+    </script>
+</body>
+
+</html>

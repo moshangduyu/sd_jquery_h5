@@ -125,7 +125,7 @@ var integralController = {
     doWxView: function () {
         var url = location.href.split("#")[0];
         var _title = '立即注册，与我分享奖励',
-            _desc = '得积分兑红包,抽爱疯7!极速贷款,上速贷之家!',
+            _desc = '得积分兑红包,抽爱疯7!极速借款,上速贷之家!',
             _imgUrl = m_sudaizhijia_host + '/img/sudai_logo.png',
             _link = localStorage.linkUrl;
         $.ajax({

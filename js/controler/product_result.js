@@ -18,7 +18,6 @@ var productResultController = {
         that.into = $.GetQueryString("into");
         that.fromLogin = $.GetQueryString("fromLogin");
         //方法调用
-        this.initEventView();
         this.initBackView();
         this.initSwitchTabView(that.myScroll);
         this.initFixedNavView(that.myScroll);
@@ -27,16 +26,6 @@ var productResultController = {
         this.changeHotListView();
         this.changeNewListView();
         this.doContentBtnView.initView();
-    },
-    initEventView: function () {
-        var that = this;
-        /*点击评论跳转*/
-        $.LogonStatusEvent($(".addcommentIcon"), function () {
-            window.location.href = "/html/product_result_addcomment.html?productId=" + that.productId
-        }, function () {
-            local.backHref = document.referrer;
-            local.fromLogin = 1;
-        });
     },
     //返回按钮
     initBackView: function () {
@@ -52,10 +41,10 @@ var productResultController = {
     //tab点击切换ajax渲染
     initSwitchTabView: function (myScroll) {
         var that = this;
-        $(".center_nav>li,.fixed_tab>li").on("click", function () {
+        $(".center_nav>li,.fixed_nav>li").on("click", function () {
             var idx = $(this).index();
             $(".center_nav>li").eq(idx).addClass("navOnClick").siblings().removeClass("navOnClick");
-            $(".fixed_tab>li").eq(idx).addClass("navOnClick").siblings().removeClass("navOnClick");
+            $(".fixed_nav>li").eq(idx).addClass("navOnClick").siblings().removeClass("navOnClick");
             switch (idx) {
                 case 0:
                     $(".details_btm").show().siblings("div").hide();
@@ -67,21 +56,20 @@ var productResultController = {
             }
             myScroll.refresh();
             if ($(this).hasClass('fixed_li')) {
-                $('.fixed_tab').hide();
+                $('.fixed_nav').hide();
                 myScroll.scrollToElement(center_nav, 500);
             }
         });
     },
-
     //悬浮切换按钮
     initFixedNavView: function (myScroll) {
         myScroll.on('scroll', function () {
             var top = $("#wrapper").offset().top;
             var scrollTop = $('.center_nav').offset().top - top;
             if (scrollTop <= 0) {
-                $('.fixed_tab').show();
+                $('.fixed_nav').show();
             } else {
-                $('.fixed_tab').hide();
+                $('.fixed_nav').hide();
             }
         })
     },
@@ -238,18 +226,15 @@ var productResultController = {
     doProductDetailView: function (obj) {
         var myScroll = this.myScroll;
         $(".one_show").hide();
-        if (obj.comment_count != 0) {
-            $('.evaluateNum').html('(' + obj.comment_count + ')');
-        }
         var html = "";
         $('.head_title').text(obj.platform_product_name); //标题
-        html += "<div class='details_one' data-id=" + obj.platform_product_id + ">" + "<div><img src=" + obj.product_logo + "></div>" + "<h3 class='productName'>" + obj.platform_product_name + "</h3>" + "<b class='platformName' style='display:none' data-id=" + obj.platform_id + ">" + obj.platform_name + "</b>" + "<p class='p1' style='height:.55rem'>";
+        html += "<div class='details_one' data-id=" + obj.platform_product_id + ">" + "<div><img src=" + obj.product_logo + "></div>" + "<h3 class='productName'>" + obj.platform_product_name + "</h3>" + "<b class='platformName' style='display:none' data-id=" + obj.platform_id + ">" + obj.platform_name + "</b>" + "<p class='p1'>";
         $.each(obj.tag_name, function (x, y) {
             html += "<span style='color:#" + y.font_color + ";background:#" + y.bg_color + ";border-color:#" + y.boder_color + "' >" + y.name + "</span>";
         });
-        html += " </p>" + "</div>" + "<div class='details_two' style='position:relative;top:-.1rem'><p>" + " <span>产品人气：</span>" + "<i data-wih=" + obj.success_width + " class='bgShow'>" + "<b>" + obj.success_num + "</b>" + "</i>" + " <b>" + obj.success_count + "人申请</b></p>" + " <p>" + " <span>放款速度：</span>" + " <i data-wih=" + obj.fast_width + " class='bgShow'>" + "<b>" + obj.fast_num + "</b>" + "</i>" + " <b>平均" + obj.fast_speed + "小时</b><span class='tishi'></span></p>" + "<p>" + " <span>下款概率：</span>" + " <i data-wih=" + obj.pass_width + " class='bgShow'>" + "<b>" + obj.pass_num + "</b>" + "</i>" + " <b>通过率" + obj.pass_rate + "</b>" + "</p>" + "</div>";
+        html += " </p>" + "</div>" + "<div class='details_two' style='position:relative;top:-.2rem'><p>" + " <span>产品人气：</span>" + "<i data-wih=" + obj.success_width + " class='bgShow'>" + "<b>" + obj.success_num + "</b>" + "</i>" + " <b>" + obj.success_count + "人申请</b>" + "<span class='tishi'></span></p>" + " <p style='overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;'>" + " <span>放款速度：</span>" + " <i data-wih=" + obj.fast_width + " class='bgShow'>" + "<b>" + obj.fast_num + "</b>" + "</i>" + " <b>平均" + obj.fast_speed + "小时,最快" + obj.fast_time + "放款</b>" + "</p>" + "<p>" + " <span>下款概率：</span>" + " <i data-wih=" + obj.pass_width + " class='bgShow'>" + "<b>" + obj.pass_num + "</b>" + "</i>" + " <b>通过率" + obj.pass_rate + "," + obj.comment_count + "人评论</b>" + "</p>" + "</div>";
         if (obj.banner_img != "") {
-            html += "<div class='details_three' style='margin-top:0;margin-bottom:.1rem'><img src=" + obj.banner_img + "></div>";
+            html += "<div class='details_three' style='margin-top:0;margin-bottom:.2rem'><img src=" + obj.banner_img + "></div>";
         }
         $(".details").append(html);
         myScroll.refresh();
@@ -325,7 +310,7 @@ var productResultController = {
         myScroll.refresh();
         $('.tishi').click(function () {
             $.popupCover({
-                content: "基于速贷之家千万借款用户真实评论生成!"
+                content: "基于速贷之家千万借款用户真实评价生成!"
             });
         });
         productResultController.doWxView();
@@ -351,10 +336,12 @@ var productResultController = {
         var that = this;
         var html1 = "",
             html2 = "";
-        html1 += "<div class='evaluate_two'>" + "<p class='prc_zhdf'>产品综合满意度 <span>(" + obj.score + "分)</span></p><div class='product_daxing star'><b>" + obj.score + "</b><i></i><i></i><i></i><i></i><i></i></div></div>";
+        html1 += "<div class='evaluate_two'>" + "<p class='prc_zhdf'>产品综合满意度 <span>(" + obj.score + "分)</span></p><div class='product_daxing'><b>" + obj.score + "</b><i></i><i></i><i></i><i></i><i></i></div></div>";
         $(".evaluate_three").before(html1);
-        localFun.star();
-
+        localFun.starBig();
+        if (obj.count_all != "0") {
+            $('.evaluate_allNum>b').html('(' + obj.count_all + ')');
+        }
         $.each(obj.result_list, function (i, b) {
             html2 += '<span data-id=' + b.result_id + '>' + b.result_name + '<b>';
             if (Number(b.result_count) > 0) {
@@ -365,7 +352,13 @@ var productResultController = {
         $('.evaluate_apartNumbox').html(html2);
         $('.evaluate_apartNumbox>span').eq(0).addClass('onapartNumbox');
         that.myScroll.refresh()
-
+        /*点击评论跳转*/
+        $.LogonStatusEvent($(".pr_comment"), function () {
+            window.location.href = "/html/product_result_addcomment.html?productId=" + that.productId
+        }, function () {
+            local.backHref = document.referrer;
+            local.fromLogin = 1;
+        });
         /*评论列表切换显示*/
         $('.evaluate_apartNumbox>span').click(function () {
             if ($(this).hasClass('onapartNumbox')) {
@@ -380,7 +373,7 @@ var productResultController = {
             }
             that.myScroll.refresh();
             if ($('.center_nav').offset().top > 0) {
-                $('.fixed_tab').hide();
+                $('.fixed_nav').hide();
             }
         });
     },
@@ -389,45 +382,18 @@ var productResultController = {
         var that = this;
         var html = "";
         $.each(obj.list, function (i, b) {
-            html += "<div class='comment-list-content " + b.platform_comment_id + "' data-id=" + b.platform_comment_id + " data-name=" + b.username + ">" +
-                "<div class='left'>";
-            if (b.user_photo != '') {
-                html += "<img src=" + b.user_photo + ">";
-            } else {
-                html += "<img src='../img/sudaidai.png'>";
-            }
-            html += "</div>" +
-                "<div class='right'>" +
-                "<div class='list-content-top'><span> " + b.username + "</span><span class='product_xing star'><b>" + b.score + "</b><i></i><i></i><i></i><i></i><i></i></span><i>" + b.score + "</i>星</div > " +
-                "<h6><span>" + b.create_date + "</span><span>" + b.result + "</span></h6>" +
-                "<p id='landlord_content'>" + b.content + "</p>" +
-                "<div class='list-content-center'><label class='ping'></label> <span class='thumbs' data-useful=" + b.is_useful + "><i class='zanicon'></i><b>" + b.use_count + " </b></span></div>";
-            html += "<div class='list-content-btm seeMore' data-id=" + b.platform_comment_id + ">";
+            html += "<div class='comment-list-content " + b.platform_comment_id + "' data-id=" + b.platform_comment_id + "> <div class = 'list-content-top'> <span> " + b.username + " </span> <span class='product_xing'><b>" + b.score + "</b > <i> </i> <i> </i> <i> </i> <i> </i> <i> </i></span > <i>" + b.score + "</i>星</div> <div class = 'list-content-center'> <span >" + b.create_date + " </span> <label class = 'ping'> " + b.reply_count + " </label> <span class='thumbs' data-useful=" + b.is_useful + "><i class='zanicon'></i> <b> " + b.use_count + " </b></span>" + "</div> <h6> " + b.result + " </h6> <p>" + b.content + "</p> <div class = 'list-content-btm'>";
             $.each(b.replys, function (a, i) {
-                if (i.parent_username != '') {
-                    html += "<p><span data-id=" + i.id + ">" + i.username + "</span>回复<span>" + i.parent_username + "：</span>" + i.content + "</p>";
-                } else {
-                    html += "<p><span data-id=" + i.id + ">" + i.username + "：</span>" + i.content + "</p>";
-                }
-
+                html += "<p> <span> <b> " + i.username + "</b>回复：</span> " + i.content + "</p> ";
             })
-
             if (b.replys_sign == 1) {
-                html += "<div> 查看更多> </div>";
+                html += "<div class = 'seeMore' data-id=" + b.platform_comment_id + "> 查看更多>  </div>";
             }
-            html += "</div>";
-            html += "<h5 class='line'> </h5>" +
-                "</div>" +
-                "</div>";
+            html += " </div> <h5 class='line'> </h5> </div > ";
         });
         $('.hot-comment-title').show();
         $('.hot-comment-list').html(html);
-        $.each($('.list-content-btm'), function () {
-            if ($(this).find('p').length <= 0) {
-                $(this).hide();
-            }
-        });
-        localFun.star();
+        localFun.starSmall();
         $.each($('.thumbs'), function () {
             var useful = $(this).data('useful');
             if (useful == 1) {
@@ -439,12 +405,13 @@ var productResultController = {
     changeHotListView: function () {
         var that = this;
         service.doAjaxRequest({
-            url: '/v4/comment/hots',
+            url: '/v3/comment/hots',
             type: 'GET',
             data: {
                 "productId": that.productId,
                 "resultId": that.resultId,
-                "pageSize": that.pageSize
+                "pageSize": that.pageSize,
+                "pageNum": ""
             }
         }, function (json) {
             that.doHotListView(json);
@@ -458,36 +425,14 @@ var productResultController = {
         var that = this;
         var html = "";
         $.each(obj.list, function (i, b) {
-            html += "<div class='comment-list-content " + b.platform_comment_id + "' data-id=" + b.platform_comment_id + " data-name=" + b.username + ">" +
-                "<div class='left'>";
-            if (b.user_photo != '') {
-                html += "<img src=" + b.user_photo + ">";
-            } else {
-                html += "<img src='../img/sudaidai.png'>";
-            }
-            html += "</div>" +
-                "<div class='right'>" +
-                "<div class='list-content-top'><span> " + b.username + "</span><span class='product_xing star'><b>" + b.score + "</b><i></i><i></i><i></i><i></i><i></i></span><i>" + b.score + "</i>星</div > " +
-                "<h6><span>" + b.create_date + "</span><span>" + b.result + "</span></h6>" +
-                "<p id='landlord_content'>" + b.content + "</p>" +
-                "<div class='list-content-center'><label class='ping'> </label> <span class='thumbs' data-useful=" + b.is_useful + "><i class='zanicon'></i><b>" + b.use_count + " </b></span></div>";
-            html += "<div class='list-content-btm seeMore' data-id=" + b.platform_comment_id + ">";
+            html += "<div class='comment-list-content " + b.platform_comment_id + "' data-id=" + b.platform_comment_id + "> <div class = 'list-content-top'> <span> " + b.username + " </span> <span class='product_xing'><b>" + b.score + "</b > <i> </i> <i> </i> <i> </i> <i> </i> <i> </i></span > <i>" + b.score + "</i>星</div> <div class = 'list-content-center'> <span >" + b.create_date + " </span> <label class = 'ping'> " + b.reply_count + " </label> <span class='thumbs' data-useful=" + b.is_useful + "><i class='zanicon'></i> <b> " + b.use_count + " </b></span>" + "</div> <h6> " + b.result + " </h6> <p>" + b.content + "</p> <div class = 'list-content-btm'>";
             $.each(b.replys, function (a, i) {
-                if (i.parent_username != '') {
-                    html += "<p><span data-id=" + i.id + ">" + i.username + "</span>回复<span>" + i.parent_username + "：</span>" + i.content + "</p>";
-                } else {
-                    html += "<p><span data-id=" + i.id + ">" + i.username + "：</span>" + i.content + "</p>";
-                }
-
+                html += "<p> <span> <b> " + i.username + "</b>回复：</span> " + i.content + "</p> ";
             })
-
             if (b.replys_sign == 1) {
-                html += "<div> 查看更多> </div>";
+                html += "<div class = 'seeMore' data-id=" + b.platform_comment_id + "> 查看更多>  </div>";
             }
-            html += "</div>";
-            html += "<h5 class='line'> </h5>" +
-                "</div>" +
-                "</div>";
+            html += " </div> <h5 class='line'> </h5> </div > ";
         });
         $('.new-comment-title').show();
         if (that.loading) {
@@ -501,7 +446,7 @@ var productResultController = {
                 $(this).hide();
             }
         });
-        localFun.star();
+        localFun.starSmall();
         $.each($('.thumbs'), function () {
             var useful = $(this).data('useful');
             if (useful == 1) {
@@ -520,12 +465,13 @@ var productResultController = {
     changeNewListView: function () {
         var that = this;
         service.doAjaxRequest({
-            url: '/v4/comment/comments',
+            url: '/v3/comment/comments',
             type: 'GET',
             data: {
                 "productId": that.productId,
                 "resultId": that.resultId,
-                "pageSize": that.pageSize
+                "pageSize": that.pageSize,
+                "pageNum": ""
             }
         }, function (json) {
             that.doNewListView(json);
@@ -589,19 +535,19 @@ var productResultController = {
                 var productName = $(".productName").text();
                 var href = json.url;
                 cnzz_TrackEvent('wap', '申请产品跳转', productName, '');
-                //                service.doAjaxRequest({
-                //                    url: '/v1/data/apply/log',
-                //                    type: 'POST',
-                //                    data: {
-                //                        "productId": that.productId
-                //                    }
-                //                }, function () {
-                window.location.href = href;
-                //                }, function (json) {
-                //                    $.popupCover({
-                //                        content: json.error_message
-                //                    })
-                //                })
+                service.doAjaxRequest({
+                    url: '/v1/data/apply/log',
+                    type: 'POST',
+                    data: {
+                        "productId": that.productId
+                    }
+                }, function () {
+                    window.location.href = href;
+                }, function (json) {
+                    $.popupCover({
+                        content: json.error_message
+                    })
+                })
             }, function (json) {
                 $.popupCover({
                     content: json.error_message
@@ -660,21 +606,15 @@ var productResultController = {
         doThumbsView: function () {
             var that = this;
             $(document).on('click', ".thumbs", function () {
-                var _that = $(this);
                 if (localStorage.userId) {
                     var commentId = $(this).parents(".comment-list-content").data("id");
                     var $changeThumbs = $("." + commentId).find('.thumbs');
-                    var num = $(this).find("b").text();
                     if ($(this).hasClass("onthumbs")) {
+                        var num = Number($(this).find("b").text()) - 1;
                         $changeThumbs.removeClass("onthumbs");
-                        if (num.indexOf('万') == -1) {
-                            var num = Number(num) - 1;
-                        }
                         var usefulType = "delete";
                     } else {
-                        if (num.indexOf('万') == -1) {
-                            var num = Number(num) + 1;
-                        }
+                        var num = Number($(this).find("b").text()) + 1;
                         $changeThumbs.addClass("onthumbs");
                         var usefulType = "post";
                     }
@@ -708,12 +648,11 @@ var productResultController = {
         //评论回复
         doReplyVierw: function () {
             /*评论点击回复*/
-            $(document).on('click', '.ping,#landlord_content', function () {
+            $(document).on('click', '.ping', function () {
                 if (localStorage.userId) {
                     commentId = $(this).parents('.comment-list-content').data('id');
-                    var name = $(this).parents('.comment-list-content').data('name');
                     $('.replyBox').show();
-                    $('#reply').focus().attr('placeholder', '回复：' + name);
+                    $('#reply').focus();
                 } else {
                     local.login_reffer = window.location.href;
                     local.backHref = document.referrer;
@@ -760,16 +699,15 @@ var productResultController = {
                 var replycontent = $.trim($('#reply').val());
                 if ($(this).hasClass('sendBtn')) {
                     service.doAjaxRequest({
-                        url: '/v2/reply',
+                        url: '/v1/reply',
                         type: 'POST',
                         data: {
                             "commentId": commentId,
-                            "content": replycontent,
-                            "parentReplyId": ''
+                            "content": replycontent
                         }
                     }, function () {
                         $.popupCover({
-                            content: "回复成功"
+                            content: "回复成功！"
                         });
                         $('.replyBox').hide();
                         $('#reply').val('');
@@ -780,9 +718,11 @@ var productResultController = {
                         var username = localStorage.username;
                         $.each($('.' + commentId), function () {
                             $(this).find('.list-content-btm').show();
-                            $(this).find('.list-content-btm').prepend('<p><span><b>' + username + '</b>：</span>' + replycontent + '</p>');
+                            $(this).find('.list-content-btm').prepend('<p><span><b>' + username + '</b>回复：</span>' + replycontent + '</p>');
                             $(this).find('.list-content-btm>p').eq(5).hide();
-
+                            var textNum = $(this).find('.ping').text();
+                            textNum++;
+                            $(this).find('.ping').text(textNum);
                         })
                     }, function (json) {
                         $.popupCover({

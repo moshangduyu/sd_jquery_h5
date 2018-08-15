@@ -13,22 +13,22 @@ var matchingResultController = {
         var html2 = "";
         $.each(json.list, function (i, b) {
             if (b.unnecount == 0) {
-                html1 += "<div class='produc_touch_results' data-type=" + b.platform_product_id + ">" + "<dl class='res_top'>" + "<dt><img src=" + b.product_logo + "></dt>" + "<dd>" + " <h3>" + b.platform_product_name + "</h3>" + " <span class='product_xing star'><b>" + b.star + "</b><i></i>" + " <i></i>" + " <i></i>" + " <i></i>" + "<i></i>" + "<em>" + b.success_count + "人已申请</em></span>" + " <p class='p1'>";
+                html1 += "<div class='produc_touch_results' data-type=" + b.platform_product_id + ">" + "<dl class='res_top'>" + "<dt><img src=" + b.product_logo + "></dt>" + "<dd>" + " <h3>" + b.platform_product_name + "</h3>" + " <span class='product_xing'><b>" + b.star + "</b><i></i>" + " <i></i>" + " <i></i>" + " <i></i>" + "<i></i>" + "<em>" + b.success_count + "人已申请</em></span>" + " <p class='p1'>";
                 $.each(b.tag_name, function (x, y) {
                     html1 += " <span style='color:#" + y.font_color + ";border-color:#" + y.boder_color + ";background:#" + y.bg_color + ";'>" + y.name + "</span>";
                 });
-                html1 += "</p>" + "</dd></dl>" + "<div class='res_btm'>" + "<div><b>" + b.product_introduct + "</b><span><img src='/img/list_time_icon.png'>" + b.fast_time + "</span></div>" + "<p></p>" + " </div>" + "</div>";
+                html1 += "</p>" + "</dd>" + "<em class='rightIcon'>" + "</em>" + "</dl>" + "<div class='res_btm'>" + "<div>" + b.product_introduct + "</div>" + "<p></p>" + " </div>" + "</div>";
             } else {
-                html2 += "<div class='produc_touch_results' data-type=" + b.platform_product_id + ">" + "<dl class='res_top'>" + "<dt><img src=" + b.product_logo + "></dt>" + "<dd>" + " <h3>" + b.platform_product_name + "</h3>" + " <span class='product_xing star'><b>" + b.star + "</b><i></i>" + " <i></i>" + " <i></i>" + " <i></i>" + "<i></i>" + "<em>" + b.success_count + "人已申请</em></span>" + " <p class='p1'>";
+                html2 += "<div class='produc_touch_results' data-type=" + b.platform_product_id + ">" + "<dl class='res_top'>" + "<dt><img src=" + b.product_logo + "></dt>" + "<dd>" + " <h3>" + b.platform_product_name + "</h3>" + " <span class='product_xing'><b>" + b.star + "</b><i></i>" + " <i></i>" + " <i></i>" + " <i></i>" + "<i></i>" + "<em>" + b.success_count + "人已申请</em></span>" + " <p class='p1'>";
                 $.each(b.tag_name, function (x, y) {
                     html2 += " <span style='color:#" + y.font_color + ";border-color:#" + y.boder_color + ";background:#" + y.bg_color + ";'>" + y.name + "</span>";
                 });
-                html2 += "</p>" + "</dd></dl>" + "<div class='res_btm'>" + "<div><b>" + b.product_introduct + "</b><span><img src='/img/list_time_icon.png'>" + b.fast_time + "</span></div>" + "</div>";
+                html2 += "</p>" + "</dd>" + "<em class='rightIcon'>" + "</em>" + "</dl>" + "<div class='res_btm'>" + "<div>" + b.product_introduct + "</div>" + "<p></p>" + " </div>" + "</div>";
             }
         });
         $(".accurate").html(html1);
         $(".standard").html(html2);
-        localFun.star();
+        localFun.starSmall();
         if ($(".accurate").html() != "") {
             $("#jingzhun").show();
         }

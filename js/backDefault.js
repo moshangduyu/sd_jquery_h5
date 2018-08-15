@@ -26,4 +26,7 @@ XBack = {};
         XBack.record(XBack.STATE);
     };
 })(XBack);
-
+XBack.init();
+XBack.listen(function () {
+    alert("请设置密码！");
+});

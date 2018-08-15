@@ -34,6 +34,7 @@ var consultDetailsController = {
         that: this,
         initView: function () {
             this.doBackView();
+            this.doCollectionView();
         },
         //返回按钮
         doBackView: function () {
@@ -45,12 +46,46 @@ var consultDetailsController = {
                     javascript: history.back(-1);
                 }
             });
-        }
+        },
+        //收藏
+        doCollectionView: function () {
+            $.LogonStatusEvent($(".consult_details_shoucang"), function () {
+                var $this = $(".consult_details_shoucang");
+                if ($this.hasClass("shoucangClick")) {
+                    var favouriteType = "delete";
+                    $this.removeClass("shoucangClick");
+                    $.popupCover({
+                        content: '取消关注'
+                    })
 
+                } else {
+                    var favouriteType = "post";
+                    $this.addClass("shoucangClick");
+                    $(".popup").text("关注成功");
+                    $.popupCover({
+                        content: '关注成功'
+                    })
+                }
+                service.favouriteNewscollection(favouriteType, {
+                    "newsId": consultDetailsController.newsId
+                }, function () {
+
+                });
+            }, function () {
+                local.backHref = document.referrer;
+                local.fromLogin = 1;
+            })
+        }
     },
     //页面内容渲染
     doContentAjaxView: function (obj) {
         var that = this;
+        /*心*/
+        if (obj.sign == 1) {
+            $(".consult_details_shoucang").addClass("shoucangClick")
+        } else {
+            $(".consult_details_shoucang").removeClass("shoucangClick")
+        }
         var html = "";
         html = "<h3>" + obj.title + "</h3>" + "<p>" + "<span>" + obj.create_time + "</span>" + "<span>" + "<img src='../img/%E5%B7%B2%E7%9C%8B.png' alt=''>" + "<i>" + obj.visit_count + "</i>" + "</span>" + "</p>" + "<p data-img=" + obj.cover_img + " id='fx_img'></p>" + "<div id='content'>" + obj.content + "</div>" + "<h1 style='height:.2rem'></h1>";
         $(".iscroll").append(html);
@@ -100,7 +135,7 @@ var consultDetailsController = {
             error: function () {}
         });
         var _title = $("h3").text(),
-            _desc = '简单高效,想借就借。极速贷款,上速贷之家!',
+            _desc = '简单高效,想借就借。极速借款,上速贷之家!',
             _link = window.location.href,
             _imgUrl = $("#fx_img").data("img");
 
@@ -166,7 +201,4 @@ $(window).load(function () {
         vScrollbar: false
     });
     myscroll.refresh();
-    myscroll.on('scroll', function () {
-        myscroll.refresh();
-    })
 });
