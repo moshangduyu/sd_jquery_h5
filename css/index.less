@@ -1,0 +1,387 @@
+/*彩色标签*/
+
+.sl {
+    border: none;
+    width: .4rem;
+    height: .1rem;
+    background: url('../img/shengluehao@3x.png') no-repeat;
+    background-size: 100% 100%;
+    padding: 0;
+    display: inline-block;
+    margin-left: .05rem;
+    margin-top: .25rem;
+    float: left;
+}
+
+
+/*头部*/
+
+.head_top {
+    width: 100%;
+    height: 1rem;
+    &>div {
+        position: absolute;
+        width: 100%;
+        top: .2rem;
+        .message {
+            position: absolute;
+            width: .5rem;
+            height: .5rem;
+            top: .06rem;
+            right: .38rem;
+            background: url("../img/xiaoxi2@3x.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .select_money {
+            float: left;
+            width: 5rem;
+            height: .6rem;
+            margin-left: 1.1rem;
+            position: relative;
+            font-size: 0;
+            text-align: center;
+        }
+        .opbg {
+            background: white;
+            width: 100%;
+            height: 100%;
+            border-radius: .3rem;
+        }
+        .select_money select {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 9999;
+        }
+        .select_money b {
+            font-size: .28rem;
+            color: #909090;
+            text-align: center;
+            width: 2rem;
+            height: .6rem;
+            line-height: .6rem;
+            position: absolute;
+            right: 1.8rem;
+            top: 0;
+        }
+        .select_money i {
+            position: absolute;
+            right: 1.6rem;
+            top: .21rem;
+            width: .27rem;
+            height: .16rem;
+            background: url('../img/home_search_sanjiao@3x.png') no-repeat center;
+            background-size: .27rem .16rem;
+        }
+    }
+}
+
+
+/*主体*/
+
+.index_main {
+    -webkit-box-flex: 1;
+    overflow: hidden;
+    /*下方头像导航*/
+    .btnImg {
+        width: 100%;
+        height: 2.6rem;
+        overflow: hidden;
+        &>div {
+            background: white;
+            width: 100%;
+            height: 2.4rem;
+            margin: .1rem auto;
+            &>a {
+                display: block;
+                width: 33.33%;
+                height: 100%;
+                float: left;
+                img {
+                    display: block;
+                    width: 1.65rem;
+                    height: 2.4rem;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+    /*推荐产品*/
+    .recommend {
+        background: white;
+        &>div {
+            width: 7rem;
+            overflow: hidden;
+            margin: 0 auto;
+            dl:nth-of-type(2n+1) {
+                width: 3.6rem;
+                dd {
+                    width: 2.2rem;
+                }
+            }
+            dl:nth-of-type(2n) {
+                width: 3.4rem;
+                dd {
+                    width: 2rem;
+                }
+            }
+            dl {
+                height: 1.4rem;
+                float: left;
+                dt {
+                    float: left;
+                    width: 1rem;
+                    height: 1rem;
+                    margin: .2rem;
+                    font-size: 0;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                    }
+                }
+                dd {
+                    float: left;
+                    color: #585858;
+                    font-size: .24rem;
+                    line-height: .34rem;
+                    padding-top: .17rem;
+                    overflow: hidden;
+                    em {
+                        display: inline-block;
+                        height: .34rem;
+                        font-weight: bold;
+                        padding-left: .2rem;
+                        background: url('../img/lanyuan.png') no-repeat left center;
+                        background-size: .13rem .13rem;
+                    }
+                    b {
+                        color: #fb604c;
+                    }
+                }
+            }
+        }
+    }
+    /*touch专题*/
+    .touchImg {
+        width: 100%;
+        height: 2.25rem;
+        background: white;
+        margin-top: .1rem;
+        border-bottom: 1px solid #f0f0f0;
+        .swiper-container {
+            width: 95%;
+            height: 100%;
+            overflow: visible;
+            .newSelected {
+                margin: 0 auto;
+                div {
+                    height: 1.54rem;
+                    float: left;
+                    margin-top: .2rem;
+                    &:last-child {
+                        margin-right: 1rem;
+                    }
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        .swiper-scrollbar {
+            bottom: .15rem;
+            width: 1rem;
+            height: .12rem;
+            left: 50%;
+            margin-left: -.5rem;
+            border: 1px solid #efefef;
+            &>div {
+                background: #44b7f7;
+            }
+        }
+    }
+    /*分类专题*/
+    .themes_box {
+        width: 100%;
+        background: white;
+        .themes_imgbox {
+            width: 6.9rem;
+            overflow: hidden;
+            margin: 0 auto;
+            padding: .25rem 0;
+            font-size: 0;
+            img {
+                display: inline-block;
+                width: 2.2rem;
+                height: 2.4rem;
+                margin: .05rem;
+            }
+        }
+    }
+    .themes_h3 {
+        width: 7rem;
+        margin: 0 auto;
+        height: .74rem;
+        line-height: .74rem;
+        padding-left: .2rem;
+        color: #404040;
+        font-size: .3rem;
+        position: relative;
+        border-bottom: 1px solid #f0f0f0;
+        .promptBtn {
+            width: .34rem;
+            height: .34rem;
+            position: relative;
+            top: .06rem;
+            left: .15rem;
+            cursor: pointer;
+        }
+        span {
+            position: absolute;
+            right: 0;
+            height: .74rem;
+            font-size: .24rem;
+            padding-right: .15rem;
+            color: #909090;
+            background: url('../img/next_batch.png') no-repeat right center;
+            background-size: .1rem .17rem;
+            cursor: pointer;
+        }
+    }
+    /*攻略*/
+    .strategyBanner {
+        width: 100%;
+        font-size: 0;
+        height: 1.4rem;
+        background: white;
+        margin: 0 auto .1rem;
+        overflow: hidden;
+        a {
+            display: block;
+            width: 100%;
+            height: 1.2rem;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    /*新品入驻*/
+    .new_terrace {
+        background: white;
+        .terrace_list {
+            width: 100%;
+            height: 1.7rem;
+            border-bottom: 1px solid #f0f0f0;
+            overflow: hidden;
+            dt {
+                width: 1.7rem;
+                height: 1.7rem;
+                float: left;
+                div {
+                    width: 1.1rem;
+                    height: 1.1rem;
+                    border-radius: 50%;
+                    margin: .3rem .2rem 0 .3rem;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                }
+            }
+            dd {
+                float: left;
+                font-size: .3rem;
+                color: #4d4d4d;
+                width: 5.7rem;
+                height: 1.7rem;
+                overflow: hidden;
+                h3 {
+                    height: .6rem;
+                    line-height: .6rem;
+                    padding-top: .1rem;
+                    font-size: .26rem;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                    span {
+                        display: inline-block;
+                        position: relative;
+                        font-size: .2rem;
+                        color: white;
+                        margin-right: .15rem;
+                        width: 1.1rem;
+                        text-align: center;
+                        height: .3rem;
+                        line-height: .3rem;
+                        border-radius: .05rem;
+                    }
+                    b {
+                        color: #F33E3E;
+                    }
+                }
+                .p2 {
+                    color: #999;
+                    font-size: .24rem;
+                    line-height: .4rem;
+                }
+                h3,
+                .p2 {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical
+                }
+            }
+        }
+    }
+}
+
+
+/*底部*/
+
+.index_foot {
+    dl {
+        &:nth-of-type(1) {
+            dt {
+                background: url("../img/nav1.1.png") no-repeat;
+                background-size: 100%;
+            }
+            dd {
+                color: #44b7f7;
+            }
+        }
+    }
+}
+
+
+/*上拉跳转速贷大全*/
+
+.scroller-pullUp .pullUpImg {
+    width: 100%;
+    height: 140px;
+    position: relative;
+    display: none;
+}
+
+.scroller-pullUp .pullUpImg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+//.iScrollIndicator {
+//    color: #44b7f7;
+//    opacity: .3;
+//}

@@ -1,0 +1,131 @@
+.chartsBox {
+    background: white;
+    width: 6.9rem !important;
+    height: 4.48rem !important;
+    margin: .2rem auto 0;
+    border-radius: .12rem;
+    box-shadow: 0 1px 4px 0 #e4e4e4;
+    overflow: hidden;
+    .chart-box {
+               width: 100%;
+        height: 100%;
+        position: relative;
+        & > h3 {
+            font-size: .24rem;
+            color: #4a4a4a;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-left: .3rem;
+            line-height: .68rem;
+        }
+        #pieChart,
+        #areaChart {
+            position: absolute;
+            left: 0;
+        }
+        #pieChart {
+            top: .48rem;
+            width: 100% !important;
+            height: 4rem !important;
+        }
+        #areaChart {
+            top: .74rem;
+            height: 3.8rem !important;
+        }
+        .centerTitle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #4c86f5;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            margin-top: .3rem;
+            font-size: .3rem;
+            text-align: center;
+            line-height: .4rem;
+            span {
+                font-size: .26rem;
+                color: #7e7e7e;
+            }
+        }
+        .side_line {
+            position: absolute;
+            left: 0;
+            bottom: .64rem;
+            li {
+                height: 1px;
+                margin-top: .34rem;
+                background: rgba(76, 134, 245, 0.30);
+                &:nth-of-type(2n+1) {
+                    width: .2rem;
+                }
+                &:nth-of-type(2n+2) {
+                    width: .1rem;
+                }
+            }
+        }
+    }
+}
+
+
+/*按钮*/
+
+.btn {
+    width: 100%;
+    height: .88rem;
+    font-size: .32rem;
+    color: #606060;
+    text-align: center;
+    line-height: .88rem;
+    overflow: hidden;
+    background: white;
+    span {
+        display: block;
+        float: left;
+        width: 50%;
+        height: 100%;
+        position: relative;
+        &.onSelect {
+            color: #4c86f5;
+        }
+        &.onSelect:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -.6rem;
+            width: 1.2rem;
+            height: .06rem;
+            background: #4c86f5;
+        }
+    }
+}
+
+//饼状图无数据
+.pie-no-data {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    & > div {
+        width: 2.6rem;
+        height: 2.6rem;
+        margin: .7rem auto;
+        background: #4C86F5;
+        border-radius: 50%;
+        overflow: hidden;
+        & > div {
+            width: 1.8rem;
+            height: 1.8rem;
+            margin: .4rem auto;
+            background: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 1.8rem;
+            font-size: .3rem;
+            color: #4C86F5;
+        }
+    }
+}

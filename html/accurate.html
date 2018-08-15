@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-title" content="速贷之家">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <!--清除缓存 微信浏览器缓存严重又无刷新-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <title>速贷之家-信用资料</title>
+    <script src="../js/htmlrem.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/accurate.css">
+    <link rel="stylesheet" href="../css/pubStyle.css"> </head>
+
+<body>
+    <div class="container">
+        <!--头部-->
+        <header class="accurate_head"> 信用资料 <span class="back" onclick="javascript: history.back(-1)"></span><b class="match"></b> </header>
+        <!--主体-->
+        <p class="prompt">速贷之家严格保管您的资料，仅用于红包发放和智能匹配</p>
+        <div class="progress_bar">当前匹配精度<span><i class="progress_line"></i></span><b class="progress_num">0%</b></div>
+        <div class="tab"> <span class="tab_b">基础信息</span> <span class="tab_b">信用信息</span> <span class="tab_b">审核资料</span> </div>
+        <div class="accurate_main">
+            <div class="tab_box center1" style="display:block">
+                <form action="" class="form1">
+                    <h3 style="padding-top:0">基础信息</h3>
+                    <div>绑定手机号
+                        <input type="text" class="phone" readonly> </div>
+                    <div>身份证姓名
+                        <input type="text" placeholder="请输入" onclick="this.placeholder=''" onblur="if(this.value==''){this.placeholder='请输入'}" class="name"> </div>
+                    <div>身份证
+                        <input type="text" class="shenfen" placeholder="请输入" onclick="this.placeholder=''" onblur="if(this.value==''){this.placeholder='请输入'}"> </div>
+                    <div class="sex">性别
+                        <input type="text" placeholder="自动填写" readonly> </div>
+                    <div>银行卡号
+                        <input type="number" pattern="[0-9]*" class="bankCard" placeholder="可用来领取红包哦~" onclick="this.placeholder=''" onblur="if(this.value==''){this.placeholder='可用来领取红包哦~'}"> </div>
+                    <div>所属银行
+                        <label for="" class="bank">请选择</label>
+                        <select name="" class="bankSelect">
+                            <option value="" selected disabled>请选择</option>
+                        </select>
+                    </div>
+                    <div>支付宝账号
+                        <input type="text" class="Alipay" placeholder="可用来领取红包哦~" onclick="this.placeholder=''" onblur="if(this.value==''){this.placeholder='可用来领取红包哦~'}"> </div>
+                    <div class="radioIpu credit" style="border:0"><b>拥有信用卡</b>
+                        <label>有</label>
+                        <label>无</label>
+                    </div>
+                    <div class="radioIpu xuexin" style="display:none;border:0"><b>拥有学信账号</b>
+                        <label>可登录</label>
+                        <label>无</label>
+                    </div>
+                    <p class="form1_prompt">*基础信息完整才能智能匹配和领现金</p>
+                    <!--下一步-->
+                    <p class="next oneNext">保存</p>
+                </form>
+            </div>
+            <div class="tab_box center2">
+                <form class="form2">
+                    <h3>个人信息</h3>
+                    <div>所在城市
+                        <div class="address" id="address">点击获取</div>
+                    </div>
+                    <div>现居地址类型
+                        <label for="" class="addresstype">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">租住</option>
+                            <option value="2">单位/学校宿舍</option>
+                            <option value="3">亲属房产</option>
+                            <option value="4">自有房产</option>
+                        </select>
+                    </div>
+                    <div class="radioIpu marriage">婚姻状况
+                        <label class="married">已婚</label>
+                        <label class="unmarried">未婚</label>
+                    </div>
+                    <div>紧急联系人
+                        <input type="text" placeholder="请输入" class="lianxiren"> </div>
+                    <div>联系人关系
+                        <label for="" class="lianxirengx">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">朋友/同学/同事</option>
+                            <option value="2">非直系亲属</option>
+                            <option value="3">直系亲属</option>
+                        </select>
+                    </div>
+                    <div>联系人手机号
+                        <input type="text" placeholder="请输入" class="lianxirentel"> </div>
+                </form>
+                <!--上班族-->
+                <form action="" class="wage">
+                    <h3>职业信息-上班族</h3>
+                    <div>学历
+                        <label for="" class="xueli">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">中专/高中以下</option>
+                            <option value="2">统招大专</option>
+                            <option value="3">统考本科/自考本科</option>
+                            <option value="4">统招硕士及以上</option>
+                        </select>
+                    </div>
+                    <div>单位名称
+                        <input type="text" placeholder="请输入" class="gongsiname"> </div>
+                    <div>单位性质
+                        <label for="" class="danwei">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">国有企业/事业单位/政府机关</option>
+                            <option value="2">合资企业</option>
+                            <option value="3">外资企业</option>
+                            <option value="4">民营企业/个体工商户</option>
+                        </select>
+                    </div>
+                    <div>工作年限
+                        <label for="" class="gongnianxian">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">少于6个月</option>
+                            <option value="2">6~12个月</option>
+                            <option value="3">12~24个月</option>
+                            <option value="4">24个月以上</option>
+                        </select>
+                    </div>
+                    <div>月收入
+                        <label for="" class="shouru">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">5000以下</option>
+                            <option value="2">5000~8000</option>
+                            <option value="3">8001~10000</option>
+                            <option value="4">10000以上</option>
+                        </select>
+                    </div>
+                    <div class="radioIpu email">企业邮箱
+                        <label class="emailY">有</label>
+                        <label class="emailN">无</label>
+                    </div>
+                    <div class="radioIpu wage">近半年工资卡银行流水
+                        <label class="wageY">有</label>
+                        <label class="wageN">无</label>
+                    </div>
+                    <!--下一步-->
+                    <p class="next twoNext">保存</p>
+                </form>
+                <!--学生-->
+                <form action="" class="student">
+                    <h3>职业信息-学生党</h3>
+                    <div>学校名称
+                        <input type="text" placeholder="请输入" class="schoolname"> </div>
+                    <div>学业信息
+                        <label for="" class="xueye">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">中专/高中及以下在读</option>
+                            <option value="2">大专在读</option>
+                            <option value="3">本科在读</option>
+                            <option value="4">硕士及以上在读</option>
+                        </select>
+                    </div>
+                    <div>学制
+                        <label for="" class="biyetime">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">余1年</option>
+                            <option value="2">余2年</option>
+                            <option value="3">余3年</option>
+                            <option value="4">余4年</option>
+                        </select>
+                    </div>
+                    <!--下一步-->
+                    <p class="next twoNext">保存</p>
+                </form>
+                <!--生意人-->
+                <form action="" class="entrepreneur">
+                    <h3>职业信息-生意人</h3>
+                    <div>学历
+                        <label for="" class="xueli2">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">中专/高中以下</option>
+                            <option value="2">统招大专</option>
+                            <option value="3">统考本科/自考本科</option>
+                            <option value="4">统招硕士及以上</option>
+                        </select>
+                    </div>
+                    <div>单位名称
+                        <input type="text" placeholder="请输入" class="gongsiname2"> </div>
+                    <div>单位性质
+                        <label for="" class="danwei2">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">国有企业/事业单位/政府机关</option>
+                            <option value="2">合资企业</option>
+                            <option value="3">外资企业</option>
+                            <option value="4">民营企业/个体工商户</option>
+                        </select>
+                    </div>
+                    <div>经营年限
+                        <label for="" class="jingnianxian2">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">少于6个月</option>
+                            <option value="2">6~12个月</option>
+                            <option value="3">12~24个月</option>
+                            <option value="4">24个月以上</option>
+                        </select>
+                    </div>
+                    <div>月收入
+                        <label for="" class="shouru2">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">5000以下</option>
+                            <option value="2">5000~8000</option>
+                            <option value="3">8001~10000</option>
+                            <option value="4">10000以上</option>
+                        </select>
+                    </div>
+                    <div class="radioIpu license">经营执照
+                        <label class="licenseY">有</label>
+                        <label class="licenseN">无</label>
+                    </div>
+                    <div class="radioIpu account">近半年对公账户流水
+                        <label class="accountY">有</label>
+                        <label class="accountN">无</label>
+                    </div>
+                    <!--下一步-->
+                    <p class="next twoNext">保存</p>
+                </form>
+                <!--自由职业-->
+                <form action="" class="else">
+                    <h3>职业信息-自由职业</h3>
+                    <div class="radioIpu shour">稳定收入来源
+                        <label class="shourY">有</label>
+                        <label class="shourN">无</label>
+                    </div>
+                    <!--下一步-->
+                    <p class="next twoNext">保存</p>
+                </form>
+            </div>
+            <!--信用-->
+            <div class="tab_box center3">
+                <form action="" class="form3">
+                    <h3>审核资料</h3>
+                    <div>芝麻信用
+                        <label for="" class="zhima">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">无</option>
+                            <option value="2">350~600</option>
+                            <option value="3">601~700</option>
+                            <option value="4">701以上</option>
+                        </select>
+                    </div>
+                    <div class="radioIpu ren">人行征信
+                        <label class="ren1">可登录</label>
+                        <label class="ren2">无</label>
+                    </div>
+                    <div class="radioIpu tao">淘宝账号
+                        <label class="tao1">可登录</label>
+                        <label class="tao2">无</label>
+                    </div>
+                    <div class="radioIpu jing">京东账号
+                        <label class="jing1">可登录</label>
+                        <label class="jing2">无</label>
+                    </div>
+                    <div>社保缴纳
+                        <label for="" class="shebao">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">无</option>
+                            <option value="2">连续6个月无断续</option>
+                            <option value="3">连续6个月无断续且为同一单位</option>
+                            <option value="4">连续12个月无断续</option>
+                            <option value="5">连续12个月无断续且为同一单位</option>
+                        </select>
+                    </div>
+                    <div>公积金缴纳
+                        <label for="" class="gongjijin">请选择</label>
+                        <select name="">
+                            <option value="" selected disabled>请选择</option>
+                            <option value="1">无</option>
+                            <option value="2">连续6个月无断续</option>
+                            <option value="3">连续6个月无断续且为同一单位</option>
+                            <option value="4">连续12个月无断续</option>
+                            <option value="5">连续12个月无断续且为同一单位</option>
+                        </select>
+                    </div>
+                    <!--下一步-->
+                    <p class="next threeNext">保存</p>
+                </form>
+            </div>
+        </div>
+        <!--收藏遮罩层-->
+        <div class="cover">
+            <div class="popup"></div>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/address.js"></script>
+    <script type="text/javascript" src="//webapi.amap.com/maps?v=1.3"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=1.3"></script>
+    <script type="text/javascript" src="//developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+    <script src="../js/controler/accurate.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/wx_sdk.js"></script>
+    <script src="../js/statistics.js"></script>
+</body>
+
+</html>

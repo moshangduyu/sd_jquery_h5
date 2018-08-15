@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-title" content="速贷之家">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telephone=no, email=no,date=no,address=no" />
+    <!--清除缓存 微信浏览器缓存严重又无刷新-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <title>速贷之家-帮助中心</title>
+    <script src="../js/htmlrem.min.js"></script>
+    <link rel="stylesheet" href="../css/resets.css" />
+    <link rel="stylesheet" href="../css/mine_help.css"> </head>
+
+<body>
+    <div class="container">
+        <!--头部-->
+        <header id="header">
+            <a href="mine.html" class="backBtn"></a>帮助中心 </header>
+        <!--主体-->
+        <div class="mine_help_main">
+            <div class="mine_top">
+                <dl class="call_phone">
+                    <dt></dt>
+                    <dd>
+                        <h3>在线客服</h3>
+                        <p>工作日实时解答相关难题<br>(周一至周五09:30-19:00)</p>
+                    </dd>
+                    <span id="kefu"></span>
+                </dl>
+                <div class="top_nav">
+                    <a href="mine_hot_issues.html">热门问题</a>
+                    <a href="strategy.html">贷款攻略</a>
+                </div>
+            </div>
+            <ul id="center_nav"></ul>
+            <div id="list">
+                <h3 class="showTitle"></h3>
+                <div id="list_btm"></div>
+            </div>
+        </div>
+        <footer class="gradient">
+            <a class="callBtn">免费热线</a>
+            <a id="qqPage" target="_blank" href="">官方QQ群</a>
+            <a class="mine_main_btm_list">意见反馈</a>
+        </footer>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/controler/global.js"></script>
+    <script src="/js/controler/mine_help.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/wx_sdk.js"></script>
+    <script src="../js/statistics.js"></script>
+</body>
+
+</html>

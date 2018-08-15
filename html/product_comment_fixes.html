@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-title" content="速贷之家">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telephone=no, email=no,date=no,address=no" />
+    <!--清除缓存 微信浏览器缓存严重又无刷新-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <title>速贷之家-产品评论</title>
+    <script src="../js/htmlrem.min.js"></script>
+    <link rel="stylesheet" href="../css/resets.css" />
+    <link rel="stylesheet" href="../css/pubStyle.css" />
+    <link rel="stylesheet" href="../css/product_comment_fixes.css"> </head>
+
+<body>
+    <div class="container">
+        <!--头部-->
+        <header id="header"><span class="backBtn"></span>
+            <p class="header_title">评论</p><span class="addcommentIcon"></span></header>
+        <div class="evaluate_three">
+            <div class="evaluate_num">
+                <div class="evaluate_apartNumbox"><span></span><span></span> <span></span> <span></span> <span></span> </div>
+            </div>
+            <!--最热评论-->
+            <div class="comment-box">
+                <h3 class="hot-comment-title comment-title">
+                    最热评论
+                </h3>
+                <!--最热评论列表-->
+                <div class="hot-comment-list">
+                    <div class='comment-list-content " + b.platform_comment_id + "' data-id=" + b.platform_comment_id + ">
+                        <div class="left"><img src="../img/sudaidai.png"></div>
+                        <div class="right">
+                            <div class="list-content-top"><span>kkkkbao</span><span>12-12 11:13</span></div>
+                            <h6><span>已批贷</span><span class="product_xing star"><b>5.0</b><i></i>
+                           <i></i>
+                           <i></i>
+                           <i></i>
+                           <i></i></span><i>5.0</i>星</h6>
+                            <p><a href="">的和手机号多少说的还是看电视看好的开始</a></p>
+                            <div class='list-content-center'> <span class='ping'><i class='pingicon'></i><b>评论</b></span> <span class='thumbs' data-useful=""><i class='zanicon'></i><b>345</b></span></div>
+                            <div class='list-content-btm'>
+                                <p><span>德吉的你：</span>你好水啊，好水好谁！</p>
+                                <p><span>德吉的你</span>回复<span>小奶油：</span>wozhidao我知道！你是最帅的啦 …</p>
+                                <div class='seeMore' data-id=" + b.platform_comment_id + "> 查看更多> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--最新评论-->
+            <div class="comment-box">
+                <h3 class="new-comment-title comment-title">
+                    最新评论
+                </h3>
+                <!--最新评论列表-->
+                <div class="new-comment-list"></div>
+            </div>
+            <div id="PullUp" class="scroller-pullUp">努力加载中...</div>
+        </div>
+        <!--回复输入区-->
+        <div class="replyBox">
+            <textarea placeholder="" id="reply" class="reply"></textarea>
+            <!--            <input type="textarea" placeholder="回复楼主" id="reply" class="reply" maxlength="140">-->
+            <button id="send">发送</button> <span class="numLen"></span> </div>
+        <!--回复弹窗-->
+        <div class="replyCover">
+            <div class="replyPopup"></div>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/controler/global.js"></script>
+    <script src="../js/controler/product_comment_fixes.js"></script>
+    <script src="../js/statistics.js"></script>
+</body>
+
+</html>

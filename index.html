@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-title" content="速贷之家">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <!--清除缓存 微信浏览器缓存严重又无刷新-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!--便于搜索引擎搜索-->
+    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <meta name="description" content="速贷之家是全国首家消费金融贷款智能搜索匹配平台，我们以最快的速度帮您借到最便宜的钱。速贷之家，极速借现金。" />
+    <!--地址栏图标-->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <script src="js/htmlrem.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="js/swipe/swiper.min.css" />
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/styleSpan.css">
+    <title>极速贷款,上速贷之家</title>
+</head>
+
+<body>
+          <div class="container">
+        <!--头部-->
+        <div class="head_top gradient">
+            <div> <span class="message"></span>
+                <div class="select_money">
+                    <div class="opbg"></div>
+                    <select name="" id="select_money">
+                        <option value="" disabled selected>金额不限</option>
+                        <option value="">500元</option>
+                        <option value="">1000元</option>
+                        <option value="">1500元</option>
+                        <option value="">2000元</option>
+                        <option value="">3000元</option>
+                        <option value="">4000元</option>
+                        <option value="">5000元</option>
+                        <option value="">6000元</option>
+                        <option value="">7000元</option>
+                        <option value="">8000元</option>
+                        <option value="">9000元</option>
+                        <option value="">10000元</option>
+                        <option value="">15000元</option>
+                        <option value="">20000元</option>
+                        <option value="">30000元</option>
+                        <option value="">50000元</option>
+                        <option value="">10万元</option>
+                        <option value="">20万元</option>
+                    </select><b>您想借多少</b><i></i> </div>
+            </div>
+        </div>
+        <!--主体-->
+        <div class="index_main scroller" id="wrapper">
+            <div id="thelist">
+                <div id="PullDown" class="scroller-pullDown"><img src="img/rolling.svg" />&nbsp;&nbsp;<span id="pullDown-msg" class="pull-down-msg">下拉刷新</span></div>
+                <!--下方图文导航-->
+                <div class="btnImg">
+                    <div>
+                        <a href="html/product.html"><img src="img/btnImg1.png" alt=""></a>
+                        <a href="html/forum.html"><img src="img/btnImg2.jpg" alt=""></a>
+                        <a href="html/credit_card.html"><img src="img/btnImg4.png" alt=""></a>
+                    </div>
+                </div>
+                <!--推荐产品-->
+                <div class="recommend">
+                    <h3 class="themes_h3">推荐产品<img src="img/!@3x.png" class="promptBtn" id="recommend_Btn"><span class="nextBatch">下一批</span></h3>
+                    <div id="recommend_list">
+                        <dl data-id="371"><dt><img src="http://obd7ty4wc.bkt.clouddn.com/production/20171221/platform/20171221111539-212.png"></dt>
+                            <dd>
+                                <p><em>环球黑卡</em>
+                                    <br><span>1000-30万元</span>
+                                    <br>成功率<b>52%</b></p>
+                            </dd>
+                        </dl>
+                        <dl data-id="176"><dt><img src="http://obd7ty4wc.bkt.clouddn.com/production/20171221/platform/20171221111716-211.png"></dt>
+                            <dd>
+                                <p><em>玖富万卡</em>
+                                    <br><span>500-15万元</span>
+                                    <br>成功率<b>42%</b></p>
+                            </dd>
+                        </dl>
+                        <dl data-id="327"><dt><img src="http://obd7ty4wc.bkt.clouddn.com/production/20171221/platform/20171221152441-529.png"></dt>
+                            <dd>
+                                <p><em>新浪有还</em>
+                                    <br><span>500-2万元</span>
+                                    <br>成功率<b>58%</b></p>
+                            </dd>
+                        </dl>
+                        <dl data-id="98"><dt><img src="http://obd7ty4wc.bkt.clouddn.com/production/20171221/platform/20171221112818-820.png"></dt>
+                            <dd>
+                                <p><em>人品贷极速版</em>
+                                    <br><span>3000-10万元</span>
+                                    <br>成功率<b>50%</b></p>
+                            </dd>
+                        </dl>
+                        <dl data-id="347"><dt><img src="http://obd7ty4wc.bkt.clouddn.com/production/20171221/platform/20171221111029-421.png"></dt>
+                            <dd>
+                                <p><em>小额通</em>
+                                    <br><span>500-2500</span>
+                                    <br>成功率<b>66%</b></p>
+                            </dd>
+                        </dl>
+                        <dl data-id="117"><dt><img src="http://obd7ty4wc.bkt.clouddn.com/production/20171221/platform/20171221111335-314.png"></dt>
+                            <dd>
+                                <p><em>融360</em>
+                                    <br><span>100-100万元</span>
+                                    <br>成功率<b>36%</b></p>
+                            </dd>
+                        </dl>
+                        <dl data-id="323"><dt><img src="http://obd7ty4wc.bkt.clouddn.com/production/20171221/platform/20171221111504-327.png"></dt>
+                            <dd>
+                                <p><em>人人贷</em>
+                                    <br><span>1000-10万元</span>
+                                    <br>成功率<b>60%</b></p>
+                            </dd>
+                        </dl>
+                        <dl data-id="162"><dt><img src="http://obd7ty4wc.bkt.clouddn.com/production/20171221/platform/20171221105925-383.png"></dt>
+                            <dd>
+                                <p><em>中腾信</em>
+                                    <br><span>1万元-15万元</span>
+                                    <br>成功率<b>44%</b></p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <!--速贷专题推荐-->
+                <div class="touchImg">
+                    <div class="swiper-container" id="newSelected">
+                        <div class="swiper-wrapper newSelected"> </div>
+                        <!-- Add Scrollbar -->
+                        <div class="swiper-scrollbar" style=""></div>
+                    </div>
+                </div>
+                <!--分类专题-->
+                <div class="themes_box">
+                    <div class="themes_imgbox"></div>
+                </div>
+                <!--速贷攻略-->
+                <div class="strategyBanner">
+                    <a href="html/strategy.html"><img src="img/banner@3x.png" alt=""></a>
+                </div>
+                <!--新品入驻-->
+                <div class="new_terrace">
+                    <h3 class="themes_h3">新品入驻<img src="img/!@3x.png" class="promptBtn" id="new_Btn"></h3>
+                    <div id="new_terrace"></div>
+                </div>
+                <div id="PullUp" class="scroller-pullUp">
+                    <p>上拉发现全部产品</p>
+                    <div class="pullUpImg"><img src="img/sudaigeImg1.png" class="pullUpImgOpen" /><img src="img/sudaigeImg2.png" alt="" class="pullUpImgClose"></div>
+                </div>
+            </div>
+        </div>
+        <!--底部-->
+        <footer class="index_foot fixed_nav">
+            <dl>
+                <a href="#"> <dt></dt>
+                    <dd>首页</dd>
+                </a>
+            </dl>
+            <dl>
+                <a href="html/product.html" name="navtab"> <dt></dt>
+                    <dd>速贷大全</dd>
+                </a>
+            </dl>
+            <dl>
+                <a href="html/forum.html" name="navtab"> <dt></dt>
+                    <dd>社区</dd>
+                </a>
+            </dl>
+            <dl class="mine">
+                <a href="html/mine.html" name="navtab"> <dt></dt>
+                    <dd>我的</dd>
+                </a>
+            </dl>
+        </footer>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.cookie-1.4.1.min.js"></script>
+    <script src="js/swipe/swiper.min.js"></script>
+    <script src="js/iscroll/iscroll-probe.min.js"></script>
+    <script src="//webapi.amap.com/maps?v=1.3"></script>
+    <script src="//api.map.baidu.com/api?v=1.3"></script>
+    <script src="//developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+    <script src="js/controler/global.js"></script>
+    <script src="js/controler/index.js" defer></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="js/wx_sdk.js"></script>
+    <script src="js/statistics.js"></script>
+</body>
+
+</html>

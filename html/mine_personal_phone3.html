@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-title" content="速贷之家">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telephone=no, email=no,date=no,address=no" />
+    <!--清除缓存 微信浏览器缓存严重又无刷新-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <title>速贷之家-修改绑定手机号</title>
+    <script src="../js/htmlrem.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/login.css"> </head>
+<style>
+    input::-webkit-input-placeholder {
+        color: #999;
+    }
+    
+    #back {
+        width: .2rem;
+        height: .32rem;
+        background: url("../img/headBack.png") no-repeat;
+        background-size: 100% 100%
+    }
+    
+    .login_zhang_p2 {
+        width: 100%;
+        height: .9rem;
+        background: white;
+        position: relative;
+        margin-top: .45rem;
+    }
+    
+    label {
+        color: #4D4D4D;
+        padding-left: .3rem;
+        font-size: .3rem;
+        float: left;
+        line-height: .9rem;
+    }
+    
+    input {
+        line-height: .4rem;
+        color: #4d4d4d;
+        font-size: .3rem;
+        padding-top: .24rem;
+        position: absolute;
+        left: 1.5rem;
+    }
+    /*弹窗*/
+    
+    .tishi {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 10000;
+    }
+    
+    .tishi div {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        margin-left: -2.45rem;
+        width: 4.9rem;
+        height: 2.35rem;
+        background: white;
+        font-size: .28rem;
+        border-radius: .2rem;
+        color: #4d4d4d;
+    }
+    
+    .tishi div p {
+        padding: .3rem .5rem;
+        line-height: .5rem;
+    }
+    
+    .tishi div span {
+        position: absolute;
+        bottom: .25rem;
+    }
+    
+    .tishi div span:nth-of-type(1) {
+        right: 1.9rem;
+    }
+    
+    .tishi div span:nth-of-type(2) {
+        right: 0.4rem;
+    }
+    
+    .tishi div span:nth-of-type(2) a {
+        color: #44b7f7;
+    }
+
+</style>
+
+<body>
+    <div class="container">
+        <!--头部-->
+        <header><span onclick="javasceipt:history.back(-1);" id="back"></span>修改绑定手机号</header>
+        <!--主体-->
+        <section>
+            <p class="login_zhang_p2 login_zhang">
+                <label for="phone">手机号</label>
+                <input type="text" id="phone" placeholder="手机号" oninput="if(value.length>11)value=value.slice(0,11)"> </p> <span class="btn" style="margin:.5rem auto">确定</span> </section>
+        <!--底部-->
+        <footer> 极速贷款，上速贷之家 </footer>
+        <!--提示弹出窗-->
+        <div class="tishi">
+            <div>
+                <p>手机号<b class="popup_phone"></b>已使用，
+                    <br> 如想继续修改请点击问题反馈 </p> <span class="allow">取消</span> <span><a href="mine_yijian.html">问题反馈</a></span> </div>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/geetest.min.js"></script>
+    <script src="../js/controler/global.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/wx_sdk.js"></script>
+    <script src="../js/statistics.js"></script>
+    <script>
+        var changePhone = {
+            initView: function() {
+                localFun.resizeFooter();
+                this.initEventView();
+                this.geetesCaptcha();
+            },
+            initEventView: function() {
+                /*点击隐藏提示消息*/
+                $(".allow").click(function() {
+                    $(".tishi").hide();
+                })
+                /*按钮颜色*/
+                btnClock()
+
+                function btnClock() {
+                    if (phonez.test($("input").val())) {
+                        $(".btn").addClass("next_click")
+                    } else {
+                        $(".btn").removeClass("next_click")
+                    }
+                }
+                $("input").bind("input propertychange", function() {
+                    btnClock()
+                })
+            },
+            //极验验证bind模式
+            geetesCaptcha: function() {
+                var that = this;
+                var handler = function(captchaObj) {
+                    captchaObj.onSuccess(function() {
+                        var validate = captchaObj.getValidate();
+                        if (!validate) {
+                            $.popupCover({
+                                content: '请完成验证'
+                            });
+                        } else {
+                            //极验二次验证
+                            $.ajax({
+                                url: that.geetestUrl_verification,
+                                type: 'POST',
+                                dataType: 'json',
+                                data: {
+                                    client_type: 'h5',
+                                    uuid: that.uuid,
+                                    geetest_challenge: validate.geetest_challenge,
+                                    geetest_validate: validate.geetest_validate,
+                                    geetest_seccode: validate.geetest_seccode
+                                },
+                                beforeSend: function() {},
+                                success: function(data) {
+                                    setTimeout(function() {
+                                        if (data.code == 200 && data.error_code == 0) {
+                                            captchaObj.reset();
+                                            $.ajax({
+                                                url: api_sudaizhijia_host + "/v1/sms/updatePhone",
+                                                type: "post",
+                                                dataType: "json",
+                                                data: {
+                                                    "mobile": $("#phone").val()
+                                                },
+                                                success: function(json) {
+                                                    if (json.code == 200 && json.error_code == 0) {
+                                                        local.newPhone = $("#phone").val();
+                                                        local.codeSign = json.data.sign;
+                                                        window.location.href = "mine_personal_phone4.html"
+                                                    } else {
+                                                        $(".popup_phone").text($("#phone").val());
+                                                        $(".tishi").show();
+                                                    }
+                                                }
+                                            })
+                                        } else {
+                                            $.popupCover({
+                                                content: '验证失败请重试',
+                                                callback: function() {
+                                                    captchaObj.reset();
+                                                }
+                                            })
+                                        }
+                                    }, 1500);
+                                }
+                            });
+                        }
+                    });
+                    /*btn点击*/
+                    $(".btn").click(function() {
+                        if ($(".btn").hasClass("next_click")) {
+                            $('.geetest_panel_loading,.geetest_panel_success,.geetest_panel_error').css({
+                                height: '113px'
+                            });
+                            captchaObj.verify();
+                        }
+                    })
+                };
+                service.doAjaxRequest({ //获取uuid
+                    url: '/v2/geetest/uuid',
+                    type: 'GET',
+                    data: {
+                        'client_type': 'h5'
+                    }
+                }, function(data) {
+                    var uuid = that.uuid = data.geetestUuid;
+                    var geetestUrl_captcha = data.geetestUrl_captcha;
+                    that.geetestUrl_verification = data.geetestUrl_verification;
+                    service.doAjaxRequest({ //验证uuid
+                        url: '/v2/geetest/uuid/verification',
+                        type: 'GET',
+                        data: {
+                            'client_type': 'h5',
+                            'uuid': uuid
+                        }
+                    }, function(data) {
+                        if (data.status == true) {
+                            //极验一次验证
+                            $.ajax({
+                                url: geetestUrl_captcha,
+                                type: 'GET',
+                                dataType: 'json',
+                                data: {},
+                                beforeSend: function() {},
+                                success: function(data) {
+                                    initGeetest({
+                                        gt: data.gt,
+                                        challenge: data.challenge,
+                                        offline: !data.success,
+                                        new_captcha: data.new_captcha,
+                                        product: 'bind'
+                                    }, handler);
+                                }
+                            });
+                        }
+                    }, function(data) {
+                        $.popupCover({
+                            content: data.error_message
+                        })
+                    })
+                }, function(data) {
+                    $.popupCover({
+                        content: data.error_message
+                    })
+                })
+            }
+        }
+        changePhone.initView();
+
+    </script>
+</body>
+
+</html>

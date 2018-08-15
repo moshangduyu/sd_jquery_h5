@@ -1,0 +1,82 @@
+/*头部*/
+
+header {
+    width: 100%;
+    background: #C14B45;
+    text-align: center;
+    font-size: .34rem;
+    color: #FFDDA1;
+    position: relative;
+    height: .85rem;
+    line-height: .85rem;
+    span {
+        width: .16rem;
+        height: .29rem;
+        background: url("../img/jinsefanhui@3x.png") no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        left: .3rem;
+        top: .28rem;
+    }
+}
+
+section {
+    -webkit-box-flex: 1;
+    overflow-y: scroll;
+    background: #C14B45;
+    .center_list {
+        font-size: .28rem;
+        width: 6.9rem;
+        background: #FFEED0;
+        color: #9D6515;
+        border-radius: .15rem;
+        margin: .2rem auto;
+        overflow-y: scroll;
+        &>h3 {
+            height: .7rem;
+            line-height: .7rem;
+            background: #F2D4A0;
+            border-top-left-radius: .15rem;
+            border-top-right-radius: .15rem;
+        }
+        .dropdown-list {
+            padding: 0;
+            margin: 0;
+        }
+        #wrapper {
+            //            height: 8rem;
+            overflow: hidden;
+        }
+        ul>li {
+            height: .8rem;
+            border-top: 1px solid #E6D1AC;
+            line-height: .8rem;
+            &:nth-of-type(1) {
+                border: 0;
+            }
+        }
+        &>h3,
+        ul>li {
+            span {
+                display: block;
+                float: left;
+                text-align: center;
+                &:nth-of-type(1) {
+                    width: 2.7rem;
+                }
+                &:nth-of-type(2) {
+                    width: 2.6rem;
+                }
+                &:nth-of-type(3) {
+                    width: 1.6rem;
+                }
+            }
+        }
+    }
+    h6 {
+        text-align: center;
+        line-height: .6rem;
+        color: #FFDDA1;
+        font-size: .26rem;
+    }
+}

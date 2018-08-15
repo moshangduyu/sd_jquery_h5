@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-title" content="速贷之家">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telephone=no, email=no,date=no,address=no" />
+    <!--清除缓存 微信浏览器缓存严重又无刷新-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <title>速贷之家-我的积分</title>
+    <script src="../js/htmlrem.min.js"></script>
+    <link rel="stylesheet" href="../css/resets.css" />
+    <link rel="stylesheet" href="../css/mine_points.css">
+</head>
+
+<body>
+    <div class="container">
+        <!--头部-->
+        <header id="header">
+            <span onclick="window.location.href='mine.html'" class="backBtn"></span>我的积分
+        </header>
+        <!--主体-->
+        <div class="main">
+            <div class="mine_top gradient">
+                <p class="mine_points"></p>
+                <ul>
+                    <a href="earn_integral.html">
+                        <li>赚积分</li>
+                    </a>
+                    <a href="javascript:">
+                        <li class="integral_mall_btn">花积分</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="selectNav">
+                <label for="">积分记录</label>
+                <span class="selstc_content">全部</span>
+                <select name="" class="selece_nav">
+                    <option value="2" selected>全部</option>
+                    <option value="1">赚积分</option>
+                    <option value="0">花积分</option>
+                </select>
+            </div>
+            <div class="main_content">
+                <!--
+                <h3 class="content_title">
+                    <span class="time">本月</span>
+                    <span class="spend">花积分：<b>50</b></span>
+                    <span class="earn">赚积分：<b>5000</b></span>
+                </h3>
+                <p>
+                    <span>每日签到<br><i>2017-08-7</i></span><b>+5</b>
+                </p>
+-->
+            </div>
+            <div id="PullUp" class="scroller-pullUp"><img src="../img/rolling.svg" alt="">努力加载中</div>
+        </div>
+    </div>
+    <div id="fixed_selectNav">
+        <label for="">积分记录</label>
+        <span class="selstc_content">全部</span>
+        <select name="" class="selece_nav">
+            <option value="2">全部</option>
+            <option value="1">赚积分</option>
+            <option value="0">花积分</option>
+        </select>
+    </div>
+    <h3 id="fixed_content_title">
+        <span class="time"></span>
+        <span class="spend">花积分：<b></b></span>
+        <span class="earn">赚积分：<b></b></span>
+    </h3>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/controler/global.js"></script>
+    <script src="../js/controler/mine_points.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/wx_sdk.js"></script>
+    <script src="../js/statistics.js"></script>
+</body>
+
+</html>

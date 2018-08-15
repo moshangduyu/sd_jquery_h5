@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-Type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="../css/resets.css">
+    <title>商业模板</title>
+    <style>
+        .hchartsBox {
+            position: relative;
+            background: white;
+            width: 6.9rem !important;
+            height: 4.7rem !important;
+            overflow: hidden;
+            margin: 0 auto;
+            border-radius: .12rem;
+            box-shadow: 0 1px 4px 0 #e4e4e4;
+            overflow-x: scroll;
+            text-align: center;
+        }
+        
+        #container {
+            position: absolute;
+            top: .5rem;
+            /*            width: 100% !important;*/
+            height: 4.2rem !important;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="hchartsBox">
+        <div id="container" class="main"> </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <!--    <script src="http://cdn.hcharts.cn/highstock/highstock.js"></script>-->
+    <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+    <script>
+        $(function () {
+            var dataTime = ['2017.02', '2017.03', '2017.04', '2017.05', '2017.06', '2017.07', '2017.08', '2017.09', '2017.10', '2017.11', '2017.12', '2018.01'];
+            var dataMoney = [4569.00, 8728.00, 5636.00, 5430.78, 5004.00, 6872.00, 5070.00, 8782.00, 5635.00, 9340.78, 6434.89, 7575.78];
+            var startNum = (dataTime.length - 6) / dataTime.length * 100;
+            var width = dataTime.length * 1.01;
+            $('#container').css({
+                "width": width + "rem"
+            })
+            var linearArea = function (dataTime, dataMoney, startNum) {
+                $('#container').highcharts({
+                    chart: { //图表配置
+                        zoomType: 'x'
+                        , marginLeft: 0
+                        , marginRight: 0
+                    , }
+                    , credits: { //版权信息的标签
+                        enabled: false
+                    }
+                    , legend: 'none', //图例隐藏
+                    plotOptions: { //数据列配置
+                        series: {
+                            states: {
+                                hover: {
+                                    lineWidth: 2 //点击状态线宽
+                                }
+                            }
+                        }
+                    }
+                    , title: null
+                    , xAxis: {
+                        categories: dataTime
+                        , tickPixelInterval: 50, //间距
+                        tickLength: 0
+                        , lineWidth: 0, //刻度线长度设置为0
+                        tickmarkPlacement: 'on'
+                        , gridLineColor: 'rgba(76,134,245,0.30)'
+                        , gridLineDashStyle: 'longdash'
+                        , gridLineWidth: 1
+                        , tickPixelInterval: 100
+                        , labels: {
+                            step: 1
+                        }
+                    }
+                    , yAxis: {
+                        visible: false
+                    , }
+                    , tooltip: {
+                        backgroundColor: '#4c86f5'
+                        , valueDecimals: 2, //保留两位小数
+                        formatter: function () {
+                            var value = this.y;
+                            if (Number.isInteger(value)) {
+                                return value + '.00';
+                            }
+                            else {
+                                return value;
+                            }
+                        }
+                        , padding: 5
+                        , style: {
+                            color: '#fff'
+                            , fontSize: '11px'
+                        }
+                    }
+                    , series: [{
+                        type: 'area'
+                        , data: dataMoney
+                        , lineWidth: 2
+                        , color: '#4c86f5'
+                        , fillColor: 'rgba(76,134,245,0.10)'
+                        , zoneAxis: 'x'
+                        , zones: [{ //分区
+                            value: dataTime.length - 3
+                        }, {
+                            dashStyle: 'dot'
+                        }]
+                        , marker: { //交点样式
+                            radius: 3
+                            , symbol: 'circle'
+                            , lineWidth: 1
+                            , lineColor: '#4c86f5'
+                            , fillColor: 'white'
+                        , }
+                    }]
+                });
+            };
+            linearArea(dataTime, dataMoney, startNum);
+
+            function style() {
+                var hchartsBoxW = $('.hchartsBox').width()
+                    , chartW = $('#container').width()
+                    , initLeft = -(chartW - hchartsBoxW);
+                var change_x = initLeft;
+                $('#container').css({
+                    "left": change_x
+                });
+
+                function Touch() {
+                    var startX, moveX, changeBool = false;
+                    $('body').on('touchstart', function (e) {
+                        startX = e.originalEvent.changedTouches[0].pageX;
+                    }).on('touchmove', function (e) {
+                        endX = e.originalEvent.changedTouches[0].pageX;
+                        distanceX = endX - startX;
+                        var moveChange = change_x + distanceX;
+                        if (initLeft < moveChange && moveChange < 0) {
+                            $('#container').css({
+                                "left": moveChange
+                            });
+                        }
+                        else if (moveChange > 0) {
+                            $('#container').css({
+                                "left": 0
+                            });
+                        }
+                    }).on('touchend', function (e) {
+                        change_x = change_x + distanceX;
+                    })
+                }
+                Touch();
+            }
+            style();
+        })
+    </script>
+</body>
+
+</html>

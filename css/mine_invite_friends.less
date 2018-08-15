@@ -1,0 +1,355 @@
+/*头部*/
+
+header {
+    width: 100%;
+    background: #C14B45;
+    text-align: center;
+    font-size: .34rem;
+    color: #FFDDA1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: .9rem;
+    line-height: .9rem;
+    z-index: 999;
+    span {
+        width: .16rem;
+        height: .3rem;
+        background: url("../img/jinsefanhui@3x.png") no-repeat;
+        background-size: 100% 100%;
+        position: absolute;
+        left: .3rem;
+        top: .3rem;
+    }
+}
+
+
+/*section*/
+
+section {
+    width: 100%;
+    background: #C14B45;
+    color: #FFDDA1;
+    margin-top: .9rem;
+}
+
+section>div {
+    &>h3 {
+        font-size: .4rem;
+        text-align: center;
+        line-height: 1rem;
+    }
+    &>p {
+        font-size: .24rem;
+        padding-left: .3rem;
+    }
+    &>div {
+        width: 6.9rem;
+        background: #FFEED0;
+        color: #9D6515;
+        border-radius: .15rem;
+        margin: .2rem auto;
+    }
+    .section_top {
+        font-size: .3rem;
+        padding: 0 .3rem;
+        .username {
+            line-height: .6rem;
+            padding-top: .1rem;
+        }
+        h3 {
+            margin: .3rem 0 .2rem;
+        }
+        .one_img {
+            width: 6.3rem;
+            height: 1.8rem;
+            margin: 0 auto;
+            span {
+                width: 2.1rem;
+                height: 100%;
+                display: block;
+                float: left;
+                text-align: center;
+                padding-top: 1rem;
+                font-size: .24rem;
+                position: relative;
+                &:nth-of-type(1) {
+                    background: url('../img/xiazaiAPP@3x.png') no-repeat center top;
+                    background-size: .7rem .8rem;
+                }
+                &:nth-of-type(2) {
+                    background: url('../img/zhidingchanpin@3x.png') no-repeat center top;
+                    background-size: .7rem .8rem;
+                }
+                &:nth-of-type(3) {
+                    background: url('../img/xuantianziliao@3x.png') no-repeat center top;
+                    background-size: .7rem .8rem;
+                }
+                &>img {
+                    position: absolute;
+                    top: .29rem;
+                    right: -.12rem;
+                    width: .24rem;
+                    height: .22rem;
+                }
+            }
+        }
+        .two_img {
+            width: 6.3rem;
+            height: 1rem;
+            margin: 0 auto;
+            background: url('../img/shenqingziliao@3x.png') no-repeat center;
+            background-size: 1.4rem .8rem;
+        }
+        h6 {
+            text-align: center;
+            color: #DD443D;
+            font-size: .28rem;
+            line-height: .7rem;
+        }
+    }
+    .section_center {
+        font-size: .28rem;
+        &>h3 {
+            height: .7rem;
+            line-height: .7rem;
+            background: #F2D4A0;
+            text-align: center;
+            border-top-left-radius: .15rem;
+            border-top-right-radius: .15rem;
+        }
+        .fenxiangBox {
+            width: 100%;
+            height: 1.9rem;
+            font-size: 0;
+            text-align: center;
+            span {
+                display: inline-block;
+                width: 1.7rem;
+                height: 100%;
+                text-align: center;
+                padding-top: 1.2rem;
+                font-size: .24rem;
+                &:nth-of-type(1) {
+                    background: url('../img/weixin@3x.png') no-repeat center .35rem;
+                    background-size: .7rem .7rem;
+                }
+                &:nth-of-type(2) {
+                    background: url('../img/pengyouquan@3x.png') no-repeat center .35rem;
+                    background-size: .7rem .7rem;
+                }
+            }
+        }
+        dl {
+            width: 100%;
+            height: .82rem;
+            border-top: 1px solid #E6D1AC;
+            line-height: .82rem;
+            dt {
+                float: right;
+                width: 1.1rem;
+                height: 100%;
+            }
+            dd {
+                padding-left: .3rem;
+            }
+            &:nth-of-type(1) {
+                dt {
+                    background: url('../img/erweima@3x.png') no-repeat center;
+                    background-size: .46rem;
+                }
+            }
+            &:nth-of-type(2) {
+                dt {
+                    background: url('../img/tongxunlu@3x.png') no-repeat center;
+                    background-size: .42rem;
+                }
+            }
+        }
+    }
+    .section_btm {
+        font-size: .28rem;
+        &>h3 {
+            height: .7rem;
+            line-height: .7rem;
+            background: #F2D4A0;
+            border-top-left-radius: .15rem;
+            border-top-right-radius: .15rem;
+        }
+        p {
+            height: .82rem;
+            border-bottom: 1px solid #E6D1AC;
+            line-height: .82rem;
+        }
+        &>h3,
+        p {
+            span {
+                display: block;
+                float: left;
+                text-align: center;
+                &:nth-of-type(1) {
+                    width: 2.7rem;
+                }
+                &:nth-of-type(2) {
+                    width: 2.6rem;
+                }
+                &:nth-of-type(3) {
+                    width: 1.6rem;
+                }
+            }
+        }
+        h6 {
+            text-align: center;
+            line-height: .6rem;
+            font-size: .26rem;
+            a {
+                color: #9D6515;
+            }
+        }
+    }
+}
+
+
+/*弹窗cover*/
+
+.wx_fen,
+.ll_fen,
+.follow_cover,
+.phone_cover {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .2);
+    z-index: 99999;
+}
+
+
+/*分享弹窗*/
+
+.wx_fen,
+.ll_fen {
+    span {
+        color: #666;
+        font-size: .3rem;
+        padding: .2rem;
+        position: absolute;
+        background: white;
+        line-height: .5rem;
+        border-radius: .1rem;
+        b {
+            color: #D56262;
+        }
+    }
+}
+
+.ll_fen {
+    span {
+        top: 2.5rem;
+        left: 1.85rem;
+    }
+}
+
+.wx_fen {
+    span {
+        top: 1.4rem;
+        left: 2.7rem;
+    }
+    img {
+        width: 1.5rem;
+        height: .9rem;
+        position: absolute;
+        right: .55rem;
+        top: .5rem;
+    }
+}
+
+
+/*er wei ma弹窗*/
+
+.follow_cover {
+    .fc_div {
+        width: 5rem;
+        height: 6rem;
+        background: #f5f5f5;
+        border-radius: .1rem;
+        margin: 1.6rem auto 0;
+        position: relative;
+        span {
+            position: absolute;
+            top: .1rem;
+            right: .1rem;
+            width: .4rem;
+            height: .4rem;
+            background: url("../img/chahao.png") no-repeat center center;
+            background-size: .2rem .2rem;
+        }
+        p {
+            padding-top: .3rem;
+            font-size: .26rem;
+            color: #9D6515;
+            text-align: center;
+            line-height: .46rem;
+        }
+        .erma {
+            width: 3.8rem;
+            height: 3.8rem;
+            margin: .3rem auto;
+            display: block;
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+
+/*短信邀请弹窗*/
+
+.phone_cover {
+    &>div {
+        width: 6rem;
+        height: 3rem;
+        background: #efefef;
+        border-radius: .1rem;
+        margin: 3rem auto 0;
+        font-size: 0;
+        textarea {
+            width: 5.6rem;
+            height: 2rem;
+            background: white;
+            padding: .2rem;
+            margin-top: .2rem;
+            margin-left: .2rem;
+        }
+        p {
+            line-height: .65rem;
+            color: #9D6515;
+            padding-left: .25rem;
+            font-size: .24rem;
+        }
+        /* input {
+            width: 4rem;
+            height: .5rem;
+            border-radius: .05rem;
+            font-size: .26rem;
+            margin: .4rem .5rem .3rem;
+            padding-left: .3rem;
+            border: 1px solid #eee;
+        }
+        p {
+            width: 1.2rem;
+            height: .6rem;
+            margin: 0 auto;
+            border-radius: .05rem;
+            background: #C14B45;
+            font-size: .3rem;
+            color: white;
+            text-align: center;
+            line-height: .6rem;
+        }*/
+    }
+}

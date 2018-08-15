@@ -1,0 +1,232 @@
+/*头部*/
+
+header {
+    width: 100%;
+    height: 4rem;
+    position: relative;
+    background: #CC504A url(../img/huiboliang@3x.png) no-repeat center bottom;
+    background-size: 100%;
+    color: white;
+    text-align: center;
+}
+
+.head_top {
+    height: .85rem;
+    line-height: .85rem;
+    font-size: .34rem;
+    a {
+        &:nth-of-type(1) {
+            span {
+                width: .16rem;
+                height: .29rem;
+                background: url("../img/headBack.png") no-repeat;
+                background-size: 100% 100%;
+                position: absolute;
+                left: .3rem;
+                top: .28rem;
+            }
+        }
+        &:nth-of-type(2) {
+            span {
+                width: .35rem;
+                height: .35rem;
+                background: url("../img/wenhao@3x.png") no-repeat;
+                background-size: 100% 100%;
+                position: absolute;
+                right: .3rem;
+                top: .25rem;
+            }
+        }
+    }
+}
+
+.head_center {
+    font-size: .44rem;
+    color: #FFEA94;
+    text-align: center;
+    height: .8rem;
+    line-height: .8rem;
+    margin-top: .2rem;
+}
+
+.head_btm {
+    margin: .3rem auto;
+    width: 5.6rem;
+    height: .6rem;
+    background: #df6a65;
+    border-radius: .08rem;
+    overflow: hidden;
+    position: relative;
+    ul {
+        position: absolute;
+        height: 100%;
+    }
+    li {
+        font-size: .26rem;
+        line-height: .6rem;
+        text-align: left;
+        margin: 0 8px 0 12px;
+        height: 100%;
+        text-align: center;
+        float: left;
+        display: block;
+        color: white;
+        em {
+            color: #FFEA94;
+        }
+    }
+}
+
+
+/*主体*/
+
+section {
+    width: 7rem;
+    margin: .2rem auto;
+    font-size: .28rem;
+    color: #4d4d4d;
+    h3 {
+        width: 100%;
+        height: .8rem;
+        line-height: .8rem;
+        background: white url("../img/xiangyou@3x.png") no-repeat 6.7rem center;
+        background-size: .14rem .2rem;
+        margin-bottom: .2rem;
+        padding-left: .15rem;
+        box-shadow: 0px 3px 5px #eee;
+        span {
+            display: inline-block;
+            float: left;
+        }
+        em {
+            a {
+                color: #8f8f8f;
+            }
+            font-size: .26rem;
+            float: right;
+            padding-right: .4rem;
+        }
+        i {
+            float: left;
+            display: inline-block;
+            width: 3.3rem;
+            height: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+    }
+    ul li {
+        width: 100%;
+        height: 1.1rem;
+        background: white;
+        margin: .2rem 0;
+        position: relative;
+        padding-left: .15rem;
+        box-shadow: 0px 3px 5px #eee;
+        h4 {
+            line-height: .46rem;
+            padding-top: .15rem;
+        }
+        p {
+            line-height: .36rem;
+            color: #808080;
+            font-sizE: .24rem;
+        }
+        span {
+            position: absolute;
+            top: .3rem;
+            right: .3rem;
+            color: #44b7f7;
+            font-size: .32rem;
+        }
+    }
+    &>a {
+        display: block;
+        width: 4.8rem;
+        height: .8rem;
+        background: #CC504A;
+        margin: .6rem auto;
+        color: white;
+        font-size: .3rem;
+        text-align: center;
+        line-height: .8rem;
+        border-radius: .08rem;
+    }
+}
+
+
+/*cover*/
+
+.coverImg {
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    .coverBtn {
+        position: absolute;
+        top: 0;
+        right: .3rem;
+        width: .5rem;
+        height: .5rem;
+        z-index: 1000;
+    }
+}
+
+.rewardCover,
+.ruleCover {
+    &>div {
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        margin-left: -3rem;
+        width: 6rem;
+        height: 8rem;
+        .coverCenter {
+            width: 100%;
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.rewardCover .coverCenter {
+    position: relative;
+    div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 100%;
+        height: 100%;
+        &.showImg {
+            display: block;
+        }
+        &:nth-of-type(1) {
+            background: url("../img/1@3x.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        &:nth-of-type(2) {
+            background: url("../img/2@3x.png") no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+    .coverCenter_message {
+        width: 100%;
+        height: .6rem;
+        line-height: .6rem;
+        font-size: .28rem;
+        text-align: center;
+        color: #DD443D;
+        position: absolute;
+        bottom: .85rem;
+        left: 0;
+    }
+}

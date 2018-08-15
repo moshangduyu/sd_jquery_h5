@@ -1,0 +1,398 @@
+@charset "utf-8";
+body,
+ul,
+ol,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+td,
+th,
+input,
+select,
+textarea,
+form {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    border: none;
+}
+
+input,
+select,
+textarea,
+button,
+a {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+textarea {
+    resize: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 1em;
+    font-weight: 400;
+}
+
+em {
+    font-style: normal;
+}
+
+
+/*浮动*/
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix:after,
+.clearfix:before {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+/*盒子内边框自适应*/
+
+*,
+*::after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "微软雅黑";
+}
+
+
+/*取消input,button,select默认样式*/
+
+input,
+button,
+select {
+    -webkit-appearance: none;
+}
+
+a {
+    color: #000;
+}
+
+b {
+    font-weight: 400;
+}
+
+i {
+    font-style: normal;
+}
+
+@media screen and (min-width:640px) {
+    html {
+        font-size: 64px;
+    }
+}
+
+@media screen and (min-width:414px) and (max-width:639px) {
+    html {
+        font-size: 55.2px;
+    }
+}
+
+@media screen and (min-width:375px) and (max-width:413px) {
+    html {
+        font-size: 50px;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:374px) {
+    html {
+        font-size: 42.67px;
+    }
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /*取消移动端点击瞬间背景*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: #4d4d4d;
+}
+
+.container {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    height: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    background: #F5F5F5;
+    position: relative;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+
+/*渐变背景*/
+
+.gradient {
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(left, #02ecfd, #44b7f7);
+    /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, left, from(#02ecfd), to(#44b7f7));
+    /* Safari 5.1+, Chrome 10+ */
+    background: -webkit-linear-gradient(left, #02ecfd, #44b7f7);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(left, #02ecfd, #44b7f7);
+    /* default */
+    background: linear-gradient(to right, #02ecfd, #44b7f7);
+    background-color: #44b7f7;
+}
+
+header {
+    /* Firefox 3.6+ */
+    background: -moz-linear-gradient(left, #02ecfd, #44b7f7);
+    /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(linear, left, from(#02ecfd), to(#44b7f7));
+    /* Safari 5.1+, Chrome 10+ */
+    background: -webkit-linear-gradient(left, #02ecfd, #44b7f7);
+    /* Opera 11.10+ */
+    background: -o-linear-gradient(left, #02ecfd, #44b7f7);
+    /* default */
+    background: linear-gradient(to right, #02ecfd, #44b7f7);
+    background-color: #44b7f7;
+}
+
+#header {
+    width: 100%;
+    text-align: center;
+    font-size: .34rem;
+    color: white;
+    position: relative;
+    height: .9rem;
+    line-height: .9rem;
+}
+
+.backBtn {
+    width: .9rem;
+    height: .9rem;
+    background: url("../img/headBack.png") no-repeat center center;
+    background-size: .16rem .29rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+/*悬浮导航*/
+
+.fixed_nav {
+    position: fixed;
+    bottom: 1.3rem;
+    right: -6rem;
+    width: 6rem;
+    height: 1.2rem;
+    display: -webkit-box;
+    background: white;
+    border-top-left-radius: .08rem;
+    border-bottom-left-radius: .08rem;
+    z-index: 99999;
+}
+
+.fixed_nav:before {
+    content: '';
+    width: 1rem;
+    height: .9rem;
+    background: url('../img/navLeft.png') no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    left: -1rem;
+    top: .15rem;
+}
+
+.fixed_nav.fixed_show:before {
+    background: url('../img/navRight.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.fixed_nav dl {
+    -webkit-box-flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.fixed_nav dl:nth-of-type(1) dt {
+    background: url("../img/nav1.2.png") no-repeat;
+    background-size: 100%;
+}
+
+.fixed_nav dl:nth-of-type(2) dt {
+    background: url("../img/nav2.2.png") no-repeat;
+    background-size: 100%;
+}
+
+.fixed_nav dl:nth-of-type(3) dt {
+    background: url("../img/nav3.2.jpg") no-repeat;
+    background-size: 100%;
+}
+
+.fixed_nav dl:nth-of-type(4) dt {
+    background: url("../img/nav4.2.png") no-repeat;
+    background-size: 100%;
+}
+
+.fixed_nav dt {
+    width: .5rem;
+    height: .5rem;
+    position: absolute;
+    top: .2rem;
+    left: 50%;
+    margin-left: -.25rem;
+}
+
+.fixed_nav dd {
+    width: 100%;
+    height: .4rem;
+    line-height: .4rem;
+    font-size: .2rem;
+    color: #808080;
+    position: absolute;
+    top: .75rem;
+}
+
+
+/*底部下载弹窗*/
+
+.downloadCover {
+    display: none;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0;
+}
+
+.coverBtn {
+    position: absolute;
+    top: -0.15rem;
+    right: 0;
+    width: .3rem;
+    height: .3rem;
+}
+
+
+/*loading Img*/
+
+.landingCover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none;
+}
+
+.landingCover > div {
+    width: 1.6rem;
+    height: 1.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -.8rem;
+    margin-top: -.8rem;
+    background: rgba(0, 0, 0, .2);
+    border-radius: .1rem;
+}
+
+.landin {
+    width: 1rem;
+    height: 1rem;
+    display: block;
+    margin: .3rem auto;
+}
+
+
+/*上啦加载&下拉刷新*/
+
+.scroller-pullDown,
+.scroller-pullUp {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    line-height: 40px;
+    height: 40px;
+    color: #888;
+}
+
+.scroller-pullDown img,
+.scroller-pullUp img {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 3px;
+    margin-right: 7px;
+}
+
+.scroller-pullDown {
+    position: absolute;
+    top: -40px;
+    left: 0;
+}
+
+@keyframes popupCover {
+    from {
+        -webkit-transform: scale(0, 0);
+    }
+    to {
+        -webkit-transform: scale(1, 1);
+    }
+}
+
+@-webkit-keyframes popupCover {
+    from {
+        -webkit-transform: scale(0, 0);
+    }
+    to {
+        -webkit-transform: scale(1, 1);
+    }
+}

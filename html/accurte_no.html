@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- 添加到主屏后的标题（iOS 6 新增） -->
+    <meta name="apple-mobile-web-app-title" content="速贷之家">
+    <!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <!--清除缓存 微信浏览器缓存严重又无刷新-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="keywords" content="速贷之家,极速贷款,快速贷款、快速分期一站式智能搜索比价平台,帮助借款人选择最适合他的借款方案" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <title>速贷之家-智能匹配</title>
+    <script src="../js/htmlrem.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/accurate_no.css">
+    <link rel="stylesheet" href="../css/pubStyle.css"> </head>
+
+<body>
+    <div class="container">
+        <!--头部-->
+        <header class="accu_result_head"><b onclick="javascript:history.back()"></b> 智能匹配<span class="change">修改资料</span> </header>
+        <div class="accrrate_resultORno_main">
+            <div class="arm_h3">
+                <h3><img src="../img/%E6%88%91%E8%A6%81%E5%80%9F.png" alt="">我要借<span>(元)</span></h3>
+                <div class="lendMoneySum">
+                    <div>
+                        <input type="number" pattern="[0-9]*" placeholder="20000" class="money" onfocus="this.placeholder=''" onblur="javascript:if(this.value=='')this.placeholder='20000'"> </div>
+                    <p>500-100000元</p>
+                </div>
+            </div>
+            <div class="arm_h3">
+                <h3><img src="../img/%E5%80%9F%E6%AC%BE%E6%9C%9F%E9%99%90.png" alt="">借款期限</h3>
+                <div class="lendMoneySum">
+                    <div>
+                        <input type="number" pattern="[0-9]*" placeholder="7-40天" class="time" onfocus="this.placeholder=''"> </div>
+                    <p class="nianyue"> <span class="tian on">天</span> <span class="yue">月</span> </p>
+                </div>
+            </div>
+            <div class="three arm_h3">
+                <h3><img src="../img/%E6%88%91%E8%A6%81%E5%80%9F%E6%AC%BE.png" alt="">我要</h3>
+                <div>
+                    <input type="radio" name="radio" id="radio2" value="2" checked>
+                    <label for="radio2">借现金</label>
+                    <input type="radio" name="radio" id="radio1" value="1">
+                    <label for="radio1">还信用卡</label>
+                </div>
+            </div>
+        </div>
+        <!--智能匹配-->
+        <p type="button" class="next gradient" id="begin">开始匹配</p>
+        <!--底部-->
+        <!--
+       <footer class="accu_result_foot">
+    <dl>
+        <a href="../index.html" name="navtab"> <dt></dt>
+            <dd>首页</dd>
+        </a>
+    </dl>
+    <dl>
+        <a href="product.html" name="navtab"> <dt></dt>
+            <dd>速贷大全</dd>
+        </a>
+    </dl>
+    <dl>
+        <a href="#"> <dt></dt>
+            <dd>智能匹配</dd>
+        </a>
+    </dl>
+    <dl class="mine_click">
+        <a href="mine.html" name="navtab"> <dt></dt>
+            <dd>我的</dd>
+        </a>
+    </dl>
+</footer>
+-->
+        <!--收藏遮罩层-->
+        <div class="cover">
+            <div class="popup"></div>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/controler/global.js"></script>
+    <script src="../js/controler/accurate_no.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="../js/wx_sdk.js"></script>
+    <script src="../js/statistics.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+section {
+    overflow: hidden;
+    & > div {
+        position: relative;
+        height: 1.2rem;
+        background: white;
+        border-bottom: .5px solid #d7d7d7;
+        .icon-arrow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: .8rem;
+            height: 1.2rem;
+            background: url('../../img/jiantouxia@3x.png') no-repeat center;
+            background-size: .21rem;
+            &.icon-arrow-up {
+                background: url('../../img/jiantoushang@3x.png') no-repeat center;
+                background-size: .21rem;
+            }
+        }
+        p {
+            padding: .21rem 0 .2rem .8rem;
+            font-size: .3rem;
+            color: #303030;
+            span {
+                color: #999999;
+                padding-left: .15rem;
+            }
+            small {
+                font-size: .26rem;
+                color: #999999;
+            }
+        }
+        & > span {
+            position: absolute;
+            right: .3rem;
+            top: 0;
+            height: 1.2rem;
+            line-height: 1.2rem;
+            font-size: .32rem;
+            color: #303030;
+            z-index: 999;
+        }
+    }
+    & > ul {
+        width: 6.7rem;
+        float: right;
+        display: none;
+        li {
+            border-bottom: .5px solid #d7d7d7;
+            position: relative;
+            font-size: .26rem;
+            color: #606060;
+            padding: .11rem 2.5rem .1rem 0;
+            h3 {
+                width: 5rem;
+                height: .28rem;
+                line-height: .28rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+            }
+            p {
+                color: #999999;
+            }
+            span {
+                position: absolute;
+                height: .9rem;
+                line-height: .9rem;
+                top: 0;
+                right: .3rem;
+                font-size: .28rem;
+                &.add {
+                    color: #d0021b;
+                }
+                &.subtract {
+                    color: #1e7a05;
+                }
+            }
+        }
+        .more-btn {
+            line-height: 1rem;
+            font-size: .28rem;
+            text-align: center;
+            color: #4c86f5;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+CACHE MANIFEST
+# VERSION 2.9.0-3
+# TIME 2018-03-23   16:55
+
+# 直接缓存的文件
+CACHE:
+#html文件
+    /index.html
+    /html/product.html
+    /html/product_result.html
+    /html/mine.html
+    /html/cityList.html
+#css样式文件
+    /css/reset.css
+    /js/swipe/swiper.min.css
+    /css/styleSpan.css
+    /css/pubStyle.css
+    /css/index.css
+    /css/products.css
+    /css/product_result.css
+    /css/mine.css
+    /css/cityList.css
+#js文件
+  #公共
+    /js/jquery.min.js
+    /js/jquery.cookie-1.4.1.min.js
+    /js/sha1.min.js
+    /js/swipe/swiper.min.js
+    /js/iscroll/iscroll-probe.min.js
+    /js/statistics.js
+    /js/wx_sdk.js
+    /js/controler/global.js
+    /js/service/address.js
+    /js/service/service.js
+  #私有          
+    /js/controler/index.js
+    /js/controler/product.js
+    /js/controler/product_result.js
+    /js/controler/cityList.js
+    /js/controler/mine.js
+
+
+# 需要在线访问的文件
+NETWORK:
+*
+
+
+
+# 替代方案
+FALLBACK:
